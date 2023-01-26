@@ -4,7 +4,7 @@
   "description": "server for static files",
   "main": "server.js",
   "scripts": {
-    "repo":"node server.js",
+    "server":"node server.js",
     "dev":"nodemon server.js"
   },
   "author": "cmv",

@@ -1,4 +1,4 @@
-VAPI repository
+VAPI General Server
 
 This is an http server meant to handle a collection of static files and can be setup as a simple website or a place to hold resource files.
 
