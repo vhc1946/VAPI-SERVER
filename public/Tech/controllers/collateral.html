@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      
+      <link rel="stylesheet" href="../bin/collateral/css/invoice.css" />
+      <link rel="stylesheet" href="../bin/collateral/css/check-summary.css" />
+      <link rel="stylesheet" href="../bin/collateral/css/pres-summary.css" />
+      <link rel="stylesheet" href="../bin/repo/css/vg-general.css" />
+      <link rel="stylesheet" href="../bin/repo/css/vg-utility.css" />
+      <link rel="stylesheet" href="../bin/repo/css/vg-notifiers.css" />
+      <link rel="stylesheet" href="../bin/collateral/css/presentation-print.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    </head>
+    <body>
+      <div id = "vg-toast-tr">
+        <div class = "vg-note-list"></div>
+      </div>
+      <div class = "button-container">
+        <button id="print-collateral" class = "flat-action-button">DOWNLOAD</button>
+        <input id = "email-input" class = "vg-text-input" placeholder="Enter Email"></input>
+        <button id="email-collateral" class = "flat-action-button">EMAIL</button>
+        <button id = "payment-card" class = "flat-action-button">PAY BY CARD</button>
+        <button id = "complete-ticket" class = "flat-action-button">COMPLETE TICKET</button>
+      </div>
+      <div class = "complete-container" id = "tickcompcont">
+        <div class = "container-header">COMPLETION CHECKLIST</div>
+        <div class = "container-close">X</div>
+        <div class = "container-row" id = "emailed">
+          <div class = "container-row-item" id = "email-text">Invoice Emailed: </div>
+          <input class = "container-row-item" type = "checkbox" id = "email-check"/>
+        </div>
+        <div class = "container-row" id = "downloaded">
+          <div class = "container-row-item" id = "download-text">Invoice Downloaded: </div>
+          <input class = "container-row-item" type = "checkbox" id = "download-check"/>
+        </div>
+        <div class = "container-row" id = "downloaded">
+          <div class = "container-row-item" id = "sold-text">Payment Collected: </div>
+          <input class = "container-row-item" type = "checkbox" id = "sold-check"/>
+        </div>
+        <button id = "final-complete-ticket"class = "flat-action-button">COMPLETE AND CLOSE TICKET</button>
+      </div>
+    </body>
+    <script type="module" src="../bin/collateral/collateral.js"></script>
+</html>

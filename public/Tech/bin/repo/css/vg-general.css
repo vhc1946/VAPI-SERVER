@@ -1,0 +1,76 @@
+/* General Rules */
+:root{
+  --BEE-blue: rgb(15,70,119);
+  --BEE-mblue: rgb(41,137,195);
+  --BEE-grey: rgb(103,104,103);
+
+  --vogel-blue: rgb(33, 57, 130);
+  --vogel-red: rgb(230,0,0);
+
+  --BCE-green: rgb(107, 164, 58);
+
+  --background-base: rgb(245,245,245);
+  --background-base-hover: rgb(173, 172, 172);
+  --background-light: rgb(200,200,200);
+  --background-med: rgb(196, 209, 253);
+  --background-dark:rgb(112, 128, 157);
+
+  --card-base-light: rgb(255,255,255);
+
+  --background-ticket-light: rgb(245,245,245);
+  --background-ticket-hover: rgb(225,225,225);
+
+  --titlebar-bg: rgb(6, 42, 73);
+
+  --highlight-color: rgb(196, 209, 253);
+
+  --text-light: white;
+  --text-dark: rgb(100,100,100);
+  --text-dark-hover: rgb(20, 20, 20);
+
+  --border-color-1:rgb(126, 126, 126);
+
+  --warning-highlight:rgba(255, 100, 100, 1);
+  --hover-highlight:rgba(255, 252, 62, 0.637);
+
+  --excluded-border:rgb(125, 40, 40);
+  --excluded-border-hover:rgb(92, 29, 29);
+  --excluded-background:rgb(225, 180, 180);
+  --included-border:rgb(40, 125, 40);
+  --included-border-hover:rgb(26, 87, 26);
+  --included-background:rgb(180, 225, 180);
+  --excluded-background:rgb(180, 110, 110);
+  --included-border:rgb(40, 125, 40);
+  --included-background:rgb(110, 180, 110);
+
+  --green: rgb(135, 158, 151);
+
+  --drop-shadow: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
+
+  --button-hover: rgb(84, 95, 116);
+
+  --information-tab: rgb(110, 180, 174);
+  --information-tab-selected: rgb(65, 105, 102);
+  --information-tab-hover: rgb(87, 145, 140);
+
+  --checklist-tab: rgb(180, 110, 110);
+  --checklist-tab-selected: rgb(92, 29, 29);
+  --checklist-tab-hover: rgb(110, 40, 40);
+  --text-checklist-tab: rgb(56, 18, 18);
+  
+  --member-column-bg: rgb(255, 134, 134);
+}
+*{
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+  user-select:none;
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+body:hover{
+  cursor: default;
+}
+div::selection{
+  background: transparent;
+}

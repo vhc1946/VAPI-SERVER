@@ -1,0 +1,216 @@
+/*Bottom tab for checklist*/
+/*TODO: Need to add IDs to the ViewControllers - will clean up CSS and allow customization withotu modifying viewcontrol CSS*/
+/*So this below:*/
+.viewcontrol-menu-hm>.viewcontrol-menubox>:nth-child(3){
+    background-color: var(--checklist-tab);
+}
+.viewcontrol-menu-hm>.viewcontrol-menubox>:nth-child(3):hover{
+    background-color: var(--checklist-tab-hover);
+}
+.viewcontrol-menu-hm>.viewcontrol-menubox>.viewcontrol-menu-item.viewcontrol-menu-selected:nth-child(3){
+    background-color: var(--checklist-tab-selected);
+}
+/*Becomes this:*/
+#bottom-tab-checklists {
+    background-color: var(--checklist-tab);
+}
+#bottom-tab-checklists.viewcontrol-menu-selected {
+    background-color: var(--checklist-tab-selected);
+}
+
+/*Top tab bar*/
+#check-cont>div>div.viewcontrol-port>div.checklists-menu.viewcontrol-port-item.viewcontrol-port-selected>div>div.viewcontrol-menu.viewcontrol-menu-hmr>div.viewcontrol-menubox>.viewcontrol-menu-item {
+    background-color: var(--checklist-tab);
+}
+#check-cont>div>div.viewcontrol-port>div.checklists-menu.viewcontrol-port-item.viewcontrol-port-selected>div>div.viewcontrol-menu.viewcontrol-menu-hmr>div.viewcontrol-menubox>.viewcontrol-menu-item:hover {
+    background-color: var(--checklist-tab-hover);
+}
+#check-cont>div>div.viewcontrol-port>div.checklists-menu.viewcontrol-port-item.viewcontrol-port-selected>div>div.viewcontrol-menu.viewcontrol-menu-hmr>div.viewcontrol-menubox>.viewcontrol-menu-item.viewcontrol-menu-selected {
+    background-color: var(--checklist-tab-selected);
+}
+
+/*Currsi menu*/
+#check-cont>div>div.viewcontrol-menu.viewcontrol-menu-vmt>div.viewcontrol-menubox>.viewcontrol-menu-item {
+    background-color: var(--checklist-tab);
+}
+#check-cont>div>div.viewcontrol-menu.viewcontrol-menu-vmt>div.viewcontrol-menubox>.viewcontrol-menu-item:hover {
+    background-color: var(--checklist-tab-hover);
+}
+/*Add button*/
+#check-cont>div>div.viewcontrol-menu.viewcontrol-menu-vmt>div.viewcontrol-quick-actions>div>div.si-menu-buttons>div.si-add-inputs>div {
+    background-color: var(--checklist-tab);
+}
+#check-cont>div>div.viewcontrol-menu.viewcontrol-menu-vmt>div.viewcontrol-quick-actions>div>div.si-menu-buttons>div.si-add-inputs>div:hover {
+    background-color: var(--checklist-tab-hover);
+}
+
+/*Size of whole container - adjust for scrolling.*/
+.checklist-cont {
+    height: 87vh;
+    max-width: 100%;
+    overflow: overlay;
+    padding: 10px;
+}
+
+.outer-section-cont {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.checklist-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/*Section title pillboxes*/
+.main-section-header {
+    background-color: var(--checklist-tab-hover);
+    color: var(--text-light);
+    width: 15vw;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+.main-section-header:hover {
+    cursor: pointer;
+}
+
+.checklist-card {
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    font-weight: 600;
+    filter: var(--drop-shadow);
+}
+
+.section-header {
+    background-color: var(--checklist-tab);
+    color: var(--text-checklist-tab);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+}
+.section-header:hover {
+    cursor: pointer;
+}
+
+.section-cont {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.checklist-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 100;
+    color: var(--text-dark-hover);
+    display: grid;
+    grid-template-columns: 40% 60%;
+    font-size: medium;
+    align-items: center; /* Vertical center alignment */
+}
+
+/*For coloring placeholder text (dark mode?)
+.checklist-item>input::placeholder {
+    color: rgb(138, 76, 76);
+}*/
+.checklist-item>input{
+    border: 0; 
+    padding: 5px 10px;
+    margin: 1px;
+    position: relative;
+    border: 1px solid #ccc;
+    background-color: var(--card-base-light);
+    /*border: 1px solid rgb(250, 188, 188);
+    background-color: rgb(218, 165, 165);
+    color: rgb(119, 66, 66); */
+    border-radius: 5px;
+}
+.checklist-item>input:focus{
+    outline: none;
+    background-color: #ccc;
+    /*background-color: rgb(250, 188, 188);*/
+}
+
+/*Temperature Checkbox customization*/
+#temp-empty {
+    background-color: rgb(180, 67, 67);
+    border: 1px solid rgb(114, 42, 42);
+    color: #ccc;
+}
+#temp-empty:focus {
+    outline: none;
+    background-color: rgb(114, 42, 42);
+    color: rgb(255, 255, 255);
+}
+#temp-empty::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+#temp-filled {
+    border: 1px solid #ccc;
+    background-color: var(--card-base-light);
+}
+
+#temp-filled:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
+/*Checklist Item Select Box*/
+.checklist-item>select {
+    border: 0; 
+    padding: 5px 10px;
+    margin: 1px;
+    position: relative;
+    border: 1px solid #ccc;
+    background-color: var(--card-base-light);
+    border-radius: 5px;
+}
+
+/*Desktop/landscape sizing*/
+@media only screen and (min-width: 768px) {
+    .checklist-cont {
+        height: 79vh;
+    }
+    .main-section-header {
+        width: 10vw;
+    }
+    .checklist-item {
+        grid-template-columns: 35% 65%;
+    }
+}
+
+/*Hide scrollbars*/
+.checklist-cont::-webkit-scrollbar {
+    /*display: none;*/
+}
+
+.checklist-cont::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+}
+  
+.checklist-cont::-webkit-scrollbar-button {
+    display: none;
+}
+  
+.checklist-cont::-webkit-scrollbar-track {
+    background-color: #00000000;
+}
+  
+.checklist-cont::-webkit-scrollbar-track-piece {
+    background-color: #00000000;
+}
+  
+.checklist-cont::-webkit-scrollbar-thumb {
+    background-color: #000000c9;
+    border: 1px solid #ffffff40;
+    border-radius: 4px;
+}

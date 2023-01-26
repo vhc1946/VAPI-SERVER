@@ -1,0 +1,178 @@
+
+/*
+Must select proper classes for the menu and container. Select based on the orientation of the items:
+ horizontal menu, top, evenly-spaced        -> .viewcontrol-menu-hmc  +  .viewcontrol-cont-vt
+ horizontal menu, top, right-aligned        -> .viewcontrol-menu-hmr  +  .viewcontrol-cont-vt
+ horizontal menu, top, left-aligned         -> .viewcontrol-menu-hml  +  .viewcontrol-cont-vt
+ horizontal menu, bottom, evenly-spaced     -> .viewcontrol-menu-hmc  +  .viewcontrol-cont-vb
+ horizontal menu, bottom, right-aligned     -> .viewcontrol-menu-hmr  +  .viewcontrol-cont-vb
+ horizontal menu, bottom, left-aligned      -> .viewcontrol-menu-hml  +  .viewcontrol-cont-vb
+ vertical menu, left side, top-aligned      -> .viewcontrol-menu-vmt  +  .viewcontrol-cont-hl
+ vertical menu, left side , bottom-aligned  -> .viewcontrol-menu-vmb  +  .viewcontrol-cont-hl
+ vertical menu, right side, top-aligned     -> .viewcontrol-menu-vmt  +  .viewcontrol-cont-hr
+ vertical menu, right side , bottom-aligned -> .viewcontrol-menu-vmb  +  .viewcontrol-cont-hr
+
+ In order for vertical sizing to work properly the outer-most container MUST have a definate height set, a percentage will not do. A calculation based on 100vh tends to be most reliable
+ #view-level-1{
+  height: calc(100vh - 34px);
+ }
+*/
+/*  Tab menu standard top */
+.viewcontrol-cont{
+  display:flex;
+  flex-direction:column;
+  /*height: 100vh;*/
+  width: 100%;
+}
+.viewcontrol-menu{
+  display:flex;
+}
+.viewcontrol-menubox{
+  display: flex;
+  flex-grow:1;
+  height:32px;
+  font-size: 2vh;
+  filter: var(--drop-shadow);
+  z-index: 2;
+}
+.viewcontrol-menu-item{
+  flex-grow:1;
+  text-align:center;
+  padding:5px;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  position: relative;
+}
+.viewcontrol-menu-item:hover{
+  background-color: var(--button-hover);
+  cursor:pointer;
+}
+.viewcontrol-port{
+  width:100%;
+  height:100%;
+}
+.viewcontrol-port-item{
+  display:none;
+  height: 100%;
+  width: 100%;
+}
+.viewcontrol-port-selected{
+  display:contents;
+}
+.viewcontrol-menu-selected{
+  background-color: var(--BEE-blue);
+}
+.viewcontrol-menu-selected:hover{
+  background-color: var(--BEE-blue);
+}
+
+
+/* CONTAINER */
+.viewcontrol-cont-vb{
+  flex-direction:column-reverse;
+  flex-grow: 1;
+
+}
+.viewcontrol-cont-vb>.viewcontrol-menu{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 25;
+}
+.viewcontrol-cont-hr{
+  flex-direction:row-reverse;
+}
+.viewcontrol-cont-hl{
+  flex-direction:row;
+}
+/*////////////////////////*/
+
+
+/* MENUS */
+[class*=' viewcontrol-menu-vm']>.viewcontrol-menubox{
+  flex-direction:column;
+  flex-grow: 1;
+  background-color: var(--background-dark);
+}
+[class*='viewcontrol-menu-hm']>.viewcontrol-menubox{
+  flex-direction:row;
+  /*flex-grow: 0;*/
+}
+[class*='viewcontrol-menu-hm']>.viewcontrol-menubox>.viewcontrol-menu-item{
+  flex-grow:1;
+}
+.viewcontrol-menu-hmr{
+  justify-content:flex-end;
+  flex-direction: row-reverse;
+}
+.viewcontrol-menu-hmr>div{
+  justify-content:flex-end;
+}
+.viewcontrol-menu-hml>.viewcontrol-menubox{
+  justify-content:flex-start;
+}
+.viewcontrol-menu-vmt{
+  flex-direction: column-reverse;
+  height:max-content;
+}
+.viewcontrol-menu-vmt>.viewcontrol-menubox{
+  justify-content:flex-start;
+  height:max-content;
+}
+.viewcontrol-menu-vmb>div{
+  justify-content:flex-end;
+}
+.viewcontrol-menu-vmb>div>.viewcontrol-menu-item,
+.viewcontrol-menu-vmt>div>.viewcontrol-menu-item{
+  flex-grow:unset;
+  min-width: 100px;
+}
+/*////////////////////////*/
+
+
+/* CLOSE BUTTON */
+.viewcontrol-port-close{
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 10px;
+  filter: brightness(0%) invert();
+}
+.viewcontrol-menu-item:hover>.viewcontrol-port-close{
+  display: block;
+}
+.viewcontrol-port-close:hover{
+  filter: none;
+}
+
+/* ACTION BUTTONS */
+.viewcontrol-actionbutton{
+  height: 25px;
+  filter:invert();
+}
+.viewcontrol-quick-actions{
+  flex-grow: 1;
+  justify-content:flex-end;
+}
+.viewcontrol-menu-hm>.viewcontrol-quick-actions{
+  flex-grow: unset;
+}
+
+
+/* Printing */
+.viewcontrol-print-header{
+  margin: 5px 0px;
+  display:none;
+}
+@media print{
+
+}
+
+@media only screen and (min-width: 768px) {
+  .viewcontrol-menubox{
+    font-size: large;
+  }
+}
+
+

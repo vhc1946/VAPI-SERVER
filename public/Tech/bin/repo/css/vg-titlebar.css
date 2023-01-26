@@ -1,0 +1,165 @@
+#titlebar-cont{
+    position: sticky;
+    top: 0;
+    display:flex;
+    justify-content: space-between;
+    flex-flow: row;
+    background-color: var(--titlebar-bg);
+    width: 100%;
+    height: 40px;
+    z-index: 50;
+    transition: top 0.3s;
+    filter: var(--drop-shadow);
+}
+#titlebar-cont-left{
+    position: relative;
+}
+#titlebar-cont-right{
+    height: 100%;
+}
+#titlebar-moretools-quick{
+    position: absolute;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width:100px;
+    top:40px;
+    background-color: var(--titlebar-bg);
+    border-bottom-right-radius: 5px;
+}
+#titlebar-title{
+    color: white;
+    flex-grow: 1;
+    text-align: center;
+    -webkit-app-region:drag;
+}
+
+.titlebar-button-action{
+    height: 100%;
+}
+#titlebar-moretools-quick>.titlebar-button-action{
+  height:unset;
+  width:30px;
+  display: flex;
+  flex-direction:column;
+  margin: 10px;
+  padding:0;
+}
+[class*="titlebar-button-"]{
+    padding: 5px 10px;
+    filter: invert();
+}
+[class*="titlebar-button-"]:hover{
+    cursor: pointer;
+    filter: none;
+}
+.moretools-spacer:hover{
+    cursor: unset;
+    filter: invert();
+}
+#titlebar-button-home{
+    filter: none;
+}
+#titlebar-button-home:hover{
+    filter:grayscale();
+    filter:brightness(0);
+}
+
+.titlebar-button-view{
+    height: 100%;
+}
+
+.titlebar-button-moretools{
+    display: flex;
+    flex-direction:column;
+    margin: 10px;
+    padding:0;
+}
+#titlebar-win-close{
+    padding: 5px 10px;
+}
+#titlebar-win-close:hover{
+    background-color: cyan;
+    filter: invert();
+}
+
+/* Login Box */
+#loginout-block{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    z-index: 25;
+}
+#login-box{
+    position: absolute;
+    top:60px;
+    right:20px;
+    padding: 10px;
+    background-color: var(--card-base-light);
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
+}
+#login-info{
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    row-gap: 10px;
+}
+#login-info>div{
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 5px;
+}
+
+#login-info>input{
+    border: 0;
+    padding: 7px 15px;
+    border: 1px solid #ccc;
+    position: relative;
+    background: transparent;
+    border-radius: 5px;
+}
+
+#login-info>input:focus{
+    outline: none;
+    background-color: #ccc;
+}
+.login-username {
+    text-transform: uppercase;
+}
+
+/* User Name */
+#titlebar-page-user-cont{
+    position: relative;
+}
+#titlebar-username{
+    position: absolute;
+    bottom: 5px;
+    left: 35px;
+    display: none;
+    color:var(--text-dark);
+}
+#titlebar-page-user:hover+#titlebar-username{
+    display: block;
+}
+.login-action-button {
+    border-radius: 5px;
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
+    width: 5em;
+    height: 2em;
+    line-height: 2em;
+}
+#gotovapi-button{
+  width:40px;
+}
+.action-buttons-div {
+    display: flex;
+    column-gap: 5%;
+}
+
+@media print{
+    #titlebar-cont{display:none;}
+}

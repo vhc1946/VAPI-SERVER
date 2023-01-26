@@ -1,0 +1,65 @@
+.vhc-load-screen{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index: 5;
+}
+
+/*Container for adding contextual items to load screen like text, etc*/
+.vhc-load-screen-item-cont {
+  background-color: white;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.noshow {
+  background-color: transparent;
+}
+
+.shadow {
+  filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.vhc-load-screen-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+/*Animation from: https://codepen.io/thetallweeks/pen/yybGra*/
+.vhc-load-screen-text::after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 2000ms infinite;      
+  animation: ellipsis steps(4,end) 2000ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+/*Image size must be a ratio of 1920 by 1080*/
+.vhc-load-screen-img{
+  width: 640px;
+  height: 360px;
+  z-index: 100;
+}
