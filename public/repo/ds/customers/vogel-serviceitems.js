@@ -1,33 +1,35 @@
-
-var {ExcelDateToJSDate} = require('../../tools/box/xltools.js')
-/* Service Item File ////////////////////////////////////////////////////////
-
-*////////////////////////////////////////////////////////////////////////////
+import {ExcelDateToJSDate} from '../../tools/xltools.js';
 
 var aserviceitem = (si)=>{
+  console.log('SI',si);
     if(!si || si==undefined){
         si = {};
     }
     return {
-        id: si.id || '',
-        tagnum: si.tagnum || '',
+        id: si.id || '', //LineNumberUnique
+        tagid: si.tagid || '', //TageID
+        descr:si.descr||'', //TageDescription
+        qnty:si.qnty || '', //Quantity
 
-        type: si.type || '',
-        status: si.status || '',
-        area: si.area || '',
-        location: si.location || '',
-        desc: si.desc || '',
-        manf: si.manf || '',
-        model: si.model || '',
-        serial: si.serial || '',
-        insdate: si.insdate || '',
-        warr1: si.warr1 || '',
-        warr2: si.warr2 || '',
-        warr3: si.warr3 || '',
+        type:si.type ||'', //UnitType
+        status: si.status || '',//Status
+        area: si.area || '', //Area
+        location: si.location || '', //Location
+        manf: si.manf || '', //Manufacturer
+        model: si.model || '', //EquipmentModelNumber
+        serial: si.serial || '', //SerialNumber
+
+        installby:si.installby||'', //Installer
+        installdate: si.installdate || '', //InstallationDate
+
+        warr1: si.warr1 || '', //WarrantyPeriod1
+        expry1: si.expry1 || '', //ExpiryDate1
+        warr2: si.warr2 || '', //WarrantyPeriod2
+        expry2: si.expry2 || '', //ExpiryDate2
+        warr3: si.warr3 || '', //WarrantyPeriod3
+        expry3: si.expry3 || '', //ExpiryDate3
 
         ///////////////////////////////////////////
-
-
         filt1:  si.filt1 || '',
         filt1q: si.filt1q || '',
         filt2: si.filt2 || '',
@@ -69,7 +71,7 @@ var vjserviceitemmap = (vjsi = null) => {
     }
 }
 
-module.exports = {
+export {
     aserviceitem,
     vjserviceitemmap
 }

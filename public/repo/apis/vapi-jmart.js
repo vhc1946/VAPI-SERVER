@@ -1,7 +1,7 @@
-import { SENDrequestapi } from './vapicore.js';
-import {awo} from '../../ds/wos/vogel-wos.js';
-import {aservicecontract} from '../../ds/contracts/vogel-servicecontracts.js';
-import {aserviceitem} from '../../ds/customers/vogel-serviceitems.js';
+import { SENDrequestapi } from '/repo/apis/vapi.js';
+import {awo} from '/repo/ds/wos/vogel-wos.js';
+import {aservicecontract} from '/repo/ds/contracts/vogel-servicecontracts.js';
+import {aserviceitem} from '/repo/ds/customers/vogel-serviceitems.js';
 
 //WO_DetailHistory_tbl
 //WO_DescOfWorkPerformed_tbl

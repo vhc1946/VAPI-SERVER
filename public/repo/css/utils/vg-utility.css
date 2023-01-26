@@ -7,7 +7,23 @@
     margin: 5px;
     border-radius: 3px;
 }
-.vg-checkbox-checked{
+.vg-checkbox:hover{
+  cursor: pointer;
+}
+.vg-text-input {
+  border: 0; 
+  padding: 3px 15px;
+  border: 1px solid #ccc; 
+  position: relative; 
+  background-color: var(--card-base-light);
+  border-radius: 5px;
+  color: rgb(50,50,50);
+}
+.vg-text-input:focus {
+  outline: none;
+  background-color: #ccc;
+}
+/*.vg-checkbox-checked{
   background-color: var(--background-light);
 }
 .vg-checkbox-checked::after{
@@ -15,32 +31,44 @@
   position: relative;
   font-weight:bold;
   top:-10px;
-}
+}*/
 /*////////////////////////////////////////////////////////////////////////////*/
 
 
 /*/// BUTTONS ////////////////////////////////////////////////////////////////*/
 [class*="-action-button"]{
-  padding: 3px;
   background-color: var(--BEE-blue);
   color: var(--text-light);
   margin-right: 1px;
   text-align: center;
+  
 }
 [class*="-action-button"]:hover{
-  opacity: .4;
+  background-color: var(--button-hover);
   cursor:pointer;
 }
 .flat-action-button{
+  padding: 3px;
   width: 80px;
 }
 .sm-action-button{
+  padding: 3px;
   width: 40px;
 }
+.text-action-button{
+  padding: 3px;
+  width: unset;
+}
 .icon-action-button{
-  height: 100%;
-  display: flex;
-  align-items: center;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+.icon-action-button>img{
+  filter: invert();
+  width: 80%;
 }
 #user-apps-button:hover{
   opacity: .4;

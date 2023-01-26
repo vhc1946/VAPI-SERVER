@@ -1,34 +1,38 @@
-var {ExcelDateToJSDate}=require('../../tools/box/xltools.js');
-
-/* Service Contract File ////////////////////////////////////////////////////
-
-*////////////////////////////////////////////////////////////////////////////
-
+import {ExcelDateToJSDate} from '../../tools/xltools.js';
 
 var aservicecontract = (sc=null)=>{
     if(!sc||sc==undefined){
         sc = {};
     }
     return{
-        id:sc.id ||'', //this contract number (unique value)
-        origid:sc.origid||'', //the first contract number
-        renewid:sc.renewid||'', //the last contract number
+        id:sc.id ||'', //ServiceContractNumber
 
-        value:sc.value||'',
+        origid:sc.origid||'', //ContractNumberOriginal
+        renewid:sc.renewid||'', //ContractNumberRenewed
 
-        type:sc.type||'', //describes contract
-        cat:sc.cat||'', //reflect department
-        status:sc.status||'',
+        value:sc.value||'', //ContractValue
 
-        custid:sc.custid||'',
-        billto:sc.billto||'',
+        type:sc.type||'', //ContractType
+        cat:sc.cat||'', //SalesCategoryCode
+        status:sc.status||'', //ContractStatus
 
-        billings : String(sc.billings || ''),
+        custcode:sc.custcode||'',//CustomerCode
+        billto:sc.billto||'', //BillToCustomerCode
 
-        signdate : ExcelDateToJSDate(sc.signdate),
-        startdate : ExcelDateToJSDate(sc.startdate),
-        enddate : ExcelDateToJSDate(sc.enddate),
-        sendrenew: ExcelDateToJSDate(sc.sendrenew)
+        billings : sc.billings||'', //NumberOfBillings
+        visits:sc.visits||'', //NumberOfContractVisits
+
+        datestart:sc.datestart||'', //OriginalContractDate
+
+        datesign : sc.datesign||'', //ContractDate
+
+        datefrom : sc.datefrom||'', //ContractDateFrom
+        dateto : sc.dateto||'', //ContractDateTo
+        sendrenew: sc.sendrenew||'', //SendRenewalDate
+
+        createby:sc.createby ||'', //UserID
+        createdate:sc.createdate||'', //CreatedDate
+        createtime:sc.createtime||'' //CreatedTime
     }
 }
 
@@ -60,7 +64,39 @@ var vjservicecontractmap=(vjsc)=>{
     }
 }
 
-module.exports = {
+export {
     aservicecontract,
     vjservicecontractmap
 }
+
+/*
+ARSubledgerCode: "AR"
+AnnualContractValue: 288
+ApplyTax1: "N"
+ApplyTax2: "N"
+BillingType: "P"
+ContractDate: "2016-09-15T00:00:00Z"
+ContractDateFrom: "2020-09-15T00:00:00Z"
+ContractDateTo: "2021-09-14T00:00:00Z"
+ContractNumberRenewed: "0001933-R1"
+ContractStatus: "I"
+ContractType: "C21MF"
+ContractValue: 288
+CustomerCode: "VOJO05"
+CycleSetup: "N"
+LastBilledDate: "2021-08-15T00:00:00Z"
+LastInvoiceNumber: "   C005153"
+LocationLine1: "4511 MAGNOLIA"
+LocationLine3: "ST. LOUIS, MO 63110"
+NumberOfBillings: "12"
+NumberOfContractVisits: "2"
+OriginalContractDate: "2016-09-15T00:00:00Z"
+PhoneNumber1: "314-799-4760"
+ReasonForInactiveOrHold: "Renewed Sep13/21"
+RecognizedRevenueVisitBilled: "N"
+SalesCategoryCode: "       300"
+SendRenewalDate: "2021-08-01T00:00:00Z"
+ServiceContractNumber: "0000001933"
+ThisIsAMasterContract: "N"
+WorkOrderCategory: "6"
+*/

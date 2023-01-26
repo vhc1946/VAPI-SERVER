@@ -22,6 +22,7 @@ var CHECKexts=(url)=>{
 }
 
 var servepublic = (url,res)=>{
+  console.log(url)
   return new Promise((resolve,reject)=>{
     var contype = CHECKexts(url);
     if(contype){//check if the path has a valid .(ext)
