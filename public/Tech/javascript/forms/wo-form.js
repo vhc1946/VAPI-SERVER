@@ -1,5 +1,5 @@
 
-import {VHCform} from '../../../Tech/bin/repo/tools/vhc-forms.js';
+import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 const dom={  // was wodom
   cont: 'wo-cont',

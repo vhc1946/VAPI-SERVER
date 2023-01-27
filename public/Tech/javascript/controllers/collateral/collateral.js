@@ -1,8 +1,8 @@
 import { CollateralForm } from "../forms/collateral-form.js";
 import { SummaryCheckList } from "./checklists/summary-checklist.js";
 import { basicinvoice } from "./invoices/basic-invoice.js";
-import {DropNote} from '../repo/modules/vg-dropnote.js';
-import {SENDrequestapi} from '../repo/apis/vapi/vapicore.js';
+import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 
 //setup emailing vars

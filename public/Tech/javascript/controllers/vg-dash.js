@@ -1,13 +1,13 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import {DropNote} from '/repo/js/modules/vg-dropnote.js';
-import * as titlebar from '/repo/js/modules/vg-titlebar.js';
-import { SELECTview } from '/repo/js/modules/vg-floatviews.js';
-import { AppDock } from '/repo/js/modules/appdock.js';
+import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import * as titlebar from 'http://vogel.vhpportal.com/repo/modules/vg-titlebar.js';
+import { SELECTview } from 'http://vogel.vhpportal.com/repo/modules/vg-floatviews.js';
+import { AppDock } from 'http://vogel.vhpportal.com/repo/modules/appdock.js';
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 
 import * as manlist from '/Tech/store/tech-managelist.js';
-import {STARTloadscreen} from '/repo/js/tools/vhc-loadscreen.js';
+import {STARTloadscreen} from 'http://vogel.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
 import {twdashlist,twolist}from '/Tech/javascript/tables/techwo-table.js';
 
@@ -68,7 +68,7 @@ STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
 var qactions = {
   new:{
     id:'search-wo',
-    src:'./bin/repo/assets/icons/search.png',
+    src:'http://vogel.vhpportal.com/repo/assets/icons/search.png',
     alt:'SEARCH',
     title:'Search WO',
     onclick:(ele)=>{SELECTview(document.getElementById('wo-center'),'Open WO');}
@@ -81,7 +81,7 @@ window.tabs = {}
 var mactions = {
   datalist:{
     id:'refresh-datalist',
-    src:'./bin/repo/assets/icons/datastores.png',
+    src:'http://vogel.vhpportal.com/repo/assets/icons/datastores.png',
     ondblclick:(ele)=>{
       DropNote('tr','Syncing Data','green')
       manlist.REFRESHmanagelist().then(
@@ -94,7 +94,7 @@ var mactions = {
   }
 };
 var login = titlebar.SETUPtitlebar({
-  RROOT:'./bin/repo/',
+  RROOT:'http://vogel.vhpportal.com/repo/',
   qacts:qactions,
   macts:mactions,
   login:true,

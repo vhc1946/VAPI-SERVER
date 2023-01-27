@@ -1,4 +1,4 @@
-import { VHCform } from '../repo/tools/vhc-forms.js';
+import { VHCform } from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 /* Contract Worksheet Form
 */
@@ -93,7 +93,7 @@ export class ContractWSform extends VHCform{
     this.cont.classList.add(this.dom.cont);
     //Initialize the Contract Form
     this.pricelevel = this.GETmemhead('');
-    
+
     document.addEventListener('DOMContentLoaded', (eve)=>{
       this.UPDATEselect(true);
     })

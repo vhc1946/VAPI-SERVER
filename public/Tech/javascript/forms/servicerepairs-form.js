@@ -1,7 +1,7 @@
-import {FormList} from '../repo/tools/vhc-formlist.js';
-import * as ttools from '../repo/modules/vg-tables.js';
-import { DropNote } from '../repo/modules/vg-dropnote.js';
-import {aflatrepair} from '../repo/ds/jonas/flatratebook.js';
+import {FormList} from 'http://vogel.vhpportal.com/repo/tools/vhc-formlist.js';
+import * as ttools from 'http://vogel.vhpportal.com/repo/modules/vg-tables.js';
+import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {aflatrepair} from 'http://vogel.vhpportal.com/repo/ds/jonas/flatratebook.js';
 // service item repairs
 
 export class SIrepairform extends FormList{

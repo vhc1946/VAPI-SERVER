@@ -1,14 +1,14 @@
 import {CheckListForm} from '../forms/checklist-form.js';
-import {VHCform} from '../repo/tools/vhc-forms.js';
-import { DropNote } from '../repo/modules/vg-dropnote.js';
-import {ViewGroup} from '../repo/layouts/view-controller.js';
+import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
+import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
 
 import { coolingchecks } from '../collateral/checklists/cooling-checklist.js';
 import { heatingchecks } from '../collateral/checklists/heating-checklist.js';
 import { systemchecks } from '../collateral/checklists/system-checklist.js';
 import { summarychecks } from '../collateral/checklists/summary-checklist.js';
 import { SummaryCheckList } from '../collateral/checklists/summary-checklist.js';
-import { Calculations } from '../repo/tools/vg-calculations.js';
+import { Calculations } from 'http://vogel.vhpportal.com/repo/tools/vg-calculations.js';
 
 var toggledom = {
     cont: 'checklist-cont',
@@ -32,7 +32,7 @@ var Clicktoclose=(cont, hide=false, show=false)=>{
   } else {
     $(cont.getElementsByClassName('section-cont')[0]).toggle();
   }
-  
+
   //Adjust border-radius of section header
   if (section_cont.style.display == "none") {
     cont.getElementsByClassName('section-header')[0].style.borderBottomLeftRadius = "10px";
@@ -103,7 +103,7 @@ export class ServiceChecks{
                   children:{
                     '.delete-button.img':{
                       attributes:{
-                        src:'../bin/repo/assets/icons/trash.png'
+                        src:'http://vogel.vhpportal.com/repo/assets/icons/trash.png'
                       }
                     }
                   }
@@ -115,7 +115,7 @@ export class ServiceChecks{
                   children:{
                     '.add-button.img':{
                       attributes:{
-                        src:'../bin/repo/assets/icons/add.png'
+                        src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
                       }
                     }
                   }
@@ -134,7 +134,7 @@ export class ServiceChecks{
                           children:{
                             '.add-button.img':{
                               attributes:{
-                                src:'../bin/repo/assets/icons/add.png'
+                                src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
                               }
                             }
                           }
@@ -306,7 +306,7 @@ export class ServiceChecks{
           dom:checklists.doms[c],
           content:checklists.contents[c]
         }));
-        
+
         //Load existing data when not creating a new system
         if (group[c] != null) {
           this.forms[this.forms.length - 1].checks[c].data = group[c];

@@ -1,8 +1,8 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import {FINDparentele} from '/repo/js/tools/vg-displaytools.js';
+import {FINDparentele} from 'http://vogel.vhpportal.com/repo/tools/vg-displaytools.js';
 import {TechLocalWos} from '/Tech/store/techwo-store.js';
-import {DropNote} from '/repo/js/modules/vg-dropnote.js';
-import {FormList} from '/repo/js/tools/vhc-formlist.js';
+import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {FormList} from 'http://vogel.vhpportal.com/repo/tools/vhc-formlist.js';
 
 
 var molist = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -49,8 +49,8 @@ const wotablerow=`
     </div>
     <div class="${wrdom.values.descr}"></div>
     <div class="techwo-row-actions">
-      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="./bin/repo/assets/icons/cross.png"/></div>
-      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="./bin/repo/assets/icons/edit.png"/></div>
+      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="http://vogel.vhpportal.com/repo/assets/icons/cross.png"/></div>
+      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="http://vogel.vhpportal.com/repo/assets/icons/edit.png"/></div>
     </div>
 `
 // DATA //
@@ -118,7 +118,7 @@ var OPENwo=(ele)=>{
           console.log(retval)
           DropNote('tr',`WO # ${wonum} Loaded..`,'green');
         }
-        
+
       } else {
         DropNote('tr',`WO # ${wonum} Could NOT Load`,'yellow')
       }

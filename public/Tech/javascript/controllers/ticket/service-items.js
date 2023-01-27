@@ -4,12 +4,12 @@
     - linking all service item's info to one
     - linking service item repairs to one fo
 */
-import * as gendis from '../repo/modules/vg-tables.js';
-import { DropNote } from '../repo/modules/vg-dropnote.js';
-import {FINDparentele} from '../repo/tools/vg-displaytools.js';
+import * as gendis from 'http://vogel.vhpportal.com/repo/modules/vg-tables.js';
+import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {FINDparentele} from 'http://vogel.vhpportal.com/repo/tools/vg-displaytools.js';
 
-import {ViewGroup} from '../repo/layouts/view-controller.js';
-import {VHCform} from '../repo/tools/vhc-forms.js';
+import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
+import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 import {siform} from '../forms/serviceitem-form.js';
 import {SIrepairform} from '../forms/servicerepairs-form.js';
@@ -53,7 +53,7 @@ export class TicketServiceItems{
                   children:{
                     '.delete-button.img':{
                       attributes:{
-                        src:'../bin/repo/assets/icons/trash.png'
+                        src:'http://vogel.vhpportal.com/repo/assets/icons/trash.png'
                       }
                     }
                   }
@@ -65,7 +65,7 @@ export class TicketServiceItems{
                   children:{
                     '.add-button.img':{
                       attributes:{
-                        src:'../bin/repo/assets/icons/add.png'
+                        src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
                       }
                     }
                   }
@@ -84,7 +84,7 @@ export class TicketServiceItems{
                           children:{
                             '.add-button.img':{
                               attributes:{
-                                src:'../bin/repo/assets/icons/add.png'
+                                src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
                               }
                             }
                           }
@@ -124,7 +124,7 @@ export class TicketServiceItems{
             this.repairs[i].ADDitem(repairs[i][j]);
           }
         }
-        
+
       }
     }
 
@@ -209,7 +209,7 @@ export class TicketServiceItems{
       } else {
         document.getElementsByClassName("viewcontrol-quick-actions")[index].lastChild.innerText = new_input;
       }
-      
+
 
       //Call global save function
       window.SAVEticket();

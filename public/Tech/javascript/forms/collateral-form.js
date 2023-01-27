@@ -1,4 +1,4 @@
-import { VHCform } from "../repo/tools/vhc-forms.js";
+import { VHCform } from "http://vogel.vhpportal.com/repo/tools/vhc-forms.js";
 
 
 
