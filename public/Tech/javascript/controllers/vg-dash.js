@@ -147,7 +147,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
         //Add the woitem to the open tabs
         window.tabs[wonum] = 1;
         localStorage.setItem(wolstore.toloadwo,JSON.stringify(wo));
-        window.open('controllers/ticket.html');
+        window.open('/Tech/ticket');
       }
     }
     let wonum = document.getElementById('openwo-number').value;

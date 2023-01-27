@@ -1,13 +1,13 @@
-import {CheckListForm} from '../forms/checklist-form.js';
+import {CheckListForm} from '/Tech/javascript/forms/checklist-form.js';
 import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
 
-import { coolingchecks } from '../collateral/checklists/cooling-checklist.js';
-import { heatingchecks } from '../collateral/checklists/heating-checklist.js';
-import { systemchecks } from '../collateral/checklists/system-checklist.js';
-import { summarychecks } from '../collateral/checklists/summary-checklist.js';
-import { SummaryCheckList } from '../collateral/checklists/summary-checklist.js';
+import { coolingchecks } from '/Tech/javascript/controllers/collateral/checklists/cooling-checklist.js';
+import { heatingchecks } from '/Tech/javascript/controllers/collateral/checklists/heating-checklist.js';
+import { systemchecks } from '/Tech/javascript/controllers/collateral/checklists/system-checklist.js';
+import { summarychecks } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
+import { SummaryCheckList } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
 import { Calculations } from 'http://vogel.vhpportal.com/repo/tools/vg-calculations.js';
 
 var toggledom = {

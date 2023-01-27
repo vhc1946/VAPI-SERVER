@@ -11,8 +11,8 @@ import {FINDparentele} from 'http://vogel.vhpportal.com/repo/tools/vg-displaytoo
 import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
 import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
-import {siform} from '../forms/serviceitem-form.js';
-import {SIrepairform} from '../forms/servicerepairs-form.js';
+import {siform} from '/Tech/javascript/forms/serviceitem-form.js';
+import {SIrepairform} from '/Tech/javascript/forms/servicerepairs-form.js';
 
 
 

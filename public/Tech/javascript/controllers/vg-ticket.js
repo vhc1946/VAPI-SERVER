@@ -1,4 +1,4 @@
-import {wolstore} from '/store/lstore.js';
+import {wolstore} from '/Tech/store/lstore.js';
 import * as titlebar from 'http://vogel.vhpportal.com/repo/modules/vg-titlebar.js';
 import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 

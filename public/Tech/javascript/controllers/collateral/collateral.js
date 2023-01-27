@@ -1,6 +1,6 @@
-import { CollateralForm } from "../forms/collateral-form.js";
-import { SummaryCheckList } from "./checklists/summary-checklist.js";
-import { basicinvoice } from "./invoices/basic-invoice.js";
+import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
+import { SummaryCheckList } from "/Tech/javascript/constrols/collateral/checklists/summary-checklist.js";
+import { basicinvoice } from "/Tech/javascript/constrols/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
 

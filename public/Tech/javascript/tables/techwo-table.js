@@ -114,7 +114,7 @@ var OPENwo=(ele)=>{
           window.tabs[wonum] = 1;
 
           localStorage.setItem(wolstore.toloadwo,JSON.stringify(woitem));
-          let retval = window.open('controllers/ticket.html');
+          let retval = window.open('/Tech/ticket');
           console.log(retval)
           DropNote('tr',`WO # ${wonum} Loaded..`,'green');
         }
