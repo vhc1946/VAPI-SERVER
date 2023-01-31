@@ -170,10 +170,11 @@ export class ServiceTicket{
               for (let key in tick[f][x]) {
                 //Load basic data if name, otherwise load form of each checklist
                 if (key == "name") {
-                  this.forms[f][x][key] = tick[f][tick[f].length-1][key];
+                  //console.log("tick[f][tick[f].length-1][key]",tick[f][x][key])
+                  this.forms[f][x][key] = tick[f][x][key];
                 }else if (key == "checks") {
                   for (let cl in tick[f][x].checks) {
-                    this.forms[f][x].checks[cl].form = tick[f][tick[f].length-1].checks[cl]
+                    this.forms[f][x].checks[cl].form = tick[f][x].checks[cl]
                   }
                 }
               }

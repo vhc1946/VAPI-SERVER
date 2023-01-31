@@ -111,7 +111,7 @@ export class ServicePresentation{
         window.memberprice = document.getElementById("wo-present-memprice-today").innerText;
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
-        window.open("/Tech/collateral");
+        window.open("../controllers/collateral.html");
       }else{DropNote('tr','Please Sign','yellow')}
     });
   }
@@ -181,7 +181,6 @@ export class ServicePresentation{
                 <div class="${this.dom.info.id}">wonum</div>
             </div>
         </div>
-
         <div class="${this.dom.body}">
             <div id="wo-present-repair-cont">
                 <div class="${this.dom.system.repair.cont}">
@@ -201,19 +200,20 @@ export class ServicePresentation{
                     <div>Savings</div>
                     <div>Approval</div>
                 </div>
-
-
                 <div id="wo-present-repair-diagnostic" class="${this.dom.system.repair.cont}" style="display:none">
-
                     <div class="${this.dom.system.repair.desc}">Diagnostic</div>
                     <div class="${this.dom.system.repair.invst}"></div>
                     <div></div>
                     <div class="${this.dom.system.repair.savings}"></div>
                     <div>YES</div>
                 </div>
-
                 <div id="wo-present-systems">
-                </div>
+            </div>
+            <div class="${this.dom.system.repair.cont}">
+                <div>Due Today</div>
+                <div id="${this.dom.invest.regprice}"></div>
+                <div id="${this.dom.invest.memprice}" class = "member-price"></div>
+            </div>
             <div class="${this.dom.system.repair.cont}">
                 <div>Savings Today</div>
                 <div id = "${this.dom.invest.discsavings}">0</div>
@@ -223,11 +223,6 @@ export class ServicePresentation{
                 <div>Monthly Membership</div>
                 <div class="ignore"></div>
                 <div id="${this.dom.invest.conmonth}" class = "member-month">0</div>
-            </div>
-            <div class="${this.dom.system.repair.cont}">
-                <div>Due Today</div>
-                <div id="${this.dom.invest.regprice}"></div>
-                <div id="${this.dom.invest.memprice}" class = "member-price"></div>
             </div>
             <div class="button-row">
                 <label></label>
@@ -242,7 +237,6 @@ export class ServicePresentation{
                 </div>
             </div>
         </div>
-
     </div>
   `
 
@@ -462,7 +456,7 @@ export class ServicePresentation{
   /**
    * Loops through each repair item and updates its price from the price book, using the given repair level
    * Saves to the ticket object
-   * @param {*price level} pl
+   * @param {*price level} pl 
    */
   UPDATEticketrepairs = (pl=null, appr=null) => {
     for (let i = 0; i < this.data.repairs.length; i++) {
@@ -475,7 +469,7 @@ export class ServicePresentation{
         }
         if (appr != null) {
           repair.appr = appr;
-        }
+        }        
       }
     }
 

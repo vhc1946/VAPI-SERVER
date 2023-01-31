@@ -23,9 +23,7 @@ let dom = {
     }
 }
 let content = `
-    <div class="summary-header">
-        <div id="title-header">Invoice Summary</div>
-    </div> 
+    <img id='header-logo'src="../bin/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div class="invoice-sectionhead">SOLD TO:</div>
@@ -85,8 +83,9 @@ let content = `
             </div>
         </div>
     </div>
-
-    <img id='header-logo'src="../bin/repo/assets/images/Header_clean.png"/>
+    <div class="summary-header">
+        <div id="title-header">Invoice Summary</div>
+    </div> 
     <div class="pagebreak"> </div>
 `
 
@@ -94,22 +93,3 @@ export var basicinvoice ={
     dom:dom,
     content:content
 }
-
-/**
- <div>
-                    <div>
-                        <label class="invoice-sectionlabel">Subtotal</label>
-                    </div>
-                    <div>
-                        <div class="${dom.info.subtotal}">420.00</div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label class="invoice-sectionlabel">Total Invoice</label>
-                    </div>
-                    <div>
-                        <div class="${dom.info.total}">420.00</div>
-                    </div>
-                </div>
- */

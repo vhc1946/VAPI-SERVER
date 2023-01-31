@@ -163,69 +163,6 @@ if (ticket.wo.contactemail != "" || ticket.wo.contactemail != undefined) {
 ////////////////////////////
 
 /**
- * CREATE REWARD SUMMARY FORM
- */
-
-var summaryform = document.body.appendChild(window.opener.presentation);
-
-summaryform.appendChild(document.createElement('div'));
-summaryform.lastChild.className='pagebreak';
-
-//var pagebreak = document.createElement('div');
-//document.body.appendChild(pagebreak);
-//pagebreak.className = "pagebreak"
-
-if (window.opener.signature) {
-    document.getElementsByClassName('wo-present-signature')[0].prepend(window.opener.signature.cloneNode(true))
-}
-//Convert inputs to div
-let SelectDiv = document.getElementsByClassName('select')[0]
-SelectDiv.innerHTML = "";
-if (ticket.total == window.opener.memberprice) {
-    SelectDiv.innerText = ticket.contract.pricelevel
-} else {
-    SelectDiv.innerText = "NO PLAN SELECTED"
-}
-var inputs = document.getElementsByClassName('present-contract-opts')[0].getElementsByTagName('input');
-for (let i = 0; i < inputs.length; i++) {
-    let input = inputs[i]
-    var parentNode = input.parentNode;
-    let newElem = document.createElement('div')
-    if (input.type == "checkbox") {
-        if (input.checked) {
-            newElem.innerText = "YES"
-        } else {
-            newElem.innerText = "NO"
-        }
-    } else {
-        if (ticket.total == window.opener.memberprice) {
-            newElem.innerText = input.value;
-            console.log("input")
-        } else {
-            newElem.innerText = 0;
-            console.log("0")
-        }
-    }
-    parentNode.insertBefore(newElem, parentNode.childNodes[2])
-}
-SelectDiv.className = "present-contract-name"
-
-emailcontent.wosum = document.getElementsByClassName('present-full-cont')[0].parentElement.outerHTML;
-
-/**
- * CREATE CHECKLIST FORM
- */
-//Loop through each summary
-for (let i = 0; i < summary.length; i++){
-    var checksum = new CollateralForm(document.createElement('div'),new SummaryCheckList(summary[i].summary.content, summary[i].name));
-    document.body.appendChild(checksum.cont);
-    document.getElementsByClassName(checksum.dom.info.street)[i].innerText = ticket.wo.street;
-    document.getElementsByClassName(checksum.dom.info.cityzip)[i].innerText = ticket.wo.cityzip;
-    emailcontent.checks.push(checksum.cont.outerHTML);
-}
-
-
-/**
  * CREATE INVOICE FORM
  */
 var invoice = new CollateralForm(document.createElement('div'),basicinvoice);
@@ -297,5 +234,68 @@ if (window.opener.signature) {
     document.getElementById('sig-insert').appendChild(window.opener.signature)
 }
 emailcontent.invoice = invoice.cont.outerHTML;
+
+/**
+ * CREATE REWARD SUMMARY FORM
+ */
+
+var summaryform = document.body.appendChild(window.opener.presentation);
+
+summaryform.appendChild(document.createElement('div'));
+summaryform.lastChild.className='pagebreak';
+
+//var pagebreak = document.createElement('div');
+//document.body.appendChild(pagebreak);
+//pagebreak.className = "pagebreak"
+
+if (window.opener.signature) {
+    document.getElementsByClassName('wo-present-signature')[0].prepend(window.opener.signature.cloneNode(true))
+}
+//Convert inputs to div
+let SelectDiv = document.getElementsByClassName('select')[0]
+SelectDiv.innerHTML = "";
+if (ticket.total == window.opener.memberprice) {
+    SelectDiv.innerText = ticket.contract.pricelevel
+} else {
+    SelectDiv.innerText = "NO PLAN SELECTED"
+}
+var inputs = document.getElementsByClassName('present-contract-opts')[0].getElementsByTagName('input');
+for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i]
+    var parentNode = input.parentNode;
+    let newElem = document.createElement('div')
+    if (input.type == "checkbox") {
+        if (input.checked) {
+            newElem.innerText = "YES"
+        } else {
+            newElem.innerText = "NO"
+        }
+    } else {
+        if (ticket.total == window.opener.memberprice) {
+            newElem.innerText = input.value;
+            console.log("input")
+        } else {
+            newElem.innerText = 0;
+            console.log("0")
+        }
+    }
+    parentNode.insertBefore(newElem, parentNode.childNodes[2])
+}
+SelectDiv.className = "present-contract-name"
+
+emailcontent.wosum = document.getElementsByClassName('present-full-cont')[0].parentElement.outerHTML;
+
+/**
+ * CREATE CHECKLIST FORM
+ */
+//Loop through each summary
+for (let i = 0; i < summary.length; i++){
+    var checksum = new CollateralForm(document.createElement('div'),new SummaryCheckList(summary[i].summary.content, summary[i].name));
+    document.body.appendChild(checksum.cont);
+    document.getElementsByClassName(checksum.dom.info.street)[i].innerText = ticket.wo.street;
+    document.getElementsByClassName(checksum.dom.info.cityzip)[i].innerText = ticket.wo.cityzip;
+    emailcontent.checks.push(checksum.cont.outerHTML);
+}
+
 //Change default name of printed document
 document.title = String(ticket.wo.id)+'-'+ticket.wo.custcode;

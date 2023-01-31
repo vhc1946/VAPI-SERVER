@@ -290,32 +290,52 @@ a:hover {
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
 }
-.member-savings,.member-month,.member-price,#member-item-label {
-    background-color: var(--member-column-bg);
-    width: 100%;
-    height: 200%;
-}
-#member-item-label {
-    width: 100%
+.memlevel-label {
+    line-height: 2.75em;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    animation-name: textshine;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
 }
 #member-label {
-    height: calc(100% + 5px);
-    width: 100%;
-    background-color: var(--member-column-bg);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.member-savings {
+
+.wo-present-headers>:nth-child(3) {
+    color: var(--member-column-text);
+    background-color: var(--member-column-bg);
+    width: 100%;
+    height: calc(100% + 5px);
+}
+.wo-present-repair>:nth-child(3) {
+    color: var(--member-column-text);
+    background-color: var(--member-column-bg);
+    width: 100%;
+    height: calc(100% + 15px);
+}
+
+.member-price {
     margin-top: -5px;
 }
-.member-price {
-    height: 100%;
+.member-month {
+    height: 100% !important;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+.memlevel-label {
+    background-color: transparent !important;
+}
+.present-contract-opt>:nth-child(3)::before {
+    content: "$";
+}
+
 #system-label-group {
     display: grid;
-    grid-template-columns: 51.125% 50%
+    grid-template-columns: calc(49.75vw) 50%;
 }
 .system-label {
     text-decoration: underline;
@@ -323,10 +343,7 @@ a:hover {
 #member-blank-column {
     background-color: var(--member-column-bg);
     height: calc(100% + 5px);
-    width: 14.15vw;
-}
-.present-contract-opt>:nth-child(3)::before {
-    content: "$";
+    width: 14.65vw;
 }
 
 @media only screen and (min-width: 768px) {
