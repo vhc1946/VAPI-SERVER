@@ -18,6 +18,7 @@ window.refreshDash = (wonum)=>{
   twdashlist.form = twolist.list;
   });
 }
+
 /*  Tech Dash
 
   TODO:
@@ -48,6 +49,7 @@ var dashdom = {
 }
 
 var datamart=null;
+
 STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
   return new Promise((resolve,reject)=>{
   manlist.INITmanagelist().then(

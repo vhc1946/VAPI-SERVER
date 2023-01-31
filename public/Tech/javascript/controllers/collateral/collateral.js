@@ -1,6 +1,6 @@
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
-import { SummaryCheckList } from "/Tech/javascript/constrols/collateral/checklists/summary-checklist.js";
-import { basicinvoice } from "/Tech/javascript/constrols/collateral/invoices/basic-invoice.js";
+import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checklists/summary-checklist.js";
+import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
 
@@ -64,9 +64,15 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get and validate email from screen
   //get array of all conent on collateral page
   console.log(emailcontent)
-  /*SENDrequestapi({to:'mathewh@vogelheating.com',subject:'Check This Out',attach:emailcontent},'MAIL').then(
+  SENDrequestapi({
+    to:'christianv@vogelheating.com',
+    subject:'Check This Out',
+    attach:emailcontent
+  },
+  'MAIL',
+  'http://localhost:5000/API/').then(
     answer=>{console.log(answer);}
-  );*/
+  );
 });
 
 /**
