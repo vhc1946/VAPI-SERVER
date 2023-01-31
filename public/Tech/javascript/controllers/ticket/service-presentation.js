@@ -17,33 +17,8 @@ export class ServicePresentation{
 
     this.cont.getElementsByClassName(this.dom.head)[0].appendChild(this.conform.cont);
 
-    //Event listener for change of contract form
-    this.conform.cont.addEventListener('change',(ele)=>{
-      //console.log('update pricing on presentation');
-
-      let price = this.conform.GETformprice(1);
-
-      //Update price in paymeny form
-      document.getElementById('wo-present-contract-monthly').innerText = price;
-      //Update price object in final
-      this.final.monthlymem = price;
-
-      //Hide the signature and reset the box
-      if (this.SignatureShown) {
-        this.SHOWsignature();
-      }
-
-      //Update membership label
-      let oldLevel = document.getElementsByClassName('memlevel-label')[0].innerText;
-      let newLevel = this.conform.pricelevel;
-      if (oldLevel != newLevel) {
-        document.getElementsByClassName('memlevel-label')[0].innerText = this.conform.pricelevel;
-        this.contract = this.conform.pricelevel.slice(0, 3)
-        this.UPDATEsitems(this.data)
-      }
-    });
-
     this.contract=this.data.wo.pricelevel;
+    this.basePriceLevel=this.data.wo.pricelevel
     this.SETpresent(this.data);
     document.getElementsByClassName('memlevel-label')[0].innerText = this.contract
 
@@ -89,6 +64,32 @@ export class ServicePresentation{
         plcont.style.display = "grid"
       }
     })
+
+    //Event listener for change of contract form
+    this.conform.cont.addEventListener('change',(ele)=>{
+      //console.log('update pricing on presentation');
+
+      let price = this.conform.GETformprice(1);
+
+      //Update price in paymeny form
+      document.getElementById('wo-present-contract-monthly').innerText = price;
+      //Update price object in final
+      this.final.monthlymem = price;
+
+      //Hide the signature and reset the box
+      if (this.SignatureShown) {
+        this.SHOWsignature();
+      }
+
+      //Update membership label
+      let oldLevel = document.getElementsByClassName('memlevel-label')[0].innerText;
+      let newLevel = this.conform.pricelevel;
+      if (oldLevel != newLevel) {
+        document.getElementsByClassName('memlevel-label')[0].innerText = this.conform.pricelevel;
+        this.contract = this.conform.pricelevel.slice(0, 3)
+        this.UPDATEsitems(this.data)
+      }
+    });
 
     //setup signature pad
     this.sigpad = new DrawingPad(document.getElementsByClassName('signature-pad')[0]);
@@ -344,9 +345,9 @@ export class ServicePresentation{
             if(this.data.repairs[x][y].task!='OTH'){
               if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
                 if(this.data.contract && Object.keys(this.data.contract).length!==0){
-                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
+                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.basePriceLevel);
                 }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);}
-              }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);}
+              }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.basePriceLevel);}
             }else{
               mprice = Number(this.data.repairs[x][y].price);
             }

@@ -115,7 +115,7 @@ var qactions = {
 var mactions = {
   save:{
     id:'wo-save-button',
-    src:'.http://vogel.vhpportal.com/repo/assets/icons/disk.png',
+    src:'http://vogel.vhpportal.com/repo/assets/icons/disk.png',
     title:'Save WO',
     ondblclick:(ele)=>{
       window.SAVEticket();

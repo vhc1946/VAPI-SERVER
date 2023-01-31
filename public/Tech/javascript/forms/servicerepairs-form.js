@@ -106,7 +106,7 @@ export class SIrepairform extends FormList{
     <div class="sr-price"></div>
     <input class="sr-qty" type = "number"></div>
     <div class="sr-cost"></div>
-    <img class="delete-repair-item" src="../../images/icons/trash.png">
+    <img class="delete-repair-item" src="http://vogel.vhpportal.com/repo/assets/icons/trash.png">
   `
   get addform(){
     let form={};

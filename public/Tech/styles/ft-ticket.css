@@ -41,6 +41,7 @@ body{
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
+    align-self: center;
 }
 #membership-link:before{
     content:"";
