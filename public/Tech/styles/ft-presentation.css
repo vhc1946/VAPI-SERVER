@@ -170,6 +170,16 @@
 .wo-present-repair-unapproved div:first-child{
     text-decoration: line-through;
 }
+.wo-present-repair-unapproved div:nth-child(2){
+    text-decoration: line-through;
+}
+.wo-present-repair-unapproved div:nth-child(3){
+    color: gray;
+    text-decoration: line-through;
+}
+.wo-present-repair-unapproved div:nth-child(4){
+    text-decoration: line-through;
+}
 .wo-present-repair-unapproved div:last-child{
     font-style: oblique;
 }
