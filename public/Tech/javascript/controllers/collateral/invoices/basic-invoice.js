@@ -23,7 +23,7 @@ let dom = {
     }
 }
 let content = `
-    <img id='header-logo'src="../bin/repo/assets/images/Header_clean.png"/>
+    <img id='header-logo'src="http://vogel.vhpportal.com/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div class="invoice-sectionhead">SOLD TO:</div>

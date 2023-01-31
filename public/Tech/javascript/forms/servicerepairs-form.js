@@ -84,7 +84,7 @@ export class SIrepairform extends FormList{
     <div class="${this.dom.table.actions}">
       <input class="${this.dom.addform.desc}" placeholder="Add description" type="search" list="misc-rep-list"/>
       <input class="${this.dom.addform.price}" placeholder="Price"/>
-      <div class="icon-action-button ${this.dom.actions.add} "><img src="../../images/icons/plus-icon.png"/></div></div>
+      <div class="icon-action-button ${this.dom.actions.add} "><img src="http://vogel.vhpportal.com/repo/assets/icons/add.png"/></div></div>
       <div class="${this.dom.table.heads}"></div>
       <div class="${this.dom.table.cont}">
     </div>

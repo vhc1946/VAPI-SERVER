@@ -111,7 +111,7 @@ export class ServicePresentation{
         window.memberprice = document.getElementById("wo-present-memprice-today").innerText;
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
-        window.open("../controllers/collateral.html");
+        window.open("./collateral");
       }else{DropNote('tr','Please Sign','yellow')}
     });
   }
@@ -171,7 +171,7 @@ export class ServicePresentation{
   <div class="${this.dom.cont}">
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
-                <img src="../bin/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
+                <img src="http://vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
                 <div class="${this.dom.info.contactname}">Client Name</div>
                 <div class="${this.dom.info.street}">1234 Street Dr</div>
                 <div class="${this.dom.info.unit}"></div>
