@@ -4,12 +4,13 @@
   "description": "server for static files",
   "main": "server.js",
   "scripts": {
-    "server":"node server.js",
-    "dev":"nodemon server.js"
+    "server": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "cmv",
   "license": "ISC",
   "dependencies": {
+    "node-fetch": "^3.3.0",
     "nodemon": "^2.0.19"
   }
 }

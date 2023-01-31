@@ -1,14 +1,13 @@
 import {wolstore} from '/Tech/store/lstore.js';
+
 import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 import * as titlebar from 'http://vogel.vhpportal.com/repo/modules/vg-titlebar.js';
 import { SELECTview } from 'http://vogel.vhpportal.com/repo/modules/vg-floatviews.js';
 import { AppDock } from 'http://vogel.vhpportal.com/repo/modules/appdock.js';
-
-import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
-
-import * as manlist from '/Tech/store/tech-managelist.js';
 import {STARTloadscreen} from 'http://vogel.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
+import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
+import * as manlist from '/Tech/store/tech-managelist.js';
 import {twdashlist,twolist}from '/Tech/javascript/tables/techwo-table.js';
 
 window.name="ftdash";
