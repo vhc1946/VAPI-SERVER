@@ -1,7 +1,7 @@
 
 import {ObjList} from 'http://vogel.vhpportal.com/repo/tools/vg-lists.js';
 import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
-
+import {SENDrequestvhp,vpacks} from '/repo/apis/vapi/vapicore.js';
 /*
 SENDrequestapi({
   collect:'apps',
@@ -17,9 +17,17 @@ SENDrequestapi({
 export class TechLocalWos extends ObjList{
   constructor(list){
     super(list);
+    this.vpack ={
+      collect:'apps',
+      store:'VFT',
+      db:'techwos'
+    };
   }
   UPDATEstore(item){
     return new Promise((resolve,reject)=>{
+      let packs = vpacks.mart({
+
+      })
       SENDrequestapi({
         collect:'apps',
         store:'VFT',
@@ -84,13 +92,20 @@ export class TechLocalWos extends ObjList{
   }
   REFRESHstore(tech=undefined){
     return new Promise((resolve,reject)=>{
-      SENDrequestapi({
-        collect:'apps',
-        store:'VFT',
-        db:'techwos',
+      let pack = vpacks.mart({
+        ...this.pack,
         method:'query',
         options:{query:{tech:tech,mobile:true}}
-      }).then(
+      });
+      /*
+      SENDrequestapi({
+        ...this.vpack,
+        method:'query',
+        options:{query:{tech:tech,mobile:true}}
+      })
+      */
+      console.log()
+      SENDrequestvhp(pack,'MART',{}).then(
         answr=>{
           let success=false;
           if(answr.success){this.list=answr.body.result;success=true;}

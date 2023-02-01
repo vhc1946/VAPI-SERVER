@@ -1,6 +1,7 @@
 var fbdb;
 var ftable = JSON.parse(localStorage.getItem('flbook'));
 import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
+import {SENDrequestvhp,vpacks} from '/repo/apis/vapi/vapicore.js';
 import {IDBinterface} from 'http://vogel.vhpportal.com/repo/storage/IDBinterface.js';
 
 /*
@@ -16,13 +17,13 @@ var fbdbsetup =(db)=>{
   let ostore = db.createObjectStore('books',{
     autoIncrement:true
   });
-  SENDrequestapi({
+  SENDrequestvhp({
     collect:"jonas",
     store:'SERVICE',
     db:'flbook',
     method:'query',
     options:{query:{}}
-  }).then(
+  },'STORE',{request:'mart'}).then(
     answr=>{
       console.log(answr);
       if(answr.success){
@@ -39,14 +40,15 @@ export var fbstore = new IDBinterface('jonas-flatratebook','books',fbdbsetup);
 fbstore.REFRESHstore=function(){
   return new Promise((resolve,reject)=>{
     console.log('refreshing')
-    SENDrequestapi({
+    SENDrequestvhp({
       collect:"jonas",
       store:'SERVICE',
       db:'flbook',
       method:'query',
       options:{query:{}}
-    }).then(
+    },'STORE',{request:'mart'}).then(
       list=>{
+        console.log('LIST',list);
         if(list.success){
           console.log(list);
           this.list.list = list.body.result;
