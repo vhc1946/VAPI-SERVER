@@ -1,6 +1,6 @@
 
-import {ObjList} from 'http://vogel.vhpportal.com/repo/tools/vg-lists.js';
-import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
+import {ObjList} from 'https://vogel.vhpportal.com/repo/tools/vg-lists.js';
+import {SENDrequestapi} from 'https://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
 import {SENDrequestvhp,vpacks} from '/repo/apis/vapi/vapicore.js';
 /*
 SENDrequestapi({

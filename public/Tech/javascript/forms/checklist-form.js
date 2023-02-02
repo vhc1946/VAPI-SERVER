@@ -1,4 +1,4 @@
-import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
+import {VHCform} from 'https://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 export class CheckListForm extends VHCform{
   constructor(cont,content,config){

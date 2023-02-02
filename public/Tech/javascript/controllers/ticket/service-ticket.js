@@ -1,16 +1,16 @@
 
-import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
-import * as gendis from 'http://vogel.vhpportal.com/repo/modules/vg-tables.js';
-import * as vcontrol from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
-vcontrol.SETUPviewcontroller('http://vogel.vhpportal.com/repo/');
-import { aserviceticket, awo, aservicecontract } from 'http://vogel.vhpportal.com/repo/ds/tickets/vogel-serviceticket.js';
+import {DropNote} from 'https://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import * as gendis from 'https://vogel.vhpportal.com/repo/modules/vg-tables.js';
+import * as vcontrol from 'https://vogel.vhpportal.com/repo/layouts/view-controller.js';
+vcontrol.SETUPviewcontroller('https://vogel.vhpportal.com/repo/');
+import { aserviceticket, awo, aservicecontract } from 'https://vogel.vhpportal.com/repo/ds/tickets/vogel-serviceticket.js';
 
 import {TicketServiceItems} from '/Tech/javascript/controllers/ticket/service-items.js';
 
 import {ServiceChecks} from '/Tech/javascript/controllers/ticket/service-checks.js';
 import {FlatRateTable} from '/Tech/javascript/tables/fbook-table.js';
 
-import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
+import {VHCform} from 'https://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 import {woform} from '/Tech/javascript/forms/wo-form.js';
 import {conform} from '/Tech/javascript/forms/contract-form.js';

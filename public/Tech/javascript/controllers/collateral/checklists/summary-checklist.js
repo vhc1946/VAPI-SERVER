@@ -164,7 +164,7 @@ export class SummaryCheckList{
         this.name = name
         this.dom = dom,
         this.content =`
-        <img id='header-logo'src="http://vogel.vhpportal.com/repo/assets/images/Header_clean.png"/>
+        <img id='header-logo'src="https://vogel.vhpportal.com/repo/assets/images/Header_clean.png"/>
         <div class="summary-header">
             <div id="title-header">${this.name} Summary</div>
             <div><span class="${dom.info.street}">1234 Street Dr</span> , <span class=${dom.info.cityzip}>Fenton, MO 63026</span></div>

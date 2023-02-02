@@ -4,12 +4,12 @@
     - linking all service item's info to one
     - linking service item repairs to one fo
 */
-import * as gendis from 'http://vogel.vhpportal.com/repo/modules/vg-tables.js';
-import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
-import {FINDparentele} from 'http://vogel.vhpportal.com/repo/tools/vg-displaytools.js';
+import * as gendis from 'https://vogel.vhpportal.com/repo/modules/vg-tables.js';
+import { DropNote } from 'https://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {FINDparentele} from 'https://vogel.vhpportal.com/repo/tools/vg-displaytools.js';
 
-import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
-import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
+import {ViewGroup} from 'https://vogel.vhpportal.com/repo/layouts/view-controller.js';
+import {VHCform} from 'https://vogel.vhpportal.com/repo/tools/vhc-forms.js';
 
 import {siform} from '/Tech/javascript/forms/serviceitem-form.js';
 import {SIrepairform} from '/Tech/javascript/forms/servicerepairs-form.js';
@@ -53,7 +53,7 @@ export class TicketServiceItems{
                   children:{
                     '.delete-button.img':{
                       attributes:{
-                        src:'http://vogel.vhpportal.com/repo/assets/icons/trash.png'
+                        src:'https://vogel.vhpportal.com/repo/assets/icons/trash.png'
                       }
                     }
                   }
@@ -65,7 +65,7 @@ export class TicketServiceItems{
                   children:{
                     '.add-button.img':{
                       attributes:{
-                        src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
+                        src:'https://vogel.vhpportal.com/repo/assets/icons/add.png'
                       }
                     }
                   }
@@ -84,7 +84,7 @@ export class TicketServiceItems{
                           children:{
                             '.add-button.img':{
                               attributes:{
-                                src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
+                                src:'https://vogel.vhpportal.com/repo/assets/icons/add.png'
                               }
                             }
                           }

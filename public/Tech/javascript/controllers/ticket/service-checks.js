@@ -1,14 +1,14 @@
 import {CheckListForm} from '/Tech/javascript/forms/checklist-form.js';
-import {VHCform} from 'http://vogel.vhpportal.com/repo/tools/vhc-forms.js';
-import { DropNote } from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
-import {ViewGroup} from 'http://vogel.vhpportal.com/repo/layouts/view-controller.js';
+import {VHCform} from 'https://vogel.vhpportal.com/repo/tools/vhc-forms.js';
+import { DropNote } from 'https://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
+import {ViewGroup} from 'https://vogel.vhpportal.com/repo/layouts/view-controller.js';
 
 import { coolingchecks } from '/Tech/javascript/controllers/collateral/checklists/cooling-checklist.js';
 import { heatingchecks } from '/Tech/javascript/controllers/collateral/checklists/heating-checklist.js';
 import { systemchecks } from '/Tech/javascript/controllers/collateral/checklists/system-checklist.js';
 import { summarychecks } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
 import { SummaryCheckList } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
-import { Calculations } from 'http://vogel.vhpportal.com/repo/tools/vg-calculations.js';
+import { Calculations } from 'https://vogel.vhpportal.com/repo/tools/vg-calculations.js';
 
 var toggledom = {
     cont: 'checklist-cont',
@@ -103,7 +103,7 @@ export class ServiceChecks{
                   children:{
                     '.delete-button.img':{
                       attributes:{
-                        src:'http://vogel.vhpportal.com/repo/assets/icons/trash.png'
+                        src:'https://vogel.vhpportal.com/repo/assets/icons/trash.png'
                       }
                     }
                   }
@@ -115,7 +115,7 @@ export class ServiceChecks{
                   children:{
                     '.add-button.img':{
                       attributes:{
-                        src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
+                        src:'https://vogel.vhpportal.com/repo/assets/icons/add.png'
                       }
                     }
                   }
@@ -134,7 +134,7 @@ export class ServiceChecks{
                           children:{
                             '.add-button.img':{
                               attributes:{
-                                src:'http://vogel.vhpportal.com/repo/assets/icons/add.png'
+                                src:'https://vogel.vhpportal.com/repo/assets/icons/add.png'
                               }
                             }
                           }

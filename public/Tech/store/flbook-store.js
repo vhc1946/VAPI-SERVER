@@ -1,8 +1,8 @@
 var fbdb;
 var ftable = JSON.parse(localStorage.getItem('flbook'));
-import {SENDrequestapi} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'https://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
 import {SENDrequestvhp,vpacks} from '/repo/apis/vapi/vapicore.js';
-import {IDBinterface} from 'http://vogel.vhpportal.com/repo/storage/IDBinterface.js';
+import {IDBinterface} from 'https://vogel.vhpportal.com/repo/storage/IDBinterface.js';
 
 /*
 SENDrequestapi({
