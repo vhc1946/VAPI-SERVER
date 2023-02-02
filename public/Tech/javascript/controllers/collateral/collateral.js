@@ -69,7 +69,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
     subject:'Check This Out',
     attach:emailcontent
   },
-  'MAIL').then(
+  'MAIL',{}).then(
     answer=>{console.log(answer);}
   );
 });
