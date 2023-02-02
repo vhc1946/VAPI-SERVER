@@ -3,14 +3,14 @@ import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checkl
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
 import {SENDrequestapi,SENDrequestvhp} from 'http://vogel.vhpportal.com/repo/apis/vapi/vapicore.js';
-
+import * as apitest from '../../../../repo/apis/vapi/vapicore.js'//'../../../../../../VAPI-CORE/bin/vapi-core.js'
 
 //setup emailing vars
 
 var emailcontent = {
-  wosum:'',
-  checks:[],
-  invoice:''
+    invoice:'',
+    wosum:'',
+    checks:[]
 }
 
 //generate presentation printout
@@ -64,8 +64,8 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get and validate email from screen
   //get array of all conent on collateral page
   console.log(emailcontent)
-  SENDrequestvhp({
-    to:'christianv@vogelheating.com',
+  apitest.SENDrequestvhp({
+    to:'mathewh@vogelheating.com',
     subject:'Check This Out',
     attach:emailcontent
   },

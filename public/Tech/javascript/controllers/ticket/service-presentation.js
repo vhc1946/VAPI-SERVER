@@ -1,7 +1,7 @@
-import { DrawingPad } from '/Tech/javascript/tools/drawing-pad.js';
-import {DropNote} from 'http://vogel.vhpportal.com/repo/modules/vg-dropnote.js';
-import {ServicePricing} from '/Tech/javascript/controllers/ticket/service-pricing.js';
-import {ContractWSform} from '/Tech/javascript/forms/contract-ws-form.js';
+import { DrawingPad } from '../tools/drawing-pad.js';
+import {DropNote} from '../repo/modules/vg-dropnote.js';
+import {ServicePricing} from './service-pricing.js';
+import {ContractWSform} from '../forms/contract-ws-form.js';
 //arepair
 
 //aservicepresentation(){}
@@ -15,10 +15,37 @@ export class ServicePresentation{
     this.final = {} //Final compact ticket object to be passed to collateral
     this.SignatureShown = false;
 
+    console.log("DATA", this.data)
+
     this.cont.getElementsByClassName(this.dom.head)[0].appendChild(this.conform.cont);
 
+    //Event listener for change of contract form
+    this.conform.cont.addEventListener('change',(ele)=>{
+      //console.log('update pricing on presentation');
+
+      let price = this.conform.GETformprice(1);
+
+      //Update price in paymeny form
+      document.getElementById('wo-present-contract-monthly').innerText = price;
+      //Update price object in final
+      this.final.monthlymem = price;
+
+      //Hide the signature and reset the box
+      if (this.SignatureShown) {
+        this.SHOWsignature();
+      }
+
+      //Update membership label
+      let oldLevel = document.getElementsByClassName('memlevel-label')[0].innerText;
+      let newLevel = this.conform.pricelevel;
+      if (oldLevel != newLevel) {
+        document.getElementsByClassName('memlevel-label')[0].innerText = this.conform.pricelevel;
+        this.contract = this.conform.pricelevel.slice(0, 3)
+        this.UPDATEsitems(this.data)
+      }
+    });
+
     this.contract=this.data.wo.pricelevel;
-    this.basePriceLevel=this.data.wo.pricelevel
     this.SETpresent(this.data);
     document.getElementsByClassName('memlevel-label')[0].innerText = this.contract
 
@@ -65,32 +92,6 @@ export class ServicePresentation{
       }
     })
 
-    //Event listener for change of contract form
-    this.conform.cont.addEventListener('change',(ele)=>{
-      //console.log('update pricing on presentation');
-
-      let price = this.conform.GETformprice(1);
-
-      //Update price in paymeny form
-      document.getElementById('wo-present-contract-monthly').innerText = price;
-      //Update price object in final
-      this.final.monthlymem = price;
-
-      //Hide the signature and reset the box
-      if (this.SignatureShown) {
-        this.SHOWsignature();
-      }
-
-      //Update membership label
-      let oldLevel = document.getElementsByClassName('memlevel-label')[0].innerText;
-      let newLevel = this.conform.pricelevel;
-      if (oldLevel != newLevel) {
-        document.getElementsByClassName('memlevel-label')[0].innerText = this.conform.pricelevel;
-        this.contract = this.conform.pricelevel.slice(0, 3)
-        this.UPDATEsitems(this.data)
-      }
-    });
-
     //setup signature pad
     this.sigpad = new DrawingPad(document.getElementsByClassName('signature-pad')[0]);
     document.getElementsByClassName('sig-clear')[0].addEventListener('click', (ele)=>{
@@ -112,7 +113,7 @@ export class ServicePresentation{
         window.memberprice = document.getElementById("wo-present-memprice-today").innerText;
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
-        window.open("./collateral");
+        window.open("../controllers/collateral.html");
       }else{DropNote('tr','Please Sign','yellow')}
     });
   }
@@ -121,7 +122,7 @@ export class ServicePresentation{
     cont: 'present-full-cont',
     head: 'present-header-cont',
     info:{
-      contactname:'present-info-contactname',
+      customername:'present-info-contactname',
       street:'present-info-street',
       unit:'present-info-unit',
       cityzip:'present-info-cityzip',
@@ -172,8 +173,8 @@ export class ServicePresentation{
   <div class="${this.dom.cont}">
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
-                <img src="http://vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
-                <div class="${this.dom.info.contactname}">Client Name</div>
+                <img src="../bin/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
+                <div class="${this.dom.info.customername}">Client Name</div>
                 <div class="${this.dom.info.street}">1234 Street Dr</div>
                 <div class="${this.dom.info.unit}"></div>
                 <div class="${this.dom.info.cityzip}">Fenton, MO 63026</div>
@@ -182,6 +183,7 @@ export class ServicePresentation{
                 <div class="${this.dom.info.id}">wonum</div>
             </div>
         </div>
+
         <div class="${this.dom.body}">
             <div id="wo-present-repair-cont">
                 <div class="${this.dom.system.repair.cont}">
@@ -201,13 +203,17 @@ export class ServicePresentation{
                     <div>Savings</div>
                     <div>Approval</div>
                 </div>
+
+
                 <div id="wo-present-repair-diagnostic" class="${this.dom.system.repair.cont}" style="display:none">
+
                     <div class="${this.dom.system.repair.desc}">Diagnostic</div>
                     <div class="${this.dom.system.repair.invst}"></div>
                     <div></div>
                     <div class="${this.dom.system.repair.savings}"></div>
                     <div>YES</div>
                 </div>
+
                 <div id="wo-present-systems">
             </div>
             <div class="${this.dom.system.repair.cont}">
@@ -238,6 +244,7 @@ export class ServicePresentation{
                 </div>
             </div>
         </div>
+
     </div>
   `
 
@@ -249,6 +256,7 @@ export class ServicePresentation{
     this.data.wo.pricelevel = oldpricelevel
     this.data.contract = oldpricelevel
     //Update WO info
+    console.log(this.data, "FROM SET PRESENT")
     for(let i in this.dom.info){
       this.cont.getElementsByClassName(this.dom.info[i])[0].innerText = this.data.wo[i];
     }
@@ -345,9 +353,9 @@ export class ServicePresentation{
             if(this.data.repairs[x][y].task!='OTH'){
               if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
                 if(this.data.contract && Object.keys(this.data.contract).length!==0){
-                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.basePriceLevel);
+                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
                 }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);}
-              }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.basePriceLevel);}
+              }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);}
             }else{
               mprice = Number(this.data.repairs[x][y].price);
             }

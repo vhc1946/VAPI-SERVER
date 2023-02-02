@@ -100,6 +100,7 @@ var qactions = {
         ticket.ticket = presentation.data;
         ticket.ticket.track.presented = true;
         box.style.left = "-5000px";
+        console.log(ticket.ticket)
         if (presentation.SignatureShown) {
           presentation.SHOWsignature()
         }
@@ -202,4 +203,5 @@ var TOGGLErepairtable = (hide=undefined) => {
 window.UPDATErepairapproval = (data)=> {
   //console.log("TICKET:",ticket.ticket.repairs==data.repairs)
   ticket.ticket = data;
+  
 }

@@ -45,6 +45,10 @@
     grid-column: 1 / 6;
     margin-bottom: 10px;
 }
+.wo-contact-cont {
+    display: grid;
+    grid-template-columns: repeat(2, 10%);
+}
 .present-info-id,
 .present-info-custcode{
     font-weight: bold;
@@ -53,23 +57,23 @@
 
 .present-info-contactname,
 .present-info-street{
-    grid-column: 1 / 5;
+    grid-column: 2 / 5;
 }
 .present-info-cityzip,
 .present-info-email{
-    grid-column: 1 / 4;
+    grid-column: 2 / 4;
 }
 .present-info-contactphone{
-    grid-column: 1 / 3;
+    grid-column: 2 / 6;
 }
 .present-label-salesrep{
-    grid-column: 1;
+    grid-column: 2;
 }
 .present-info-state{
     display: none;
 }
 .present-info-custcode{
-    grid-column: 1;
+    grid-column: 2;
 }
 .present-info-id{
     grid-column: 4;
@@ -168,16 +172,6 @@
     color: gray;
 }
 .wo-present-repair-unapproved div:first-child{
-    text-decoration: line-through;
-}
-.wo-present-repair-unapproved div:nth-child(2){
-    text-decoration: line-through;
-}
-.wo-present-repair-unapproved div:nth-child(3){
-    color: gray;
-    text-decoration: line-through;
-}
-.wo-present-repair-unapproved div:nth-child(4){
     text-decoration: line-through;
 }
 .wo-present-repair-unapproved div:last-child{
@@ -353,6 +347,9 @@
     background-color: var(--member-column-bg);
     width: 100%;
     height: calc(100% + 15px);
+}
+#member-item-label {
+    margin-left: 2vw;
 }
 
 .member-price {

@@ -1,6 +1,6 @@
 let dom = {
     info:{
-        contactname: 'invoice-info-client',
+        customername: 'invoice-info-client',
         street: 'invoice-info-street',
         cityzip: 'invoice-info-city',
         jstreet: 'invoice-info-lstreet',
@@ -23,12 +23,12 @@ let dom = {
     }
 }
 let content = `
-    <img id='header-logo'src="http://vogel.vhpportal.com/repo/assets/images/Header_clean.png"/>
+    <img id='header-logo'src="../bin/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div class="invoice-sectionhead">SOLD TO:</div>
             <div>
-                <div class="${dom.info.contactname}">Client Name</div>
+                <div class="${dom.info.customername}">Client Name</div>
                 <div class="${dom.info.street}">1234 Street Dr</div>
                 <div class="${dom.info.cityzip}">Anyplace, MO 60000</div>
             </div>
