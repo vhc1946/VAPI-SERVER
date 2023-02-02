@@ -1,7 +1,7 @@
 
-import * as gendis from 'https://vogel.vhpportal.com/repo/modules/vg-tables.js';
-import {FINDparentele} from 'https://vogel.vhpportal.com/repo/tools/vg-displaytools.js';
-import {ObjList} from 'https://vogel.vhpportal.com/repo/tools/vg-lists.js';
+import * as gendis from 'https://www.vhpportal.com/repo/modules/vg-tables.js';
+import {FINDparentele} from 'https://www.vhpportal.com/repo/tools/vg-displaytools.js';
+import {ObjList} from 'https://www.vhpportal.com/repo/tools/vg-lists.js';
 
 export class FlatRateTable{
   constructor(list,cont){
