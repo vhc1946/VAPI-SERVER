@@ -1,6 +1,6 @@
 let dom = {
     info:{
-        contactname: 'presentation-info-client',
+        customername: 'presentation-info-client',
         street: 'presentation-info-street',
         cityzip: 'presentation-info-city',
         jstreet: 'presentation-info-lstreet',
@@ -35,7 +35,7 @@ let content = `
         <div class="invoice-section-client">
             <div class="invoice-sectionhead">SOLD TO:</div>
             <div>
-                <div class="${dom.info.contactname}">Client Name</div>
+                <div class="${dom.info.customername}">Client Name</div>
                 <div class="${dom.info.street}">1234 Street Dr</div>
                 <div class="${dom.info.cityzip}">Anyplace, MO 60000</div>
             </div>

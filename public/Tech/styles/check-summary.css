@@ -119,6 +119,10 @@ body{
     bottom: 7px;
 }
 
+.checklist-item:nth-child(odd){
+    background-color: #ccc;
+}
+
 @media print{
     #system-label-group {
         display: grid;

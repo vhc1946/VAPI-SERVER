@@ -1,6 +1,20 @@
 #invoice-header-logo{
     width:100%;
 }
+
+/*#title-header {
+    background-color: var(--BEE-blue);
+    margin-top: 0.05in;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: .35in;
+    width: 5in;
+    margin-left: 1.5in;
+    margin-right: 1.5in;
+    justify-content: center;
+}*/
+
 #vogel-text, #vogel-addy{
     grid-column: 2;
     color: var(--BEE-blue);
@@ -17,13 +31,14 @@
 }
 [class*='invoice-section-']{
     padding: 5px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 .invoice-section-client{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     border-right: 0;
+    border-top-left-radius: 5px;
 }
 .invoice-section-location{
     display: flex;
@@ -31,6 +46,7 @@
     justify-content: space-around;
     border-top: 0;
     border-right: 0;
+    border-bottom-left-radius: 5px;
 }
 .invoice-section-info{
     grid-column: 2;
@@ -38,6 +54,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 3px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .invoice-sectionhead{
     font-weight: bold;
@@ -47,21 +65,24 @@
 }
 .invoice-body{
     margin-top: 20px;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 .invoice-descbox{
     min-height: 3.5in;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
     margin: 1px;
     padding: 5px;
 }
 
 .invoice-middle{
     min-height: 1in;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 1px;
     padding: 5px;
     margin-top: .2in;
+    border-radius: 5px;
 }
 .invoice-totals{
     display: flex;
@@ -77,11 +98,12 @@
 .invoice-totals-box{
     width: calc(50% - 2px);
     min-height: 1in;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 0px 1px 1px 1px;
     text-align: left;
     align-items: center;
     display: grid;
+    border-radius: 5px;
 }
 .invoice-totals-box>div>div>div{
     width: 50%;
@@ -89,10 +111,12 @@
     margin-left: 100px;
 }
 .invoice-totals-box>div>div:last-child>div:last-child{
-    border-top: 1px solid black;
+    border-top: 2px solid black;
+    border-radius: 5px;
 }
 .invoice-totals-box>div>div {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 5px;
     width: 45%;
     margin-right: 5%;
     align-content: flex-end;
@@ -135,4 +159,10 @@
 }
 #PriceLabel::before {
     content: '$';
+}
+
+.vg-toast-green, .vg-toast-red, .vg-toast-yellow{
+    width: 100% !important;
+    height: 100px !important;
+    font-size: medium;
 }

@@ -14,7 +14,7 @@ var viddom = {
 
 var vidgroup = {
   'What to Expect':{
-    src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Pre+Service+Call.mp4'
+    src:'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   },
   'Rewards Membership':{
     src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Rewards+Membership.mp4'
