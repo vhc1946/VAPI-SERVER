@@ -236,7 +236,7 @@ export class ServicePresentation{
                 <canvas class="signature-pad"></canvas>
                 <div class="signature-buttons">
                   <div class="flat-action-button sig-clear">Clear</div>
-                  <div class="flat-action-button sig-save">Sell</div>
+                  <div class="flat-action-button sig-save">Proceed</div>
                 </div>
             </div>
         </div>
