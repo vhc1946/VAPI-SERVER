@@ -113,7 +113,7 @@ export class ServicePresentation{
         window.memberprice = document.getElementById("wo-present-memprice-today").innerText;
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
-        window.open("../controllers/collateral.html");
+        window.open("/Tech/collateral");
       }else{DropNote('tr','Please Sign','yellow')}
     });
   }
