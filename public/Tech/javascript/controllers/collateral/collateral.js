@@ -12,7 +12,12 @@ var emailcontent = {
     wosum:'',
     checks:[]
 }
-
+function escapeHtml(text) {
+    'use strict';
+    return text.replace(/[\"&<>]/g, function (a) {
+        return { '"': '&quot;', '&': '&amp;', '<': '&lt;', '>': '&gt;' }[a];
+    });
+}
 //generate presentation printout
 
 var ticket = window.opener.data;
@@ -232,7 +237,7 @@ for (let i = 0; i < sitems.length; i++) {
 if (window.opener.signature) {
     document.getElementById('sig-insert').appendChild(window.opener.signature)
 }
-emailcontent.invoice = invoice.cont.outerHTML;
+emailcontent.invoice = escapeHtml(invoice.cont.outerHTML);
 
 /**
  * CREATE REWARD SUMMARY FORM
@@ -282,7 +287,7 @@ for (let i = 0; i < inputs.length; i++) {
 }
 SelectDiv.className = "present-contract-name"
 
-emailcontent.wosum = document.getElementsByClassName('present-full-cont')[0].parentElement.outerHTML;
+emailcontent.wosum = escapeHtml(document.getElementsByClassName('present-full-cont')[0].parentElement.outerHTML);
 
 /**
  * CREATE CHECKLIST FORM
@@ -293,7 +298,7 @@ for (let i = 0; i < summary.length; i++){
     document.body.appendChild(checksum.cont);
     document.getElementsByClassName(checksum.dom.info.street)[i].innerText = ticket.wo.street;
     document.getElementsByClassName(checksum.dom.info.cityzip)[i].innerText = ticket.wo.cityzip;
-    emailcontent.checks.push(checksum.cont.outerHTML);
+    emailcontent.checks.push(escapeHtml(checksum.cont.outerHTML));
 }
 
 //Change default name of printed document
