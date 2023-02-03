@@ -1,7 +1,6 @@
 
 import {ObjList} from 'https://www.vhpportal.com/repo/tools/vg-lists.js';
 import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
-import {SENDrequestvhp,vpacks} from '/repo/apis/vapi/vapicore.js';
 /*
 SENDrequestapi({
   collect:'apps',
@@ -25,16 +24,13 @@ export class TechLocalWos extends ObjList{
   }
   UPDATEstore(item){
     return new Promise((resolve,reject)=>{
-      let packs = vpacks.mart({
-
-      })
       SENDrequestapi({
         collect:'apps',
         store:'VFT',
         db:'techwos',
         method:'query',
         options:{query:{id:item.id}}
-      }).then(
+      },'STORE',{request:'mart'}).then(
         found=>{
           if(found.success&&found.body.result.length===1){
             SENDrequestapi({
@@ -47,7 +43,7 @@ export class TechLocalWos extends ObjList{
                 update:{$set:item},
                 options:{}
               }
-            }).then(answr=>{
+            },'STORE',{request:'mart'}).then(answr=>{
               let success=false;
               if(!answr.body.result.err){success=true;}
               return resolve(success);
@@ -62,7 +58,7 @@ export class TechLocalWos extends ObjList{
               options:{
                 docs:item
               }
-            }).then(answr=>{
+            },'STORE',{request:'mart'}).then(answr=>{
               let success=false;
               if(!answr.body.result.err){success=true;}
               return resolve(success);
@@ -92,20 +88,11 @@ export class TechLocalWos extends ObjList{
   }
   REFRESHstore(tech=undefined){
     return new Promise((resolve,reject)=>{
-      let pack = vpacks.mart({
-        ...this.pack,
-        method:'query',
-        options:{query:{tech:tech,mobile:true}}
-      });
-      /*
       SENDrequestapi({
         ...this.vpack,
         method:'query',
         options:{query:{tech:tech,mobile:true}}
-      })
-      */
-      console.log()
-      SENDrequestvhp(pack,'MART',{}).then(
+      },'STORE',{request:'mart'}).then(
         answr=>{
           let success=false;
           if(answr.success){this.list=answr.body.result;success=true;}
@@ -130,7 +117,7 @@ export class TechLocalWos extends ObjList{
               update:{$set:this.list[x]},
               options:{}
             }
-        }).then(
+        },'STORE',{request:'mart'}).then(
           answr=>{
           }
         )
@@ -148,7 +135,7 @@ export class TechLocalWos extends ObjList{
         db:'techwos',
         method:'query',
         options:{query:{id:id}}
-      }).then(
+      },'STORE',{request:'mart'}).then(
         result=>{
           if(result.success && result.body.result.length===1){
             return resolve(result.body.result[0])

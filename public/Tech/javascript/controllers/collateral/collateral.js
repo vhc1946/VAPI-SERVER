@@ -66,7 +66,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get and validate email from screen
   //get array of all conent on collateral page
   console.log(emailcontent)
-  apitest.SENDrequestvhp({
+  apitest.SENDrequestapi({
     to:document.getElementById('email-input').value,
     subject:'Check This Out',
     attach:emailcontent
