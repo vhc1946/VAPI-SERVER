@@ -13,6 +13,7 @@ var emailcontent = {
     checks:[]
 }
 var escapeHtml = (s) =>{
+    s=str.replace(/^\n|\n$/g, '');
     return s ? s.replace(
         /[&<>'"]/g,
         function (c, offset, str) {
