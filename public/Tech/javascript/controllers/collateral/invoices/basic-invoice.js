@@ -23,7 +23,7 @@ let dom = {
     }
 }
 let content = `
-    <img id='header-logo'src="../bin/repo/assets/images/Header_clean.png"/>
+    <img id='header-logo'src="https://www.vhpportal.com/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div class="invoice-sectionhead">SOLD TO:</div>
@@ -83,10 +83,10 @@ let content = `
             </div>
         </div>
     </div>
-    <div class="summary-header">
-        <div id="title-header">Invoice Summary</div>
-    </div> 
-    <div class="pagebreak"> </div>
+
+    <div id="title-header">Invoice Summary</div>
+
+    <div class="pagebreak"></div>
 `
 
 export var basicinvoice ={

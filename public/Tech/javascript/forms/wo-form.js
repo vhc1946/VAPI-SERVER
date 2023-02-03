@@ -6,7 +6,7 @@ const dom={  // was wodom
   fields: {
       id: 'wo-info-id',
       custcode: 'wo-info-custcode',
-      contactname: 'wo-info-name',
+      customername: 'wo-info-name',
       contactphone: 'wo-info-phone',
       contactemail: 'wo-info-email',
 
@@ -33,7 +33,7 @@ const dom={  // was wodom
   label:{
       id: 'wo-label-id',
       custcode: 'wo-label-custcode',
-      contactname: 'wo-label-name',
+      customername: 'wo-label-name',
       contactphone: 'wo-label-phone',
       contactemail: 'wo-label-email',
 

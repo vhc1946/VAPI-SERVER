@@ -39,11 +39,17 @@
 .present-info-custcode{
     font-weight: bold;
     font-size: 1.25em;
+    display: none;
 }
 
 .wo-contact-cont {
-    display: grid;
-    grid-template-columns: repeat(5, 10%);
+    position: relative;
+    left: 10px;
+}
+.present-info-id,
+.present-info-custcode{
+    font-weight: bold;
+    font-size: 1.25em;
 }
 
 .present-info-contactname,
@@ -56,6 +62,7 @@
 }
 .present-info-contactphone{
     grid-column: 2 / 6;
+    width: max-content;
 }
 .present-label-salesrep{
     grid-column: 2;
@@ -64,14 +71,13 @@
     display: none;
 }
 .present-info-custcode{
-    grid-column: 2;
+    grid-column: 5 / 6;
 }
 .present-info-id{
-    grid-column: 4;
+    grid-column: 5 / 6;
 }
 .present-info-descr{
-    grid-column: 1 / 3;
-    height: 100px;
+    display: none;
 }
 .present-contract-name, .wo-present-membership {
     width: 100%;
