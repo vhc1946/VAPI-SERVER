@@ -10,6 +10,8 @@ import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import * as manlist from '/Tech/store/tech-managelist.js';
 import {twdashlist,twolist}from '/Tech/javascript/tables/techwo-table.js';
 
+import {SENDrequestvhp} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+
 window.name="ftdash";
 window.gohome=function(win){win.open('',window.name);}//window.loaction.reload();
 window.refreshDash = (wonum)=>{
@@ -80,6 +82,21 @@ window.twdashlist = twdashlist;
 window.tabs = {}
 
 var mactions = {
+  email:{
+    id:'test-email',
+    src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
+    onclick:(ele)=>{
+
+      SENDrequestvhp({
+        to:'christianv@vogelheating.com',
+        subject:'Check This Out',
+        attach:{wonum:'<div>Hello</div>',checks:['<div>hello</div>'],invoice:'<div>hello</div>'}
+      },
+      'MAIL',{}).then(
+        answer=>{console.log(answer);}
+      );
+    }
+  },
   datalist:{
     id:'refresh-datalist',
     src:'https://www.vhpportal.com/repo/assets/icons/datastores.png',

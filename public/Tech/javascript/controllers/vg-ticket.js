@@ -6,6 +6,7 @@ import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js'
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
 import {ServicePresentation} from '/Tech/javascript/controllers/ticket/service-presentation.js';
 
+
 let publicfolder = '/Tech/bin/css'; //not sure we need
 // Load Data //
 
@@ -203,5 +204,5 @@ var TOGGLErepairtable = (hide=undefined) => {
 window.UPDATErepairapproval = (data)=> {
   //console.log("TICKET:",ticket.ticket.repairs==data.repairs)
   ticket.ticket = data;
-  
+
 }

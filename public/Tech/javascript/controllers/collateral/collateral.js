@@ -12,7 +12,9 @@ var emailcontent = {
     wosum:'',
     checks:[]
 }
-
+var escapeHtml = (s) =>{
+  return $("<div/>").text(s.replace(/(\r\n|\n|\r)/gm, "")).html();
+};
 //generate presentation printout
 
 var ticket = window.opener.data;
