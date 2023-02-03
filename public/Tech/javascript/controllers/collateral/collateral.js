@@ -13,26 +13,7 @@ var emailcontent = {
     checks:[]
 }
 var escapeHtml = (s) =>{
-    s=s.replace(/(^\s*(?!.+)\n+)|(\n+\s+(?!.+)$)/g, "");
-    return s ? s.replace(
-        /[&<>'"]/g,
-        function (c, offset, str) {
-            if (c === "&") {
-                var substr = str.substring(offset, offset + 6);
-                if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
-                    // already escaped, do not re-escape
-                    return c;
-                }
-            }
-            return "&" + {
-                "&": "amp",
-                "<": "lt",
-                ">": "gt",
-                "'": "apos",
-                '"': "quot"
-            }[c] + ";";
-        }
-    ) : "";
+  return s.replace(/(^\s*(?!.+)\n+)|(\n+\s+(?!.+)$)/g, "");
 };
 //generate presentation printout
 
