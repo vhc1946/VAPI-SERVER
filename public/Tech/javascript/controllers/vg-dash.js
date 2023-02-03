@@ -5,12 +5,12 @@ import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js
 import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
 import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
 import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import * as manlist from '/Tech/store/tech-managelist.js';
 import {twdashlist,twolist}from '/Tech/javascript/tables/techwo-table.js';
 
-import {SENDrequestapi} from '/repo/apis/vapi/vapicore.js';
 
 window.name="ftdash";
 window.gohome=function(win){win.open('',window.name);}//window.loaction.reload();
