@@ -64,7 +64,7 @@ const content=`
     <div class="${dom.fields.custcode}"></div>
 
     <div class="wo-contact-cont">
-      <div class="${dom.fields.contactname}"></div>
+      <div class="${dom.fields.customername}"></div>
       <div class="${dom.fields.contactphone}"></div>
       <input class="${dom.fields.contactemail}" placeholder="Enter customer email"></input>
       <div class="${dom.fields.street}"></div>

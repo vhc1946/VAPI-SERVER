@@ -108,6 +108,11 @@ export class ServiceTicket{
     this.forms.repairs = this.port.sitems.repairs
     this.forms.checks = this.port.checks.forms
 
+    //Check for customer name
+    if (this.ticket.wo.customername == undefined) {
+      this.ticket.wo.customername = this.ticket.wo.contactname
+    }
+
     this.port.info.cont.getElementsByClassName('wo-info-pricelevel')[0].addEventListener('change',(ele)=>{
       this.UPDATEpricing(ele.target.value);
     });
@@ -170,7 +175,6 @@ export class ServiceTicket{
               for (let key in tick[f][x]) {
                 //Load basic data if name, otherwise load form of each checklist
                 if (key == "name") {
-                  //console.log("tick[f][tick[f].length-1][key]",tick[f][x][key])
                   this.forms[f][x][key] = tick[f][x][key];
                 }else if (key == "checks") {
                   for (let cl in tick[f][x].checks) {

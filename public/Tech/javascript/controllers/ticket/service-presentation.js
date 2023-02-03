@@ -15,8 +15,6 @@ export class ServicePresentation{
     this.final = {} //Final compact ticket object to be passed to collateral
     this.SignatureShown = false;
 
-    console.log("DATA", this.data)
-
     this.cont.getElementsByClassName(this.dom.head)[0].appendChild(this.conform.cont);
 
     //Event listener for change of contract form
@@ -113,7 +111,7 @@ export class ServicePresentation{
         window.memberprice = document.getElementById("wo-present-memprice-today").innerText;
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
-        window.open("/Tech/collateral");
+        window.open("../controllers/collateral.html");
       }else{DropNote('tr','Please Sign','yellow')}
     });
   }
@@ -124,7 +122,6 @@ export class ServicePresentation{
     info:{
       customername:'present-info-contactname',
       street:'present-info-street',
-      unit:'present-info-unit',
       cityzip:'present-info-cityzip',
       contactphone:'present-info-contactphone',
       custcode:'present-info-custcode',
@@ -173,14 +170,13 @@ export class ServicePresentation{
   <div class="${this.dom.cont}">
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
-                <img src="../bin/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
+                <img src="https://www.vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
                 <div class="${this.dom.info.customername}">Client Name</div>
+                <div class="${this.dom.info.custcode}">CUSTCODE</div>
                 <div class="${this.dom.info.street}">1234 Street Dr</div>
-                <div class="${this.dom.info.unit}"></div>
+                <div class="${this.dom.info.id}">wonum</div>
                 <div class="${this.dom.info.cityzip}">Fenton, MO 63026</div>
                 <div class="${this.dom.info.contactphone}">Phone Number</div>
-                <div class="${this.dom.info.custcode}">CUSTCODE</div>
-                <div class="${this.dom.info.id}">wonum</div>
             </div>
         </div>
 
@@ -256,7 +252,6 @@ export class ServicePresentation{
     this.data.wo.pricelevel = oldpricelevel
     this.data.contract = oldpricelevel
     //Update WO info
-    console.log(this.data, "FROM SET PRESENT")
     for(let i in this.dom.info){
       this.cont.getElementsByClassName(this.dom.info[i])[0].innerText = this.data.wo[i];
     }
@@ -465,7 +460,7 @@ export class ServicePresentation{
   /**
    * Loops through each repair item and updates its price from the price book, using the given repair level
    * Saves to the ticket object
-   * @param {*price level} pl
+   * @param {*price level} pl 
    */
   UPDATEticketrepairs = (pl=null, appr=null) => {
     for (let i = 0; i < this.data.repairs.length; i++) {
@@ -478,7 +473,7 @@ export class ServicePresentation{
         }
         if (appr != null) {
           repair.appr = appr;
-        }
+        }        
       }
     }
 
