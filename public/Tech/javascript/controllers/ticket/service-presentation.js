@@ -1,7 +1,7 @@
 import { DrawingPad } from '../../tools/drawing-pad.js';
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import {ServicePricing} from './service-pricing.js';
-import {ContractWSform} from '../forms/contract-ws-form.js';
+import {ContractWSform} from '../../forms/contract-ws-form.js';
 //arepair
 
 //aservicepresentation(){}
