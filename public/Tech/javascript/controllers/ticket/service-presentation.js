@@ -1,6 +1,6 @@
 import { DrawingPad } from '/Tech/javascript/tools/drawing-pad.js';
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {ServicePricing} from '/Techs/javascript/controllers/ticket/service-pricing.js';
+import {ServicePricing} from '/Tech/javascript/controllers/ticket/service-pricing.js';
 import {ContractWSform} from '/Tech/javascript/forms/contract-ws-form.js';
 //arepair
 
