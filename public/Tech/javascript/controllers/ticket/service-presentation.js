@@ -266,7 +266,7 @@ export class ServicePresentation{
     //Check if document is loaded for first run of presentation generation
     this.conform.UPDATEselect();
     this.contract = this.data.wo.pricelevel;
-    if (this.contract == "STA" || this.contract == "AHR") {
+    if (this.contract == "STA" || this.contract == "AHR" || this.contract == "STD") {
       this.contract = "PRE"
     }
     //Update repair items

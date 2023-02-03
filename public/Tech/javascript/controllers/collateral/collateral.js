@@ -65,12 +65,19 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get array of all conent on collateral page
   console.log(emailcontent)
   apitest.SENDrequestvhp({
-    to:'mathewh@vogelheating.com',
+    to:document.getElementById('email-input').value,
     subject:'Check This Out',
     attach:emailcontent
   },
   'MAIL',{}).then(
-    answer=>{console.log(answer);}
+    answer=>{
+        if (answer.msg == "Mail sent") {
+            DropNote('tr', 'Mail sent!', 'green', false)
+            DropNote('tr', 'Remind customer to check spam', 'green', false)
+        } else {
+            DropNote('tr', answer.msg, 'red', false)
+        }
+    }
   );
 });
 

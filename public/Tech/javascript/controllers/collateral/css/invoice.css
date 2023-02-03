@@ -160,3 +160,9 @@
 #PriceLabel::before {
     content: '$';
 }
+
+.vg-toast-green, .vg-toast-red, .vg-toast-yellow{
+    width: 100% !important;
+    height: 100px !important;
+    font-size: medium;
+}

@@ -195,7 +195,7 @@ export class ServiceChecks{
             DropNote('tr',`${name.value} Already Added`,'yellow');
         } else {
             DropNote('tr',`Adding ${name.value}`);
-            this.info.push([name, retval]);
+            this.info.push([name.value, retval]);
         }
         this.currsi.innerText = name.value;
         name.value = '';
