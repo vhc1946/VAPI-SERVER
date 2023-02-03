@@ -6,7 +6,6 @@ import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js'
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
 import {ServicePresentation} from '/Tech/javascript/controllers/ticket/service-presentation.js';
 
-import {SENDrequestvhp} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 let publicfolder = '/Tech/bin/css'; //not sure we need
 // Load Data //
@@ -116,21 +115,6 @@ var qactions = {
   }
 };
 var mactions = {
-  email:{
-    id:'test-email',
-    src:'https://www.vhpportal.com/repo/assets/icons/disk.png'
-    onclick:(ele)=>{
-
-      apitest.SENDrequestvhp({
-        to:'christianv@vogelheating.com',
-        subject:'Check This Out',
-        attach:{wonum:'<div>Hello</div>',checks:['<div>hello</div>'],invoice:'<div>hello</div>'}
-      },
-      'MAIL',{}).then(
-        answer=>{console.log(answer);}
-      );
-    }
-  },
   save:{
     id:'wo-save-button',
     src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
