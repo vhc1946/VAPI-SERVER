@@ -1,7 +1,7 @@
-import { DrawingPad } from '../../tools/drawing-pad.js';
+import { DrawingPad } from '/Tech/javascript/tools/drawing-pad.js';
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {ServicePricing} from './service-pricing.js';
-import {ContractWSform} from '../../forms/contract-ws-form.js';
+import {ServicePricing} from '/Techs/javascript/controllers/ticket/service-pricing.js';
+import {ContractWSform} from '/Tech/javascript/forms/contract-ws-form.js';
 //arepair
 
 //aservicepresentation(){}
@@ -460,7 +460,7 @@ export class ServicePresentation{
   /**
    * Loops through each repair item and updates its price from the price book, using the given repair level
    * Saves to the ticket object
-   * @param {*price level} pl 
+   * @param {*price level} pl
    */
   UPDATEticketrepairs = (pl=null, appr=null) => {
     for (let i = 0; i < this.data.repairs.length; i++) {
@@ -473,7 +473,7 @@ export class ServicePresentation{
         }
         if (appr != null) {
           repair.appr = appr;
-        }        
+        }
       }
     }
 
