@@ -13,7 +13,7 @@ var emailcontent = {
     checks:[]
 }
 var escapeHtml = (s) =>{
-  return s.replace(/(\r\n|\n|\r)/gm, "");;
+  return $("<div/>").text(s.replace(/(\r\n|\n|\r)/gm, "")).html();
 };
 //generate presentation printout
 
