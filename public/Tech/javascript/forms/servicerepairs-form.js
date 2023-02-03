@@ -151,7 +151,7 @@ export class SIrepairform extends FormList{
       row.getElementsByClassName('delete-repair-item')[0].addEventListener('click',(ele)=>{
         ele.target.parentNode.remove();
       });
-      if(skipdup||this.Dupcheck(row)){
+      if(item.task == "OTH" ||skipdup||this.Dupcheck(row)){
         if (noteflag) {DropNote('tr',item.task+' Added','green');}
         return row;
         }
