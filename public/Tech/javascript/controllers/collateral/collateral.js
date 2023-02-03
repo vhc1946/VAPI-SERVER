@@ -3,6 +3,7 @@ import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checkl
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+import { emailtemplate } from "./emailtemplate";
 
 //setup emailing vars
 
@@ -67,7 +68,8 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   console.log(emailcontent)
   apitest.SENDrequestapi({
     to:document.getElementById('email-input').value,
-    subject:'Check This Out',
+    subject:'Home Comfort Report',
+    html:emailtemplate,
     attach:emailcontent
   },
   'MAIL',{}).then(
