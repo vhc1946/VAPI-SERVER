@@ -87,7 +87,7 @@ var mactions = {
     src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
     onclick:(ele)=>{
 
-      apitest.SENDrequestvhp({
+      SENDrequestvhp({
         to:'christianv@vogelheating.com',
         subject:'Check This Out',
         attach:{wonum:'<div>Hello</div>',checks:['<div>hello</div>'],invoice:'<div>hello</div>'}
