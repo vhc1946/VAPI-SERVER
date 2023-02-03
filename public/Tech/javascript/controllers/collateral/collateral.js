@@ -12,7 +12,7 @@ var emailcontent = {
     wosum:'',
     checks:[]
 }
-var escapeHtml = (s) {
+var escapeHtml = (s) =>{
     return s ? s.replace(
         /[&<>'"]/g,
         function (c, offset, str) {
