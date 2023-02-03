@@ -12,12 +12,27 @@ var emailcontent = {
     wosum:'',
     checks:[]
 }
-function escapeHtml(text) {
-    'use strict';
-    return text.replace(/[\"&<>]/g, function (a) {
-        return { '"': '&quot;', '&': '&amp;', '<': '&lt;', '>': '&gt;' }[a];
-    });
-}
+var escapeHtml = (s) {
+    return s ? s.replace(
+        /[&<>'"]/g,
+        function (c, offset, str) {
+            if (c === "&") {
+                var substr = str.substring(offset, offset + 6);
+                if (/&(amp|lt|gt|apos|quot);/.test(substr)) {
+                    // already escaped, do not re-escape
+                    return c;
+                }
+            }
+            return "&" + {
+                "&": "amp",
+                "<": "lt",
+                ">": "gt",
+                "'": "apos",
+                '"': "quot"
+            }[c] + ";";
+        }
+    ) : "";
+};
 //generate presentation printout
 
 var ticket = window.opener.data;
