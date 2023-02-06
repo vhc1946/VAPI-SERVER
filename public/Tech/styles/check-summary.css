@@ -150,42 +150,6 @@ body{
     @page{
         size: 8.5in 11in;
     }
-    .section-header-sys{
-        color:black;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-        background-color: white;
-    }
-    .section-header-air{
-        color:black;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-        background-color: white;
-    }
-    .section-header-cool{
-        color:black;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-        background-color: white;
-    }
-    .section-header-heat{
-        color:black;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-        background-color: white;
-    }
-    .section-header-access{
-        color:black;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-        background-color: white;
-    }
-    .section-header-descr {
-        color:black;
-        background-color: white;
-        border-bottom: 0.25px solid black;
-        border-top: 0.25px solid black;
-    }
     .part-header{
         font-weight: bold;
         padding: 1.5px;

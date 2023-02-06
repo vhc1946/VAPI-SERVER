@@ -73,11 +73,11 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get and validate email from screen
   //get array of all conent on collateral page
   console.log(emailcontent)
-  apitest.SENDrequestapi({
-    to:document.getElementById('email-input').value,
+  SENDrequestapi({
+    to:'christianv@vogelheating.com',//document.getElementById('email-input').value,
     subject:'Home Comfort Report',
     html:emailform.GETcontent(),
-    attach:emailcont
+    attach:emailcontent
   },
   'MAIL',{}).then(
     answer=>{
