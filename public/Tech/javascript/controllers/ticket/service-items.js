@@ -148,7 +148,6 @@ export class TicketServiceItems{
           DropNote('tr',`Adding ${name.value}`);
           this.currsi.innerText=name.value;
           this.SETcurrtab(this.currsi.innerText);
-          items.push(retval) //Add new service item to sitems
           name.value = '';
           this.TOGGLEaddinput();
         } else {
