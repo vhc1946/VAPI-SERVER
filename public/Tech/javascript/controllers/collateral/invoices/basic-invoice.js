@@ -82,9 +82,9 @@ let content = `
                 </div>
             </div>
         </div>
+        <div class="footer-header">Invoice Summary</div>
     </div>
 
-    <div id="title-header">Invoice Summary</div>
 
     <div class="pagebreak"></div>
 `

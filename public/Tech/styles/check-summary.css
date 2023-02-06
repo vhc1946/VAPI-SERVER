@@ -29,11 +29,19 @@ body{
     color: var(--text-light);
     text-align: center;
 }
+.summary-section-info {
+    border-top-left-radius: 5px;
+}
+.summary-section-airflow {
+    border-top-right-radius: 5px;
+}
 .section-header-sys{
     background-color: var(--BCE-green);
+    border-top-left-radius: 5px;
 }
 .section-header-air{
     background-color: rgb(175, 10, 175);
+    border-top-right-radius: 5px;
 }
 .section-header-cool{
     background-color: var(--vogel-blue);
@@ -92,9 +100,6 @@ body{
     height: 24px;
     width: 24px;
     filter: invert();
-}
-#email-collateral {
-    
 }
 #print-collateral:hover {
     filter: invert();
