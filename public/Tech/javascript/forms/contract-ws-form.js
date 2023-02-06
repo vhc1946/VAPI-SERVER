@@ -259,4 +259,19 @@ export class ContractWSform extends VHCform{
 
     return contract;
   }
+
+  SETcontract=(contract)=>{
+    for (let i in dom.form.inputs) {
+      let opt = document.getElementsByClassName(dom.form.inputs[i])[0].parentNode;
+      let optval = Number(document.getElementsByClassName(dom.form.inputs[i])[0].innerText);
+      let optinput = opt.getElementsByTagName('input')[0];
+
+      optinput.value = contract[i];
+    }
+    let conappr = document.getElementsByClassName(dom.form.memappr)[0];
+    this.pricelevel = contract.pricelevel
+    if(contract.monthlyplan == true){
+      conappr.checked = true;
+    }
+  }
 }

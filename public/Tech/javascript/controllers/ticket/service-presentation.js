@@ -47,6 +47,22 @@ export class ServicePresentation{
     this.SETpresent(this.data);
     document.getElementsByClassName('memlevel-label')[0].innerText = this.contract
 
+    //Set contract form to currently existign data in ticket
+    let testcontr = {
+      "monthlyplan": true,
+      "pricelevel": "PREMIUM",
+      "sys": "7485",
+      "comp": "3052",
+      "stdfltr": "5",
+      "spcfltr": "5",
+      "humpad": "4",
+      "timesave": "4"
+  }
+    if (this.data.conform != undefined) {
+      console.log("Setting conform")
+      this.conform.SETcontract(this.data.conform)
+    }
+
     //Check AHR price box if set to After Hours
     if (this.pricebook.pl == "AHR") {
       document.getElementById('pl-check').checked = true;
