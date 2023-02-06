@@ -3,7 +3,7 @@ import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checkl
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
-import { emailtemplate } from "./emailtemplate";
+import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
 //setup emailing vars
 
@@ -36,7 +36,14 @@ if (ticket.wo.pricelevel == "STA") {
 } else {
     price = window.opener.memberprice
 }
-
+let name = ticket.wo.customername.split(", ")
+console.log(name)
+let emailform = undefined;
+if (name.length > 1) {
+    emailform = new EmailForm(name[1] + " " + name[0])
+} else {
+    emailform = new EmailForm(ticket.wo.customername)
+}
 //ACTION events ////////////
 /**
  * Event listener to download PDF of summary
@@ -69,8 +76,8 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   apitest.SENDrequestapi({
     to:document.getElementById('email-input').value,
     subject:'Home Comfort Report',
-    html:emailtemplate,
-    attach:emailcontent
+    html:emailform.GETcontent(),
+    attach:emailcont
   },
   'MAIL',{}).then(
     answer=>{
