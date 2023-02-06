@@ -11,7 +11,7 @@ export class ServicePresentation{
     this.cont.innerHTML=this.contents;
     this.data = data; //ticket data
     this.pricebook = new ServicePricing(pricebook); //ticket book
-    this.conform = new ContractWSform(this.data.wo.pl);
+    this.conform = new ContractWSform();
     this.final = {} //Final compact ticket object to be passed to collateral
     this.SignatureShown = false;
 
