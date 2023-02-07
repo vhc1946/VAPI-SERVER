@@ -68,6 +68,7 @@ document.getElementById('print-collateral').addEventListener('dblclick',(ele)=>{
  */
 document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   alert('will email');
+  DropNote('tr', 'Sending email!', 'yellow', false)
   ticket.track.emailed = true;
   console.log(ticket);
   //get and validate email from screen
