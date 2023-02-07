@@ -1,14 +1,14 @@
 import {CheckListForm} from '/Tech/javascript/forms/checklist-form.js';
-import {VHCform} from 'https://www.vhpportal.com/repo/tools/vhc-forms.js';
-import { DropNote } from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {ViewGroup} from 'https://www.vhpportal.com/repo/layouts/view-controller.js';
+import {VHCform} from 'http://3.145.12.72/repo/tools/vhc-forms.js';
+import { DropNote } from 'http://3.145.12.72/repo/modules/vg-dropnote.js';
+import {ViewGroup} from 'http://3.145.12.72/repo/layouts/view-controller.js';
 
 import { coolingchecks } from '/Tech/javascript/controllers/collateral/checklists/cooling-checklist.js';
 import { heatingchecks } from '/Tech/javascript/controllers/collateral/checklists/heating-checklist.js';
 import { systemchecks } from '/Tech/javascript/controllers/collateral/checklists/system-checklist.js';
 import { summarychecks } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
 import { SummaryCheckList } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
-import { Calculations } from 'https://www.vhpportal.com/repo/tools/vg-calculations.js';
+import { Calculations } from 'http://3.145.12.72/repo/tools/vg-calculations.js';
 
 var toggledom = {
   cont: 'checklist-cont',
@@ -103,7 +103,7 @@ constructor(checks={}){
                 children:{
                   '.delete-button.img':{
                     attributes:{
-                      src:'https://www.vhpportal.com/repo/assets/icons/trash.png'
+                      src:'http://3.145.12.72/repo/assets/icons/trash.png'
                     }
                   }
                 }
@@ -115,7 +115,7 @@ constructor(checks={}){
                 children:{
                   '.add-button.img':{
                     attributes:{
-                      src:'https://www.vhpportal.com/repo/assets/icons/add.png'
+                      src:'http://3.145.12.72/repo/assets/icons/add.png'
                     }
                   }
                 }
@@ -134,7 +134,7 @@ constructor(checks={}){
                         children:{
                           '.add-button.img':{
                             attributes:{
-                              src:'https://www.vhpportal.com/repo/assets/icons/add.png'
+                              src:'http://3.145.12.72/repo/assets/icons/add.png'
                             }
                           }
                         }
