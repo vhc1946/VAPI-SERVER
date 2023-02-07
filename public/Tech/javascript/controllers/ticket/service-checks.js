@@ -1,14 +1,14 @@
 import {CheckListForm} from '/Tech/javascript/forms/checklist-form.js';
-import {VHCform} from 'http://3.145.12.72//repo/tools/vhc-forms.js';
-import { DropNote } from 'http://3.145.12.72//repo/modules/vg-dropnote.js';
-import {ViewGroup} from 'http://3.145.12.72//repo/layouts/view-controller.js';
+import {VHCform} from 'https://www.vhpportal.com/repo/tools/vhc-forms.js';
+import { DropNote } from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import {ViewGroup} from 'https://www.vhpportal.com/repo/layouts/view-controller.js';
 
 import { coolingchecks } from '/Tech/javascript/controllers/collateral/checklists/cooling-checklist.js';
 import { heatingchecks } from '/Tech/javascript/controllers/collateral/checklists/heating-checklist.js';
 import { systemchecks } from '/Tech/javascript/controllers/collateral/checklists/system-checklist.js';
 import { summarychecks } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
 import { SummaryCheckList } from '/Tech/javascript/controllers/collateral/checklists/summary-checklist.js';
-import { Calculations } from 'http://3.145.12.72//repo/tools/vg-calculations.js';
+import { Calculations } from 'https://www.vhpportal.com/repo/tools/vg-calculations.js';
 
 var toggledom = {
   cont: 'checklist-cont',
@@ -103,7 +103,7 @@ constructor(checks={}){
                 children:{
                   '.delete-button.img':{
                     attributes:{
-                      src:'http://3.145.12.72//repo/assets/icons/trash.png'
+                      src:'https://www.vhpportal.com/repo/assets/icons/trash.png'
                     }
                   }
                 }
@@ -115,7 +115,7 @@ constructor(checks={}){
                 children:{
                   '.add-button.img':{
                     attributes:{
-                      src:'http://3.145.12.72//repo/assets/icons/add.png'
+                      src:'https://www.vhpportal.com/repo/assets/icons/add.png'
                     }
                   }
                 }
@@ -134,7 +134,7 @@ constructor(checks={}){
                         children:{
                           '.add-button.img':{
                             attributes:{
-                              src:'http://3.145.12.72//repo/assets/icons/add.png'
+                              src:'https://www.vhpportal.com/repo/assets/icons/add.png'
                             }
                           }
                         }
@@ -209,16 +209,16 @@ constructor(checks={}){
   })
 
   /*Click to close functionality on each section header*/
-  let checklistcards = this.view.cont.getElementsByClassName('checklist-card');
+  /*let checklistcards = this.view.cont.getElementsByClassName('checklist-card');
   for (let i = 0; i<checklistcards.length; i++) {
     let header = checklistcards[i].firstElementChild;
     header.addEventListener('click', (eve)=>{
       Clicktoclose(checklistcards[i]);
     })
-  }
+  }*/
 
   /*Hide all functionality for main section headers */
-  let checklistsections = this.view.cont.getElementsByClassName('checklist-section');
+  /*let checklistsections = this.view.cont.getElementsByClassName('checklist-section');
   for (let i = 0; i<checklistsections.length; i++) {
     let mainheader = checklistsections[i].firstElementChild;
     mainheader.addEventListener('click', (eve)=>{
@@ -232,7 +232,7 @@ constructor(checks={}){
     })
 
     mainheader.click() //Initially click to close all headers on startup
-  }
+  }*/
 }
 
 /*
@@ -316,6 +316,8 @@ ADDgroup(name,group={system:null,cooling:null,heating:null}){
       this.forms[this.forms.length - 1].checks[c].valids = checklists.doms[c].valids || {}; //describe any input validation rules
       let nview = cview.ADDview(checklists.titles[c],this.forms[this.forms.length - 1].checks[c].cont);
       this.forms[this.forms.length - 1].checks[c].form=group[c];
+
+      
     }
 
     /*CALCULATION Listener events*/
@@ -356,6 +358,34 @@ ADDgroup(name,group={system:null,cooling:null,heating:null}){
         DropNote('tr',`Invalid Input: ${new_input.value}`,'yellow')
       }
     });
+
+
+    let checklistcards = cview.cont.getElementsByClassName('checklist-card');
+    for (let i = 0; i<checklistcards.length; i++) {
+      let header = checklistcards[i].firstElementChild;
+      header.addEventListener('click', (eve)=>{
+        Clicktoclose(checklistcards[i]);
+      })
+    }
+
+    /*Hide all functionality for main section headers */
+    let checklistsections = cview.cont.getElementsByClassName('checklist-section');
+    for (let i = 0; i<checklistsections.length; i++) {
+      let mainheader = checklistsections[i].firstElementChild;
+      mainheader.addEventListener('click', (eve)=>{
+        if (mainheader.id == "shown") {
+          HideAll(checklistsections[i], true);
+          mainheader.id = "hidden"
+        } else {
+          HideAll(checklistsections[i], false);
+          mainheader.id = "shown";
+        }
+      })
+
+      mainheader.click() //Initially click to close all headers on startup
+    }
+
+
     return cview;
   } else {return false}
 }
