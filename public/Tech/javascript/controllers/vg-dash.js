@@ -174,6 +174,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     if(woitem){
       savenload(woitem);
     }else{
+      DropNote('tr', 'Looking for work order, please wait', 'yellow', false)
       //search vapi mart
       twolist.CHECKmart(wonum).then(
         found=>{
