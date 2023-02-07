@@ -1,7 +1,7 @@
-import {FormList} from 'https://www.vhpportal.com/repo/tools/vhc-formlist.js';
-import * as ttools from 'https://www.vhpportal.com/repo/modules/vg-tables.js';
-import { DropNote } from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {aflatrepair} from 'https://www.vhpportal.com/repo/ds/jonas/flatratebook.js';
+import {FormList} from 'http://3.145.12.72//repo/tools/vhc-formlist.js';
+import * as ttools from 'http://3.145.12.72//repo/modules/vg-tables.js';
+import { DropNote } from 'http://3.145.12.72//repo/modules/vg-dropnote.js';
+import {aflatrepair} from 'http://3.145.12.72//repo/ds/jonas/flatratebook.js';
 // service item repairs
 
 export class SIrepairform extends FormList{
@@ -84,7 +84,7 @@ export class SIrepairform extends FormList{
     <div class="${this.dom.table.actions}">
       <input class="${this.dom.addform.desc}" placeholder="Add description" type="search" list="misc-rep-list"/>
       <input class="${this.dom.addform.price}" placeholder="Price"/>
-      <div class="icon-action-button ${this.dom.actions.add} "><img src="https://www.vhpportal.com/repo/assets/icons/add.png"/></div></div>
+      <div class="icon-action-button ${this.dom.actions.add} "><img src="http://3.145.12.72//repo/assets/icons/add.png"/></div></div>
       <div class="${this.dom.table.heads}"></div>
       <div class="${this.dom.table.cont}">
     </div>
@@ -106,7 +106,7 @@ export class SIrepairform extends FormList{
     <div class="sr-price"></div>
     <input class="sr-qty" type = "number"></div>
     <div class="sr-cost"></div>
-    <img class="delete-repair-item" src="https://www.vhpportal.com/repo/assets/icons/trash.png">
+    <img class="delete-repair-item" src="http://3.145.12.72//repo/assets/icons/trash.png">
   `
   get addform(){
     let form={};

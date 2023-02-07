@@ -164,7 +164,7 @@ export class SummaryCheckList{
         this.name = name
         this.dom = dom,
         this.content =`
-        <img id='header-logo'src="https://www.vhpportal.com/repo/assets/images/Header_clean.png"/>
+        <img id='header-logo'src="http://3.145.12.72//repo/assets/images/Header_clean.png"/>
         <div class="summary-header">
             <div><span class="${dom.info.street}">1234 Street Dr</span> , <span class=${dom.info.cityzip}>Fenton, MO 63026</span></div>
         </div>  
