@@ -77,7 +77,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   SENDrequestapi({
     to:'christianv@vogelheating.com',//document.getElementById('email-input').value,
     subject:'Home Comfort Report',
-    body:emailform.GETcontent(),
+    html:emailform.GETcontent(),
     attach:emailcontent
   },
   'MAIL',{}).then(
