@@ -1,4 +1,4 @@
-import { VHCform } from "http://3.145.12.72//repo/tools/vhc-forms.js";
+import { VHCform } from "https://www.vhpportal.com/repo/tools/vhc-forms.js";
 
 
 

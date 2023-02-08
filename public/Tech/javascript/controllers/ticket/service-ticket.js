@@ -1,10 +1,10 @@
 
-import {DropNote} from 'http://3.145.12.72//repo/modules/vg-dropnote.js';
-import * as gendis from 'http://3.145.12.72//repo/modules/vg-tables.js';
-import * as vcontrol from 'http://3.145.12.72//repo/layouts/view-controller.js';
-vcontrol.SETUPviewcontroller('http://3.145.12.72//repo/');
-import { aserviceticket, awo, aservicecontract } from 'http://3.145.12.72//repo/ds/tickets/vogel-serviceticket.js';
-import {VHCform} from 'http://3.145.12.72//repo/tools/vhc-forms.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import * as gendis from 'https://www.vhpportal.com/repo/modules/vg-tables.js';
+import * as vcontrol from 'https://www.vhpportal.com/repo/layouts/view-controller.js';
+vcontrol.SETUPviewcontroller('https://www.vhpportal.com/repo/');
+import { aserviceticket, awo, aservicecontract } from 'https://www.vhpportal.com/repo/ds/tickets/vogel-serviceticket.js';
+import {VHCform} from 'https://www.vhpportal.com/repo/tools/vhc-forms.js';
 
 import {TicketServiceItems} from '/Tech/javascript/controllers/ticket/service-items.js';
 

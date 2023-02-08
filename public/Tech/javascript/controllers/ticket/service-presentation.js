@@ -1,5 +1,5 @@
 import { DrawingPad } from '/Tech/javascript/tools/drawing-pad.js';
-import {DropNote} from 'http://3.145.12.72//repo/modules/vg-dropnote.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import {ServicePricing} from '/Tech/javascript/controllers/ticket/service-pricing.js';
 import {ContractWSform} from '/Tech/javascript/forms/contract-ws-form.js';
 //arepair
@@ -43,7 +43,7 @@ export class ServicePresentation{
       }
     });
 
-    this.contract=this.data.wo.pricelevel;
+    this.contract = this.data.wo.pricelevel;
     this.SETpresent(this.data);
     document.getElementsByClassName('memlevel-label')[0].innerText = this.contract
 
@@ -186,7 +186,7 @@ export class ServicePresentation{
   <div class="${this.dom.cont}">
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
-                <img src="http://3.145.12.72//repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
+                <img src="https://www.vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
                 <div class="${this.dom.info.customername}">Client Name</div>
                 <div class="${this.dom.info.custcode}">CUSTCODE</div>
                 <div class="${this.dom.info.street}">1234 Street Dr</div>
@@ -263,23 +263,22 @@ export class ServicePresentation{
   SETpresent = (wodata) => {
     //console.log('To Present > ',wodata);
     //Use to maintain the state of the pricelevel on the presentation
-    let oldpricelevel = this.contract
+    let oldpricelevel = this.contract;
     this.data = wodata;
-    this.data.wo.pricelevel = oldpricelevel
-    this.data.contract = oldpricelevel
     //Update WO info
     for(let i in this.dom.info){
       this.cont.getElementsByClassName(this.dom.info[i])[0].innerText = this.data.wo[i];
     }
 
     //Update price level
-    this.conform.pricelevel = this.conform.GETmemhead(this.data.wo.pricelevel);
     //Check if document is loaded for first run of presentation generation
-    this.conform.UPDATEselect();
-    this.contract = this.data.wo.pricelevel;
-    if (this.contract == "STA" || this.contract == "AHR" || this.contract == "STD") {
+    if (this.data.wo.pricelevel == "STA" || this.data.wo.pricelevel == "AHR" || this.data.wo.pricelevel == "STD") {
       this.contract = "PRE"
+    } else {
+      this.contract = this.data.wo.pricelevel
     }
+    this.conform.pricelevel = this.conform.GETmemhead(this.contract);
+    this.conform.UPDATEselect();
     //Update repair items
     this.UPDATEsitems();
     window.repairtable = document.getElementById('wo-present-systems').cloneNode(true);
@@ -363,11 +362,15 @@ export class ServicePresentation{
 
             if(this.data.repairs[x][y].task!='OTH'){
               if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
-                if(this.data.contract && Object.keys(this.data.contract).length!==0){
+                if(this.data.wo.pricelevel != "STA"){
                   mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
-                }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);}
-              }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);}
-            }else{
+                } else {
+                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);
+                }
+              } else {
+                mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
+              }
+            } else {
               mprice = Number(this.data.repairs[x][y].price);
             }
             mprice = mprice * this.data.repairs[x][y].qty
