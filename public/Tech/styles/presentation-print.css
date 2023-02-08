@@ -346,7 +346,7 @@ a:hover {
 
 #system-label-group {
     display: grid;
-    grid-template-columns: calc(49.75vw) 50%;
+    grid-template-columns: 50.5vw 50%;
 }
 .system-label {
     text-decoration: underline;

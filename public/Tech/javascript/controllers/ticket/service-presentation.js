@@ -273,7 +273,12 @@ export class ServicePresentation{
     //Update price level
     //Check if document is loaded for first run of presentation generation
     if (this.data.wo.pricelevel == "STA" || this.data.wo.pricelevel == "AHR" || this.data.wo.pricelevel == "STD") {
-      this.contract = "PRE"
+      if (oldpricelevel == "ULT" || oldpricelevel == "CLA") {
+        this.contract = oldpricelevel
+      } else {
+        this.contract = "PRE"
+      }
+      console.log(oldpricelevel, "OLD LEVEL")
     } else {
       this.contract = this.data.wo.pricelevel
     }
