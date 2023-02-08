@@ -278,7 +278,6 @@ export class ServicePresentation{
       } else {
         this.contract = "PRE"
       }
-      console.log(oldpricelevel, "OLD LEVEL")
     } else {
       this.contract = this.data.wo.pricelevel
     }

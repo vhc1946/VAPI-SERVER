@@ -67,7 +67,7 @@ document.getElementById('print-collateral').addEventListener('dblclick',(ele)=>{
  * Event listener to send email of PDF
  */
 document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
-  alert('will email');
+  alert('Sending email to ' + document.getElementById('email-input').value);
   DropNote('tr', 'Sending email!', 'yellow', false)
   ticket.track.emailed = true;
   console.log(ticket);
