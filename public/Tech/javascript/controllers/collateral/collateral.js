@@ -48,7 +48,7 @@ if (name.length > 1) {
 /**
  * Event listener to download PDF of summary
  */
-document.getElementById('print-collateral').addEventListener('dblclick',(ele)=>{
+document.getElementById('print-collateral').addEventListener('click',(ele)=>{
   window.print();
   ticket.track.downloaded = true;
   /*
