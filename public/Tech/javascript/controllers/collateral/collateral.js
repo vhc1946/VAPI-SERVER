@@ -60,7 +60,6 @@ document.getElementById('print-collateral').addEventListener('click',(ele)=>{
 
   pdf.save('test.pdf');
   */
- console.log(ticket)
 });
 
 /**
@@ -70,10 +69,8 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   alert('Sending email to ' + document.getElementById('email-input').value);
   DropNote('tr', 'Sending email!', 'yellow', false)
   ticket.track.emailed = true;
-  console.log(ticket);
   //get and validate email from screen
   //get array of all conent on collateral page
-  console.log(emailcontent)
   SENDrequestapi({
     to:'christianv@vogelheating.com',//document.getElementById('email-input').value,
     subject:'Home Comfort Report',
@@ -151,7 +148,6 @@ document.getElementById('final-complete-ticket').addEventListener('dblclick', (e
           answer=>{
             if(answer){
               alert("Ticket saved and closed!")
-              console.log(ticket)
               window.opener.askToClose = false;
               window.opener.close();
               window.opener.opener.refreshDash(answer);
@@ -290,10 +286,8 @@ for (let i = 0; i < inputs.length; i++) {
     } else {
         if (ticket.total == window.opener.memberprice) {
             newElem.innerText = input.value;
-            console.log("input")
         } else {
             newElem.innerText = 0;
-            console.log("0")
         }
     }
     parentNode.insertBefore(newElem, parentNode.childNodes[2])
