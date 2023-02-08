@@ -120,7 +120,7 @@ var login = titlebar.SETUPtitlebar({
     twolist.REFRESHstore(creds.user).then(res=>{if(res){twdashlist.LOADlist(twolist.list);}})
   },
   logoeve:()=>{// on logout
-    DropNote('tr','Logging Out','green');window.location.replace('../index.html')
+    DropNote('tr','Logging Out','green');window.location.replace('/')
   },
   home:(ele)=>{
       $(document.getElementById('vhc-app-dock')).show();
