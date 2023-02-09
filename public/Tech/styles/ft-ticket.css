@@ -426,7 +426,7 @@ Checklists
 }
 .si-repair-table>div {
     display:grid;
-    grid-template-columns: 5% 20.5% 52.5% 5% 12%;
+    grid-template-columns:  5% 15.5% 52.5% 7.5% 5% 5%;
     column-gap: 1.5%;
     width:fit-content;
     padding: 5px;
@@ -449,7 +449,7 @@ Checklists
 .sr-descr {
     overflow: hidden;
 }
-.sr-pl, .sr-price {
+.sr-pl {
     display: none;
 }
 .misc-buttons{
@@ -576,7 +576,7 @@ Checklists
         overflow: auto;
     }
     .si-repair-table>div {
-        grid-template-columns: 5% 25% 47.5% 6.5% 20%;
+        grid-template-columns: 5% 15.5% 52.5% 7.5% 5% 5%;
     }
     .sr-qty {
         border: 0; 
@@ -656,6 +656,17 @@ Checklists
 /*Hide cost in repair table*/
 .sr-cost {
     display: none;
+}
+
+.sr-price {
+    color:transparent
+}
+
+#price-other {
+    color:black;
+}
+#price-other::before {
+    content: '$';
 }
 
 /*Hide scrollbars of repair table and info form.*/

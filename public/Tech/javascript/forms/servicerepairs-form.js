@@ -137,6 +137,9 @@ export class SIrepairform extends FormList{
       row.getElementsByClassName('sr-pl')[0].innerText = item.pl;
       row.getElementsByClassName('sr-qty')[0].value = item.qty;
       row.getElementsByClassName('sr-price')[0].innerText = item.price;
+      if (item.task=="OTH") {
+        row.getElementsByClassName('sr-price')[0].id = "price-other"
+      }
       row.getElementsByClassName('sr-cost')[0].innerText = item.price * item.qty;
       //Check the item if it's been approved
       if(item.appr){
