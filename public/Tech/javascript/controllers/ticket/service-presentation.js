@@ -366,8 +366,8 @@ export class ServicePresentation{
 
             if(this.data.repairs[x][y].task!='OTH'){
               if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
-                if(this.data.wo.pricelevel != "STA"){
-                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
+                if(this.data.wo.pricelevel != "STA" && this.data.wo.pricelevel != "STD"){
+                  mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.data.wo.pricelevel);
                 } else {
                   mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);
                 }
