@@ -81,21 +81,6 @@ window.twdashlist = twdashlist;
 window.tabs = {};
 
 var mactions = {
-  email:{
-    id:'test-email',
-    src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
-    onclick:(ele)=>{
-
-      SENDrequestapi({
-        to:'christianv@vogelheating.com',
-        subject:'Check This Out',
-        attach:{wonum:'<div>Hello</div>',checks:['<div>hello</div>'],invoice:'<div>hello</div>'}
-      },
-      'MAIL',{}).then(
-        answer=>{console.log(answer);}
-      );
-    }
-  },
   datalist:{
     id:'refresh-datalist',
     src:'https://www.vhpportal.com/repo/assets/icons/datastores.png',
