@@ -45,27 +45,16 @@ export class EmailForm {
           <p>Please feel free to reach out to us if you have any questions by calling 314-351-2533 opt. 2</p>
           <p>Thank you again for choosing our company.   We trust that we’ve delivered the best possible comfort for you and your home.  Please consider sharing your experience with us by leaving a <a href="http://search.google.com/local/writereview?placeid=ChIJNWbEZtzU3ocRUMVCWy7ldq4">review.</a></p>
           <a href="https://www.vogelheating.com/">Vogel Heating & Cooling</a>
-        </td>
-        </tr>
-        </table></td></tr>
-        <tr><td style="border-left:2px solid blue;background-color:blue;color:white;font-weight:bold;padding:5px;width:100%;">HAVE ANY QUESTIONS?</td></tr>
-        <tr><td style="border-left:2px solid blue;padding:5px;">
-          Please feel free to reach out using any of the following contact methods:
-          <table cellpadding="2" cellspacing="0" style="text-align: center;">
-              <tr><td style="width:300px;" width="300px"><b>Text Us</b> at <b>314-310-2110</b></td><td style="width:150px;" width="150px">Monday-Friday</td><td style="width:150px;" width="150px">8:00a - 4:30p</td></tr>
-              <tr><td><b>Call Us</b> at <b>314-351-2533, Opt 2</b></td><td>Monday-Friday</td><td>8:00a - 4:30p</td></tr>
-              <tr><td><b>Chat with Us</b> at <b><a href="http://vogelheating.com">vogelheating.com</a></b></td><td>Monday-Friday</td><td>8:00a - 4:30p</td></tr>         
-            </table>
-            <p style="text-align:center;font-style:italic;"><b>Jim Panick - Division Manager</b> &nbsp;&nbsp;&nbsp;&nbsp; office: 314-351-2533 &nbsp;&nbsp;&nbsp;&nbsp; email: <a href="mailto:jimp@vogelheating.com">jimp@vogelheating.com</a></p>
         </td></tr>
-        <tr><td style="padding-top:10px;">
-          Thank you again for your thoughtful consideration of our company. We look forward to delivering the best possible comfort for you and your home!
-          <p>Sincerely,
-          <p style="font-weight: bold;font-style: italic;">
-            John Vogel
-          </p>
+        </table></td></tr>
+        <tr><td>
+          
         </td></tr>
       </table>
+	<div style="font-size:20px; margin-top:40px; padding-bottom:20px;">Sincerely,</div>
+          <div style="font-weight: bolder;font-style: italic; font-size:30px; padding-top:0px; margin-block-end: 0px;">
+            John Vogel
+          </div>
       </body>`
     }
 }
