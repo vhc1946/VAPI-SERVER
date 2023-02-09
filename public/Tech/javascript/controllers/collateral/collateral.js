@@ -67,7 +67,7 @@ document.getElementById('print-collateral').addEventListener('click',(ele)=>{
  */
 document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   alert('Sending email to ' + document.getElementById('email-input').value);
-  DropNote('tr', 'Sending email!', 'yellow', false)
+  DropNote('tr', 'Sending email!', 'yellow')
   ticket.track.emailed = true;
   //get and validate email from screen
   //get array of all conent on collateral page
@@ -80,8 +80,8 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   'MAIL',{}).then(
     answer=>{
         if (answer.msg == "Mail sent") {
-            DropNote('tr', 'Mail sent!', 'green', false)
-            DropNote('tr', 'Remind customer to check spam', 'green', false)
+            DropNote('tr', 'Mail sent!', 'green')
+            DropNote('tr', 'Remind customer to check spam', 'green')
         } else {
             DropNote('tr', answer.msg, 'red', false)
         }
