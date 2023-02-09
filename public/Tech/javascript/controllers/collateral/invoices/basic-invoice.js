@@ -27,7 +27,6 @@ let content = `
     <img id='header-logo'src="https://www.vhpportal.com/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
-            <div class="invoice-sectionhead">SOLD TO:</div>
             <div>
                 <div class="${dom.info.customername}">Client Name</div>
                 <div class="${dom.info.street}">1234 Street Dr</div>

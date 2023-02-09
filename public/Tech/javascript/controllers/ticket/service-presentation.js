@@ -184,6 +184,7 @@ export class ServicePresentation{
 
   contents=`
   <div class="${this.dom.cont}">
+  <div class="presentation-title-header">2 PATHS TO COMFORT</div>
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
                 <img src="https://www.vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
