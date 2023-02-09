@@ -16,7 +16,8 @@ let dom = {
         strtdate: 'invoice-info-strtdate',
         compdate: 'invoice-info-compdate',
         total: 'invoice-info-total',
-        descr: 'invoice-info-description'
+        descr: 'invoice-info-description',
+        tech: 'invoice-info-tech'
     },
     repairs:{
         repairtable:'invoice-repair-table'
@@ -48,15 +49,17 @@ let content = `
             <label class="invoice-sectionlabel">Reference:</label><div class="${dom.info.reference}">Test</div>
             <label class="invoice-sectionlabel">Work Order #:</label><div class="${dom.info.id}">Test</div>
             <label class="invoice-sectionlabel">Work Order Type:</label><div class="${dom.info.wotype}">Test</div>
-            <label class="invoice-sectionlabel">Job Location:</label><div class="${dom.info.location}">Test</div>
-            <label class="invoice-sectionlabel">Starting Date:</label><div class="${dom.info.strtdate}">Test</div>
-            <label class="invoice-sectionlabel">Completion Date:</label><div class="${dom.info.compdate}">Test</div>
+            <label class="invoice-sectionlabel">Location:</label><div class="${dom.info.location}"></div>
+            <label class="invoice-sectionlabel">Tech:</label><div class="${dom.info.tech}"></div>
+            <label class="invoice-sectionlabel">Starting Date:</label><div class="${dom.info.strtdate}"></div>
+            <label class="invoice-sectionlabel">Completion Date:</label><div class="${dom.info.compdate}"></div>
         </div>
     </div>
     <div class="invoice-middle" id = "description-cont">
-        <div class="invoice-sectionhead">TECH OBSERVATIONS:</div>
+        <div class="invoice-sectionhead">Service Notes:</div>
         <div class="invoice-desccont">
             <div class="${dom.info.descr}">This does not need to be here</div>
+            <div class="descr-hardcode">Reviewed Two Comfort Paths with homeowner for todays service.  Homeowner selected best path for them and this can be reviewed below.  </div>
         </div>
     </div>
     <div class="invoice-body">
