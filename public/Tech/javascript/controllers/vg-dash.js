@@ -53,16 +53,15 @@ var datamart=null;
 
 STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
   return new Promise((resolve,reject)=>{
-  manlist.INITmanagelist().then(
-    mlist=>{
-      datamart=mlist;
-      window.datamart=datamart; //can be used in child windows
-      console.log('Done With list',datamart)
-      //post needed updates to manage list
-      return resolve(true);
-    }
-  )
-
+    manlist.INITmanagelist().then(
+      mlist=>{
+        datamart=mlist;
+        window.datamart=datamart; //can be used in child windows
+        console.log('Done With list',datamart)
+        //post needed updates to manage list
+        return resolve(true);
+      }
+    )
   });
 }).then(answr=>{console.log(answr);})
 
@@ -79,7 +78,7 @@ var qactions = {
 };
 window.techwos=twolist;
 window.twdashlist = twdashlist;
-window.tabs = {}
+window.tabs = {};
 
 var mactions = {
   email:{
@@ -174,7 +173,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     if(woitem){
       savenload(woitem);
     }else{
-      DropNote('tr', 'Looking for work order, please wait', 'yellow', false)
+      DropNote('tr', 'Searching, please wait', 'yellow')
       //search vapi mart
       twolist.CHECKmart(wonum).then(
         found=>{
