@@ -181,16 +181,20 @@ if (ticket.wo.contactemail != "" || ticket.wo.contactemail != undefined) {
 var invoice = new CollateralForm(document.createElement('div'),basicinvoice);
 
 document.body.appendChild(invoice.cont);
+console.log(ticket.tech)
 for(let i in invoice.dom.info){
-    if(ticket.wo[i]){
-        document.getElementsByClassName(invoice.dom.info[i])[0].innerText = ticket.wo[i];
-    }else{
-        if (invoice.dom.info[i] == "invoice-info-total") {
-            document.getElementsByClassName(invoice.dom.info[i])[0].innerText = ticket.total;
-        } else {
-            document.getElementsByClassName(invoice.dom.info[i])[0].innerText = '';
+    if (invoice.dom.info[i][0]) {
+        if(ticket.wo[i]){
+            document.getElementsByClassName(invoice.dom.info[i])[0].innerHTML = i=='tech'?ticket[i]:ticket.wo[i];
+        }else{
+            if (invoice.dom.info[i] == "invoice-info-total") {
+                document.getElementsByClassName(invoice.dom.info[i])[0].innerText = ticket.total;
+            } else {
+                document.getElementsByClassName(invoice.dom.info[i])[0].innerText = '';
+            }
         }
     }
+    
 }
 
 //TODO: Create a table using repairs

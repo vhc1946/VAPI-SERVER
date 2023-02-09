@@ -12,7 +12,7 @@ export class ServicePresentation{
     this.data = data; //ticket data
     this.pricebook = new ServicePricing(pricebook); //ticket book
     this.conform = new ContractWSform();
-    this.final = {} //Final compact ticket object to be passed to collateral
+    this.final = {tech:this.data.tech} //Final compact ticket object to be passed to collateral
     this.SignatureShown = false;
 
     this.cont.getElementsByClassName(this.dom.head)[0].appendChild(this.conform.cont);
@@ -184,6 +184,7 @@ export class ServicePresentation{
 
   contents=`
   <div class="${this.dom.cont}">
+  <div class="presentation-title-header">2 PATHS TO COMFORT</div>
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
                 <img src="https://www.vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">

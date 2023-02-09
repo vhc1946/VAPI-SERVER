@@ -416,7 +416,7 @@ export class SummaryCheckList{
                 <div class="${dom.info.descr}"></div>
             </div>
         </div>
-        <div class="footer-header">${this.name} Summary</div>
+        <div class="footer-header">${this.name} Health Report</div>
 
         <div class="pagebreak"> </div>
     `

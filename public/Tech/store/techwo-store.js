@@ -46,6 +46,8 @@ export class TechLocalWos extends ObjList{
             },'STORE',{request:'mart'}).then(answr=>{
               let success=false;
               if(!answr.body.result.err){success=true;}
+              if(this.TRIMlist({id:item.id}).length==0){this.list.unshift(item);}
+              else{this.UPDATEitem(item);}
               return resolve(success);
             })
           }
@@ -61,23 +63,24 @@ export class TechLocalWos extends ObjList{
             },'STORE',{request:'mart'}).then(answr=>{
               let success=false;
               if(!answr.body.result.err){success=true;}
+              if(this.TRIMlist({id:item.id}).length==0){this.list.unshift(item);}
+              else{this.UPDATEitem(item);}
               return resolve(success);
             })
           }
         }
       );
-      if(this.TRIMlist({id:item.id}).length==0){this.list.unshift(item);}
-      else{this.UPDATEitem(item);}
     });
   }
   UPDATEitem(item){
-    let list = this.list.splice();
+    let list = (this.list.map((x)=>x))
     for(let x=0;x<list.length;x++){
       if(list[x].id===item.id){
         list[x]=item;
         break;
       }
     }
+    console.log("UPDATING ITEM", item, this.list)
     this.list=list;
   }
   GETitem(id){
