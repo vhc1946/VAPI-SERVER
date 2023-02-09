@@ -72,7 +72,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get and validate email from screen
   //get array of all conent on collateral page
   SENDrequestapi({
-    to:'christianv@vogelheating.com',//document.getElementById('email-input').value,
+    to:document.getElementById('email-input').value,
     subject:'Home Comfort Report',
     html:emailform.GETcontent(),
     attach:emailcontent
@@ -194,7 +194,7 @@ for(let i in invoice.dom.info){
             }
         }
     }
-    
+
 }
 
 //TODO: Create a table using repairs
