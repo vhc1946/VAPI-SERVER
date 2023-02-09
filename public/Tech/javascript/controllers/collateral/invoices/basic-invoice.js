@@ -54,6 +54,7 @@ let content = `
         </div>
     </div>
     <div class="invoice-middle" id = "description-cont">
+        <div class="invoice-sectionhead">TECH OBSERVATIONS:</div>
         <div class="invoice-desccont">
             <div class="${dom.info.descr}">This does not need to be here</div>
         </div>

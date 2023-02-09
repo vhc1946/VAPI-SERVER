@@ -412,7 +412,7 @@ export class SummaryCheckList{
                 </div>
             </div>
             <div class="summary-section-descr">
-                <div class="section-header-descr">Work Performed</div>
+                <div class="section-header-descr">Tech Observations</div>
                 <div class="${dom.info.descr}"></div>
             </div>
         </div>
