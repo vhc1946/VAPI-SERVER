@@ -72,7 +72,7 @@ twdashlist.srow=(item={})=>{
         elem.innerText = item.wo[v];
       }
     }else{
-        console.log(v, item.wo[v]);
+        //console.log(v, item.wo[v]);
         if (item.wo[v] == undefined) {
           let datespot = row.getElementsByClassName(wrdom.values[v])[0]
           datespot.appendChild(document.createElement('div'));

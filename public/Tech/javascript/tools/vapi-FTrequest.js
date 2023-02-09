@@ -8,25 +8,31 @@ import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 */
 var STARTticket=(wonum)=>{
   return new Promise((resolve,reject)=>{
+    console.log("Starting ticket")
     japi.GETwo(wonum).then(
         wo=>{
+            console.log("WO retrieved")
             if(wo){
                 let ticket = aserviceticket();
                 ticket.wo = wo;
                 let havesc = false;
                 let havesi = false;
+                console.log("BEFORE CONTRACT")
                 japi.GETscontract(ticket.wo.custcode).then(
                     contract=>{
                       ticket.contract = contract?contract:{};
                       havesc=true;
-                      DropNote('tr','Service Contracts have loaded')
+                      console.log("RETREIVED CONTRACT ITEMS")
+                      //DropNote('tr','Service Contracts have loaded')
                       if(havesi){return resolve(ticket);}
                     }
                 )
+                console.log("BEFORE SERVICE ITEMS")
                 japi.GETserviceitems(ticket.wo.custcode).then(
                     result=>{
                         ticket.sitems = result;
                         havesi=true;
+                        console.log("RETREIVED SERVICE ITEMS")
                         if(havesc){return resolve(ticket);}
                     }
                 )
