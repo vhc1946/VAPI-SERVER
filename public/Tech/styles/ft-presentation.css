@@ -180,9 +180,12 @@
 /*Style for whole repair list container*/
 #wo-present-systems {
     max-height: 200px;
-    overflow: auto;
+    overflow-y: overlay;
     border-bottom: 1px solid black;
 }
+/*#wo-present-systems::-webkit-scrollbar {
+    display: none;
+}*/
 .wo-present-system{
     margin-bottom: 10px;
 }
@@ -349,7 +352,7 @@
     height: calc(100% + 15px);
 }
 #member-item-label {
-    
+    margin-left: 0vw;
 }
 
 .member-price {
