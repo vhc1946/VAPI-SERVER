@@ -137,7 +137,7 @@ export class TicketServiceItems{
     this.SETcurrtab(this.currsi.innerText);//shouldnt need
 
     //console.log('First run',this.currtab,this.currsi.innerText);
-    this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click',(ele)=>{DropNote('tr','Delete Service Item','yellow');});
+    this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click',(ele)=>{DropNote('tr','Service Items Cannot Delete','yellow',false);});
     this.view.cont.getElementsByClassName('si-add')[0].addEventListener('click',(ele)=>{this.TOGGLEaddinput();});
     this.view.cont.getElementsByClassName('si-add-button')[0].addEventListener('click',(ele)=>{
       let name = this.view.cont.getElementsByClassName('si-add-input')[0];
