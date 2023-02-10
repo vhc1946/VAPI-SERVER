@@ -132,10 +132,10 @@
     font-size: medium;
 }
 .present-contract-opts>div>input {
-    border: 0; 
+    border: 0;
     padding: 2px 5px;
-    border: 1px solid #ccc; 
-    position: relative; 
+    border: 1px solid #ccc;
+    position: relative;
     background-color: var(--card-base-light);
     border-radius: 5px;
     color: rgb(50,50,50);
@@ -394,7 +394,7 @@
     margin-bottom: 10px;
     margin-left:12.5%;
     margin-right:12.5;
-    background-color: #0b4ba1;
+    background-color: rgb(15 70 119);
     color:#fff;
     width: 75%;
     border-radius:10px;
