@@ -1,5 +1,5 @@
 
-import {SENDrequestapi} from 'https:/3.135.202.40/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'http:/3.135.202.40/repo/apis/vapi/vapicore.js';
 
 
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
