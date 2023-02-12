@@ -1,3 +1,5 @@
+import {SENDrequestapi} from 'http://3.135.202.40/repo/apis/vapi/vapicore.js';
+
 import {wolstore} from '/Tech/store/lstore.js';
 
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
@@ -5,7 +7,8 @@ import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js
 import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
 import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
 import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
-import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'http://3.135.202.40/repo/apis/vapi/vapicore.js';
+
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import * as manlist from '/Tech/store/tech-managelist.js';
@@ -51,6 +54,14 @@ var dashdom = {
 
 var datamart=null;
 
+
+
+SENDrequestapi({},'LOGIN',{
+  user:'MURRY',
+  pswrd:'vogel123'
+}).then(
+  answr=>{console.log('TEST call',answr)}
+)
 STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
   return new Promise((resolve,reject)=>{
     manlist.INITmanagelist().then(

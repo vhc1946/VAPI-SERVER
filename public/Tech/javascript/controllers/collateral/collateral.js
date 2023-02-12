@@ -1,8 +1,11 @@
+
+import {SENDrequestapi} from 'https:/3.135.202.40/repo/apis/vapi/vapicore.js';
+
+
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
 import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checklists/summary-checklist.js";
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
 //setup emailing vars
