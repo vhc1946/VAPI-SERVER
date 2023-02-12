@@ -7,7 +7,6 @@ import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js
 import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
 import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
 import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
-import {SENDrequestapi} from 'http://3.135.202.40/repo/apis/vapi/vapicore.js';
 
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
