@@ -1,5 +1,5 @@
 
-import {ObjList} from 'https://www.vhpportal.com/repo/tools/vg-lists.js';
+import {ObjList} from 'http://3.135.202.40/repo/tools/vg-lists.js';
 import {SENDrequestapi} from 'http://3.135.202.40/repo/apis/vapi/vapicore.js';
 /*
 SENDrequestapi({

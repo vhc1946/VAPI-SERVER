@@ -1,5 +1,5 @@
 import { DrawingPad } from '/Tech/javascript/tools/drawing-pad.js';
-import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import {DropNote} from 'http://3.135.202.40/repo/modules/vg-dropnote.js';
 import {ServicePricing} from '/Tech/javascript/controllers/ticket/service-pricing.js';
 import {ContractWSform} from '/Tech/javascript/forms/contract-ws-form.js';
 //arepair
@@ -187,7 +187,7 @@ export class ServicePresentation{
   <div class="presentation-title-header">2 PATHS TO COMFORT</div>
         <div class="${this.dom.head}">
             <div class="wo-contact-cont">
-                <img src="https://www.vhpportal.com/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
+                <img src="http://3.135.202.40/repo/assets/images/Header_clean_transparent.png" id="header-logo" alt="VOGEL">
                 <div class="${this.dom.info.customername}">Client Name</div>
                 <div class="${this.dom.info.custcode}">CUSTCODE</div>
                 <div class="${this.dom.info.street}">1234 Street Dr</div>

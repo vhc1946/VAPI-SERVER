@@ -24,7 +24,7 @@ let dom = {
     }
 }
 let content = `
-    <img id='header-logo'src="https://www.vhpportal.com/repo/assets/images/Header_clean.png"/>
+    <img id='header-logo'src="http://3.135.202.40/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div>
