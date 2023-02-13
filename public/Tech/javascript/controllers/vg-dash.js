@@ -57,7 +57,7 @@ STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
       mlist=>{
         datamart=mlist;
         window.datamart=datamart; //can be used in child windows
-        console.log('Done With list',datamart)
+        //console.log('Done With list',datamart)
         //post needed updates to manage list
         return resolve(true);
       }
@@ -88,7 +88,7 @@ var mactions = {
       DropNote('tr','Syncing Data','green')
       manlist.REFRESHmanagelist().then(
         list=>{
-          console.log(list);
+          console.log(list); //Keeping this console log
           DropNote('tr','Syncing has Finished','green');
         }
       )
@@ -139,7 +139,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     let savenload = (wo)=>{
       twolist.UPDATEstore(wo).then(
         result=>{
-          console.log(result);
+          //console.log(result);
           twdashlist.LOADlist(twolist.list);
         }
       );
@@ -162,7 +162,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
       //search vapi mart
       twolist.CHECKmart(wonum).then(
         found=>{
-          console.log('TICKET >',found);
+          //console.log('TICKET >',found);
           if(found){found.mobile=true;savenload(found);}
           else{
             STARTticket(wonum).then(  //'00025796'

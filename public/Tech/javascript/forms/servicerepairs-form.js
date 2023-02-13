@@ -43,7 +43,7 @@ export class SIrepairform extends FormList{
             $(document.getElementsByClassName('min-page-cont')[0]).toggle();
             $(document.getElementById('loginout-block')).show();
           }else{
-            console.log('adding', rtask)
+            //console.log('adding', rtask)
             addrow=this.ADDrepair(rtask,true);
             this.addform=undefined;
           }

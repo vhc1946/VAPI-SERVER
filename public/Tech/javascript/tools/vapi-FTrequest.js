@@ -8,31 +8,31 @@ import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 */
 var STARTticket=(wonum)=>{
   return new Promise((resolve,reject)=>{
-    console.log("Starting ticket")
+    //console.log("Starting ticket")
     japi.GETwo(wonum).then(
         wo=>{
-            console.log("WO retrieved")
+            //console.log("WO retrieved")
             if(wo){
                 let ticket = aserviceticket();
                 ticket.wo = wo;
                 let havesc = false;
                 let havesi = false;
-                console.log("BEFORE CONTRACT")
+                //console.log("BEFORE CONTRACT")
                 japi.GETscontract(ticket.wo.custcode).then(
                     contract=>{
                       ticket.contract = contract?contract:{};
                       havesc=true;
-                      console.log("RETREIVED CONTRACT ITEMS")
+                      //console.log("RETREIVED CONTRACT ITEMS")
                       //DropNote('tr','Service Contracts have loaded')
                       if(havesi){return resolve(ticket);}
                     }
                 )
-                console.log("BEFORE SERVICE ITEMS")
+                //console.log("BEFORE SERVICE ITEMS")
                 japi.GETserviceitems(ticket.wo.custcode).then(
                     result=>{
                         ticket.sitems = result;
                         havesi=true;
-                        console.log("RETREIVED SERVICE ITEMS")
+                        //console.log("RETREIVED SERVICE ITEMS")
                         if(havesc){return resolve(ticket);}
                     }
                 )
@@ -60,7 +60,7 @@ var SYNCdatalist=()=>{
   DropNote('tr','Starting Data Sync','green');
   japi.GETflbook().then(
     book=>{
-      console.log('BOOK',book);
+      //console.log('BOOK',book);
       localStorage.setItem('flbook',JSON.stringify(book.body.table));
     }
   )

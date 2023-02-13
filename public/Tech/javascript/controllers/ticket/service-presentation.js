@@ -59,7 +59,6 @@ export class ServicePresentation{
       "timesave": "4"
   }
     if (this.data.conform != undefined) {
-      console.log("Setting conform")
       this.conform.SETcontract(this.data.conform)
     }
 

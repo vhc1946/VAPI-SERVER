@@ -80,7 +80,7 @@ export class TechLocalWos extends ObjList{
         break;
       }
     }
-    console.log("UPDATING ITEM", item, this.list)
+    //console.log("UPDATING ITEM", item, this.list)
     this.list=list;
   }
   GETitem(id){

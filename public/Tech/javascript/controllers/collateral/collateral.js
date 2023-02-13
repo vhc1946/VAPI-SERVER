@@ -23,7 +23,7 @@ var repairtable = window.opener.repairtable;
 const contractopts = window.opener.contractopt;
 repairtable.id = "wo-present-system-summary"
 
-console.log("Ticket from collateral::::", ticket)
+//console.log("Ticket from collateral::::", ticket)
 
 var summary = window.opener.summary;
 ticket.wo.location = ticket.wo.street;
@@ -37,7 +37,6 @@ if (ticket.wo.pricelevel == "STA") {
     price = window.opener.memberprice
 }
 let name = ticket.wo.customername.split(", ")
-console.log(name)
 let emailform = undefined;
 if (name.length > 1) {
     emailform = new EmailForm(name[1] + " " + name[0])
@@ -181,7 +180,6 @@ if (ticket.wo.contactemail != "" || ticket.wo.contactemail != undefined) {
 var invoice = new CollateralForm(document.createElement('div'),basicinvoice);
 
 document.body.appendChild(invoice.cont);
-console.log(ticket.tech)
 for(let i in invoice.dom.info){
     if (invoice.dom.info[i][0]) {
         if(ticket.wo[i]){

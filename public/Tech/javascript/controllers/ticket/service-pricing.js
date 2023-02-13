@@ -38,11 +38,10 @@ export class ServicePricing{
         let day = date.getDay();
         return ((time > 17 || day >= 6)? 'AHR' : 'STA');
     })();
-    console.log('PRIC LEVEL ',this.pl);
+    //console.log('PRIC LEVEL ',this.pl);
   }
 
   LOADbook(finds, pl){//Filter the book
-      console.log(finds);
       let fbstable = document.getElementById(fbdom.table.cont);
       let row;
       let data;
