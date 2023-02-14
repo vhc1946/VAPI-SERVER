@@ -177,6 +177,35 @@
 .wo-present-repair-unapproved div:last-child{
     font-style: oblique;
 }
+/*Return for repair*/
+.wo-present-repair-unapproved-return div{
+    color: darkslategray;
+}
+.wo-present-repair-unapproved-return div:first-child{
+    text-decoration:underline;
+}
+.wo-present-repair-unapproved-return div:last-child{
+    font-style: oblique;
+}
+/*Approval text customization*/
+.apprvdiv:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+.apprvdiv.NO {
+    color: var(--vogel-red);
+    font-weight: 650;
+}
+
+.apprvdiv.YES {
+    color: var(--vogel-blue);
+    font-weight: 650;
+}
+
+.apprvdiv.RETURNFOR {
+    color: var(--BCE-green);
+    font-weight: 650;
+}
 /*Style for whole repair list container*/
 #wo-present-systems {
     max-height: 200px;
@@ -282,20 +311,6 @@
     color: var(--vogel-red);
     background-color: var(--card-base-light);
     border-radius: 5px;
-}
-
-.apprvdiv:hover {
-    cursor: pointer;
-    background-color: #ccc;
-}
-.apprvdiv.NO {
-    color: var(--vogel-red);
-    font-weight: 650;
-}
-
-.apprvdiv.YES {
-    color: var(--vogel-blue);
-    font-weight: 650;
 }
 
 /*Member column colors*/

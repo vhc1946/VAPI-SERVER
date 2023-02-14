@@ -1,11 +1,13 @@
+import {SENDrequestapi} from 'http://3.15.144.193/repo/apis/vapi/vapicore.js';
+
 import {wolstore} from '/Tech/store/lstore.js';
 
-import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js';
-import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
-import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
-import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
-import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import * as titlebar from 'http://3.15.144.193/repo/modules/vg-titlebar.js';
+import { SELECTview } from 'http://3.15.144.193/repo/modules/vg-floatviews.js';
+import { AppDock } from 'http://3.15.144.193/repo/modules/appdock.js';
+import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import * as manlist from '/Tech/store/tech-managelist.js';
@@ -51,6 +53,14 @@ var dashdom = {
 
 var datamart=null;
 
+
+
+SENDrequestapi({},'LOGIN',{
+  user:'MURRY',
+  pswrd:'vogel123'
+}).then(
+  answr=>{console.log('TEST call',answr)}
+)
 STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
   return new Promise((resolve,reject)=>{
     manlist.INITmanagelist().then(
@@ -70,7 +80,7 @@ STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
 var qactions = {
   new:{
     id:'search-wo',
-    src:'https://www.vhpportal.com/repo/assets/icons/search.png',
+    src:'http://3.15.144.193/repo/assets/icons/search.png',
     alt:'SEARCH',
     title:'Search WO',
     onclick:(ele)=>{SELECTview(document.getElementById('wo-center'),'Open WO');}
@@ -83,7 +93,7 @@ window.tabs = {};
 var mactions = {
   datalist:{
     id:'refresh-datalist',
-    src:'https://www.vhpportal.com/repo/assets/icons/datastores.png',
+    src:'http://3.15.144.193/repo/assets/icons/datastores.png',
     ondblclick:(ele)=>{
       DropNote('tr','Syncing Data','green')
       manlist.REFRESHmanagelist().then(
@@ -96,7 +106,7 @@ var mactions = {
   }
 };
 var login = titlebar.SETUPtitlebar({
-  RROOT:'https://www.vhpportal.com/repo/',
+  RROOT:'http://3.15.144.193/repo/',
   qacts:qactions,
   macts:mactions,
   login:true,

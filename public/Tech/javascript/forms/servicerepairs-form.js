@@ -1,7 +1,7 @@
-import {FormList} from 'https://www.vhpportal.com/repo/tools/vhc-formlist.js';
-import * as ttools from 'https://www.vhpportal.com/repo/modules/vg-tables.js';
-import { DropNote } from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {aflatrepair} from 'https://www.vhpportal.com/repo/ds/jonas/flatratebook.js';
+import {FormList} from 'http://3.15.144.193/repo/tools/vhc-formlist.js';
+import * as ttools from 'http://3.15.144.193/repo/modules/vg-tables.js';
+import { DropNote } from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import {aflatrepair} from 'http://3.15.144.193/repo/ds/jonas/flatratebook.js';
 // service item repairs
 
 export class SIrepairform extends FormList{
@@ -24,7 +24,8 @@ export class SIrepairform extends FormList{
         let rtask = {
           task:'OTH',
           descr:toadd.desc,
-          price:Number(toadd.price)
+          price:Number(toadd.price),
+          appr:"YES"
         }
         for(let mr in pricebook.miscreps){
           if(toadd.desc===mr){
@@ -84,7 +85,7 @@ export class SIrepairform extends FormList{
     <div class="${this.dom.table.actions}">
       <input class="${this.dom.addform.desc}" placeholder="Add description" type="search" list="misc-rep-list"/>
       <input class="${this.dom.addform.price}" placeholder="Price"/>
-      <div class="icon-action-button ${this.dom.actions.add} "><img src="https://www.vhpportal.com/repo/assets/icons/add.png"/></div></div>
+      <div class="icon-action-button ${this.dom.actions.add} "><img src="http://3.15.144.193/repo/assets/icons/add.png"/></div></div>
       <div class="${this.dom.table.heads}"></div>
       <div class="${this.dom.table.cont}">
     </div>
@@ -95,18 +96,16 @@ export class SIrepairform extends FormList{
     </datalist>
   </div>
   `
-
+  //<input class="sr-appr vg-checkbox" type = "checkbox"></input>
   row=`
-    <div class = "checkbox-cont">
-      <input class="sr-appr vg-checkbox" type = "checkbox"></input>
-    </div>
+    <div class="sr-appr"></div>
     <div class="sr-task"></div>
     <div class="sr-descr"></div>
     <div class="sr-pl"></div>
     <div class="sr-price"></div>
     <input class="sr-qty" type = "number"></div>
     <div class="sr-cost"></div>
-    <img class="delete-repair-item" src="https://www.vhpportal.com/repo/assets/icons/trash.png">
+    <img class="delete-repair-item" src="http://3.15.144.193/repo/assets/icons/trash.png">
   `
   get addform(){
     let form={};
@@ -141,22 +140,33 @@ export class SIrepairform extends FormList{
         row.getElementsByClassName('sr-price')[0].id = "price-other"
       }
       row.getElementsByClassName('sr-cost')[0].innerText = item.price * item.qty;
-      //Check the item if it's been approved
-      if(item.appr){
-        row.getElementsByClassName('sr-appr')[0].classList.add('vg-checkbox-checked');
-        row.getElementsByClassName('sr-appr')[0].checked = true;
+      if (noteflag) {
+        item.appr = "YES" //auto-approve newly added items
+        console.log("APPROVAL:", item.appr)
       }
+      //Check the item for true/false as old items may still be booleans
+      if(item.appr == true){
+        item.appr = "YES"
+       // row.getElementsByClassName('sr-appr')[0].classList.add('vg-checkbox-checked');
+        //row.getElementsByClassName('sr-appr')[0].checked = true;
+      } else if (item.appr == false) {
+        item.appr = "NO"
+      }
+      row.getElementsByClassName('sr-appr')[0].innerText = item.appr;
 
-      row.getElementsByClassName('sr-appr')[0].addEventListener('click',(ele)=>{
+      //Disable checkbox click
+      /*row.getElementsByClassName('sr-appr')[0].addEventListener('click',(ele)=>{
         ele.target.classList.toggle('vg-checkbox-checked')
-      });
+      }); */
 
       row.getElementsByClassName('delete-repair-item')[0].addEventListener('click',(ele)=>{
         ele.target.parentNode.remove();
       });
       if(item.task == "OTH" ||skipdup||this.Dupcheck(row)){
-        if (noteflag) {DropNote('tr',item.task+' Added','green');}
-        return row;
+        if (noteflag) {
+          DropNote('tr',item.task+' Added','green');
+        }
+          return row;
         }
       else{
         DropNote('tr',item.task+' Already on List','yellow');
@@ -172,7 +182,7 @@ export class SIrepairform extends FormList{
     item.pl=row.getElementsByClassName('sr-pl')[0].innerText||'';
     item.qty=row.getElementsByClassName('sr-qty')[0].value||1;
     item.price=row.getElementsByClassName('sr-price')[0].innerText||'';
-    item.appr=row.getElementsByClassName('sr-appr')[0].classList.contains('vg-checkbox-checked')?true:false;
+    item.appr=row.getElementsByClassName('sr-appr')[0].innerText||'YES'; //default to yes
     return item;
   }
 
