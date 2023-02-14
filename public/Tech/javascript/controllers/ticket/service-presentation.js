@@ -128,7 +128,9 @@ export class ServicePresentation{
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
         window.open("/Tech/collateral");
-      }else{DropNote('tr','Please Sign','yellow')}
+      } else {
+        DropNote('tr','Please Sign','yellow')
+      }
     });
   }
 
@@ -509,7 +511,11 @@ export class ServicePresentation{
       for (let j = 0; j < item.length; j++) {
         let repair = item[j]
         if (pl != null) {
-          repair.price = this.pricebook.GETbookprice(repair.task, pl)
+          if (repair.task == "DIAG") {
+            repair.price = this.pricebook.GETbookprice(repair.task, this.data.wo.pricelevel)
+          } else {
+            repair.price = this.pricebook.GETbookprice(repair.task, pl)
+          }
           repair.pl = pl;
         }
         if (appr != null) {
