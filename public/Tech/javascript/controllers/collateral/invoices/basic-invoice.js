@@ -9,12 +9,8 @@ let dom = {
         invdate: 'invoice-info-invdate',
         terms: 'invoice-info-terms',
         custcode: 'invoice-info-custcode',
-        reference: 'invoice-info-reference',
         id: 'invoice-info-wonum',
-        wotype: 'invoice-info-wotype',
         location: 'invoice-info-location',
-        strtdate: 'invoice-info-strtdate',
-        compdate: 'invoice-info-compdate',
         total: 'invoice-info-total',
         descr: 'invoice-info-description',
         tech: 'invoice-info-tech'
@@ -43,15 +39,11 @@ let content = `
         <div class="invoice-section-info">
             <label class="invoice-sectionlabel">Invoice Number:</label><div class="${dom.info.invnum}">Test</div>
             <label class="invoice-sectionlabel">Invoice Date:</label><div class="${dom.info.invdate}">Test</div>
-            <label class="invoice-sectionlabel">Terms:</label><div class="${dom.info.terms}">Test</div>
+            <label class="invoice-sectionlabel">Terms:</label><div class="${dom.info.terms}">COD</div>
             <label class="invoice-sectionlabel">Customer Code:</label><div class="${dom.info.custcode}">Test</div>
-            <label class="invoice-sectionlabel">Reference:</label><div class="${dom.info.reference}">Test</div>
             <label class="invoice-sectionlabel">Work Order #:</label><div class="${dom.info.id}">Test</div>
-            <label class="invoice-sectionlabel">Work Order Type:</label><div class="${dom.info.wotype}">Test</div>
             <label class="invoice-sectionlabel">Location:</label><div class="${dom.info.location}"></div>
             <label class="invoice-sectionlabel">Tech:</label><div class="${dom.info.tech}"></div>
-            <label class="invoice-sectionlabel">Starting Date:</label><div class="${dom.info.strtdate}"></div>
-            <label class="invoice-sectionlabel">Completion Date:</label><div class="${dom.info.compdate}"></div>
         </div>
     </div>
     <div class="invoice-middle" id = "description-cont">
