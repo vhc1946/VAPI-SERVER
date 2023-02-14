@@ -39,9 +39,12 @@ if (ticket.wo.pricelevel == "STA") {
 } else {
     price = window.opener.memberprice
 }
-let name = ticket.wo.customername.split(", ")
+let name ="Customer"
+if (ticket.wo.customername) {
+    name = ticket.wo.customername.split(", ")
+}
 let emailform = undefined;
-if (name.length > 1) {
+if (name.constructor == Array) {
     emailform = new EmailForm(name[1] + " " + name[0])
 } else {
     emailform = new EmailForm(ticket.wo.customername)
@@ -75,7 +78,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get array of all conent on collateral page
   SENDrequestapi({
     to:document.getElementById('email-input').value,
-    subject:'Home Comfort Report',
+    subject:'Home Comfort Report - WO #' + ticket.wo.id,
     html:emailform.GETcontent(),
     attach:emailcontent
   },
