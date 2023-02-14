@@ -36,7 +36,7 @@ var SETvideogallery = ()=>{
   for(let v in vidgroup){
     let vbutt = document.createElement('div');
     vbutt.classList.add(viddom.gallery.button);
-    vbutt.addEventListener('dblclick',GETgalleryvideo);
+    vbutt.addEventListener('click',GETgalleryvideo);
     vbutt.innerText = v;
     vgal.appendChild(vbutt);
   }

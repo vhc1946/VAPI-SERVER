@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Customer Portal</title>
     <link rel="stylesheet" href="/Customer/styles/ft-contractinfo.css" />
     <link rel="stylesheet" href="/Customer/styles/ft-styles.css" />
@@ -12,32 +12,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-  <div id="nav-bar" class="client-grid">
-    <a href='../'>
-      <img src="http://3.15.144.193/repo/assets/icons/angle-double-left.png" class="wo-nav-icon client-icon" alt="RETURN">
-    </a>
-    <div id="call-header">Click any of the below to explore a bit more about</div>
-    <a href='https://www.vogelheating.com' id="home-link" target="_blank">
-      <img src="http://3.15.144.193/repo/assets/images/VogelLogo.png" id="header-logo" alt="VOGEL">
+  <div id = "titlebar">
+    <a href='../' id="home-button-cont">
+      <img src="http://3.15.144.193/repo/assets/icons/V-Mark-red.png" id="return-home"></img>
     </a>
   </div>
 
-  <div id="client-bar" class="client-grid">
-    <div id="video-gallery-buttons">
-        <div id="video-john"><a href="https://www.vogelheating.com/why-vogel.html" target="_blank">Why do homeowners choose Vogel Heating & Cooling?</a></div>
+  <div class="contents">
+    <div id="client-bar" class="client-grid">
+      <div id="video-gallery-buttons">
+          <div id="video-john"><a href="https://www.vogelheating.com/why-vogel.html" target="_blank">Why do homeowners choose Vogel Heating & Cooling?</a></div>
+      </div>
     </div>
-  </div>
-  <div id="video-wrapper">
-  <video id="video-screen" src="" controls autoplay></video>
-  </div>
-  <div id="review-cont" class="client-grid">
-    <span id="review-tag">~ Check out some of our great reviews! ~</span>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <a href="https://www.facebook.com/VogelHeating" target="_blank"><img src="http://3.15.144.193/repo/assets/icons/facebook.png" class="wo-nav-icon review-icon"  alt="FACEBOOK"></a>
-    <a href="https://www.vogelheating.com" target="_blank"><img src="http://3.15.144.193/repo/assets/icons/google.png" class="wo-nav-icon review-icon"  alt="GOOGLE"></a>
+    <div id="video-wrapper">
+    <video id="video-screen" src="" controls autoplay></video>
+    </div>
+    <div id="review-cont" class="client-grid">
+      <div id="review-tag">~ Check out some of our great reviews! ~</div>
+      <div class="review-icons">
+        <a href="https://www.facebook.com/VogelHeating" target="_blank"><img src="http://3.15.144.193/repo/assets/icons/facebook.png" class="wo-nav-icon review-icon"  alt="FACEBOOK"/></a>
+        <a href="https://www.vogelheating.com" target="_blank"><img src="http://3.15.144.193/repo/assets/icons/google.png" class="wo-nav-icon review-icon"  alt="GOOGLE"/></a>
+      </div>
+    </div>
   </div>
 </body>
 <script src='/Customer/js/video-group.js'></script>
