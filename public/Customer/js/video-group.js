@@ -13,8 +13,8 @@ var viddom = {
 }
 
 var vidgroup = {
-  'What to Expect':{
-    src:'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+  'What to Expect':{//Pre Service Call
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659113/rendition/720p/file.mp4?loc=external&signature=91579120ceea0ca7df5a522cc6a52640ea08b530930a281ae092c7cf6bb883f7'
   },
   'Rewards Membership':{//Rewards Membership
     src:'https://player.vimeo.com/progressive_redirect/playback/786659197/rendition/720p/file.mp4?loc=external&signature=58dfdaf68f80b3c11dbcc2a46a62ae91cc9b7b502a61c546fa2ca116ec1dd6f7'
