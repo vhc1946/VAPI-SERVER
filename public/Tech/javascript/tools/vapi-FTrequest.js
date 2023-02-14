@@ -1,7 +1,7 @@
 
-import * as japi from 'http://3.15.144.193/repo/apis/vapi/vapi-jmart.js';
-import {aserviceticket} from 'http://3.15.144.193/repo/ds/tickets/vogel-serviceticket.js';
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import * as japi from 'https://www.vhpportal.com/repo/apis/vapi/vapi-jmart.js';
+import {aserviceticket} from 'https://www.vhpportal.com/repo/ds/tickets/vogel-serviceticket.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 
 /* TODO:
    - add customer info

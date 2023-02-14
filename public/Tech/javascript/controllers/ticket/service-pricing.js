@@ -1,5 +1,5 @@
 
-import {ObjList} from 'http://3.15.144.193/repo/tools/vg-lists.js';
+import {ObjList} from 'https://www.vhpportal.com/repo/tools/vg-lists.js';
 /*
 */
 export class ServicePricing{
