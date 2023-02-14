@@ -4,12 +4,12 @@
     - linking all service item's info to one
     - linking service item repairs to one fo
 */
-import * as gendis from 'http://3.135.202.40/repo/modules/vg-tables.js';
-import { DropNote } from 'http://3.135.202.40/repo/modules/vg-dropnote.js';
-import {FINDparentele} from 'http://3.135.202.40/repo/tools/vg-displaytools.js';
+import * as gendis from 'http://3.15.144.193/repo/modules/vg-tables.js';
+import { DropNote } from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import {FINDparentele} from 'http://3.15.144.193/repo/tools/vg-displaytools.js';
 
-import {ViewGroup} from 'http://3.135.202.40/repo/layouts/view-controller.js';
-import {VHCform} from 'http://3.135.202.40/repo/tools/vhc-forms.js';
+import {ViewGroup} from 'http://3.15.144.193/repo/layouts/view-controller.js';
+import {VHCform} from 'http://3.15.144.193/repo/tools/vhc-forms.js';
 
 import {siform} from '/Tech/javascript/forms/serviceitem-form.js';
 import {SIrepairform} from '/Tech/javascript/forms/servicerepairs-form.js';
@@ -53,7 +53,7 @@ export class TicketServiceItems{
                   children:{
                     '.delete-button.img':{
                       attributes:{
-                        src:'http://3.135.202.40/repo/assets/icons/trash.png'
+                        src:'http://3.15.144.193/repo/assets/icons/trash.png'
                       }
                     }
                   }
@@ -65,7 +65,7 @@ export class TicketServiceItems{
                   children:{
                     '.add-button.img':{
                       attributes:{
-                        src:'http://3.135.202.40/repo/assets/icons/add.png'
+                        src:'http://3.15.144.193/repo/assets/icons/add.png'
                       }
                     }
                   }
@@ -84,7 +84,7 @@ export class TicketServiceItems{
                           children:{
                             '.add-button.img':{
                               attributes:{
-                                src:'http://3.135.202.40/repo/assets/icons/add.png'
+                                src:'http://3.15.144.193/repo/assets/icons/add.png'
                               }
                             }
                           }

@@ -1,10 +1,10 @@
 
-import {DropNote} from 'http://3.135.202.40/repo/modules/vg-dropnote.js';
-import * as gendis from 'http://3.135.202.40/repo/modules/vg-tables.js';
-import * as vcontrol from 'http://3.135.202.40/repo/layouts/view-controller.js';
-vcontrol.SETUPviewcontroller('http://3.135.202.40/repo/');
-import { aserviceticket, awo, aservicecontract } from 'http://3.135.202.40/repo/ds/tickets/vogel-serviceticket.js';
-import {VHCform} from 'http://3.135.202.40/repo/tools/vhc-forms.js';
+import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import * as gendis from 'http://3.15.144.193/repo/modules/vg-tables.js';
+import * as vcontrol from 'http://3.15.144.193/repo/layouts/view-controller.js';
+vcontrol.SETUPviewcontroller('http://3.15.144.193/repo/');
+import { aserviceticket, awo, aservicecontract } from 'http://3.15.144.193/repo/ds/tickets/vogel-serviceticket.js';
+import {VHCform} from 'http://3.15.144.193/repo/tools/vhc-forms.js';
 
 import {TicketServiceItems} from '/Tech/javascript/controllers/ticket/service-items.js';
 

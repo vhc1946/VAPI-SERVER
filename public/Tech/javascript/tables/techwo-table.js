@@ -1,8 +1,8 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import {FINDparentele} from 'http://3.135.202.40/repo/tools/vg-displaytools.js';
+import {FINDparentele} from 'http://3.15.144.193/repo/tools/vg-displaytools.js';
 import {TechLocalWos} from '/Tech/store/techwo-store.js';
-import {DropNote} from 'http://3.135.202.40/repo/modules/vg-dropnote.js';
-import {FormList} from 'http://3.135.202.40/repo/tools/vhc-formlist.js';
+import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import {FormList} from 'http://3.15.144.193/repo/tools/vhc-formlist.js';
 
 
 var molist = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -49,8 +49,8 @@ const wotablerow=`
     </div>
     <div class="${wrdom.values.descr}"></div>
     <div class="techwo-row-actions">
-      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="http://3.135.202.40/repo/assets/icons/cross.png"/></div>
-      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="http://3.135.202.40/repo/assets/icons/edit.png"/></div>
+      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="http://3.15.144.193/repo/assets/icons/cross.png"/></div>
+      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="http://3.15.144.193/repo/assets/icons/edit.png"/></div>
     </div>
 `
 // DATA //

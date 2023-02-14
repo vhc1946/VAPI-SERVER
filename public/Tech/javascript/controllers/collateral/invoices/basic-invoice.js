@@ -24,7 +24,7 @@ let dom = {
     }
 }
 let content = `
-    <img id='header-logo'src="http://3.135.202.40/repo/assets/images/Header_clean.png"/>
+    <img id='header-logo'src="http://3.15.144.193/repo/assets/images/Header_clean.png"/>
     <div class="invoice-top">
         <div class="invoice-section-client">
             <div>
@@ -73,11 +73,11 @@ let content = `
         </div>
         <div class="invoice-totals">
             <div class = "signature-box" id = "sig-insert">
-                
+
             </div>
             <div class = "invoice-totals-box">
                 <div>
-                    
+
                 </div>
                 <div>
                     <label class="invoice-sectionlabel">Total Invoice</label>
