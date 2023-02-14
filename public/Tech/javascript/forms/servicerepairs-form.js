@@ -24,7 +24,8 @@ export class SIrepairform extends FormList{
         let rtask = {
           task:'OTH',
           descr:toadd.desc,
-          price:Number(toadd.price)
+          price:Number(toadd.price),
+          appr:"YES"
         }
         for(let mr in pricebook.miscreps){
           if(toadd.desc===mr){
