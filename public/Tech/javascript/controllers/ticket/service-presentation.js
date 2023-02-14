@@ -59,7 +59,6 @@ export class ServicePresentation{
       "timesave": "4"
   }
     if (this.data.conform != undefined) {
-      console.log("Setting conform")
       this.conform.SETcontract(this.data.conform)
     }
 
@@ -128,7 +127,9 @@ export class ServicePresentation{
         window.regprice = document.getElementById("wo-present-regprice-today").innerText;
         window.presentation = this.cont.cloneNode(true);
         window.open("/Tech/collateral");
-      }else{DropNote('tr','Please Sign','yellow')}
+      } else {
+        DropNote('tr','Please Sign','yellow')
+      }
     });
   }
 
@@ -159,6 +160,7 @@ export class ServicePresentation{
       },
       repair: {
         unapproved:'wo-present-repair-unapproved',
+        unapproved_return:'wo-present-repair-unapproved-return',
         cont: 'wo-present-repair',
         num: 'present-repair-num',
         desc: 'present-repair-desc',
@@ -325,9 +327,6 @@ export class ServicePresentation{
       let rprice=0; //item reg price
       let mprice=0; //item member price
 
-      let trprice=0; //total reg price
-      let tmprice=0; //total member price
-      let savings=0; //total savings
       let discsavings=0; //discount savings
 
       slist.innerHTML = '';
@@ -363,7 +362,6 @@ export class ServicePresentation{
             r.appendChild(document.createElement('div')).innerText = this.data.repairs[x][y].descr + " (" + this.data.repairs[x][y].qty + ")";
 
             r.appendChild(document.createElement('div')).innerText =  rprice;
-            trprice += (this.data.repairs[x][y].appr ? rprice : 0);
 
             if(this.data.repairs[x][y].task!='OTH'){
               if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
@@ -380,39 +378,51 @@ export class ServicePresentation{
             }
             mprice = mprice * this.data.repairs[x][y].qty
             r.appendChild(document.createElement('div')).innerText = mprice;
-            tmprice += (this.data.repairs[x][y].appr ? mprice : 0);
             r.lastChild.id = "member-item-label";
             r.appendChild(document.createElement('div')).innerText = rprice - mprice;
-            savings += (this.data.repairs[x][y].appr ? rprice - mprice :0);
 
-            if(!this.data.repairs[x][y].appr){
+            if(this.data.repairs[x][y].appr == "NO"){
               r.classList.add(this.dom.system.repair.unapproved);
+            } else if (this.data.repairs[x][y].appr == "RETURN FOR") {
+              r.classList.add(this.dom.system.repair.unapproved_return);
             }
 
             //Add to disc savings
-            if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == true) {
+            if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == "YES") {
               discsavings = discsavings + mprice
               r.lastChild.innerText = -mprice
             }
 
             //Approval div
             let apprdiv = document.createElement('div');
-            r.appendChild(apprdiv).innerText = this.data.repairs[x][y].appr ? 'YES':'NO';
+            r.appendChild(apprdiv).innerText = this.data.repairs[x][y].appr;
             apprdiv.className = "apprvdiv"
-            apprdiv.classList.add(apprdiv.innerText)
+            apprdiv.classList.add(apprdiv.innerText.replace(/\s/g, ''))
+
+
+            this.UPDATEtotalprice()
             /**
              *  Event listener for approving repairs on repair table
              * */
             apprdiv.addEventListener('click', (eve)=>{
-              this.data.repairs[x][y].appr = !this.data.repairs[x][y].appr;
-              apprdiv.innerText = this.data.repairs[x][y].appr ? 'YES':'NO';
-              apprdiv.className = "apprvdiv"
-              apprdiv.classList.add(apprdiv.innerText)
-              if(!this.data.repairs[x][y].appr){
+              if (this.data.repairs[x][y].appr == "YES") {
+                this.data.repairs[x][y].appr = "RETURN FOR"
+                r.classList.add(this.dom.system.repair.unapproved_return);
+              } else if (this.data.repairs[x][y].appr == "RETURN FOR") {
+                this.data.repairs[x][y].appr = "NO"
+                r.classList.remove(this.dom.system.repair.unapproved_return);
                 r.classList.add(this.dom.system.repair.unapproved);
               } else {
+                this.data.repairs[x][y].appr = "YES"
                 r.classList.remove(this.dom.system.repair.unapproved);
               }
+
+
+
+
+              apprdiv.innerText = this.data.repairs[x][y].appr;
+              apprdiv.className = "apprvdiv"
+              apprdiv.classList.add(apprdiv.innerText.replace(/\s/g, ''))
 
               //Update total price
               this.UPDATEtotalprice()
@@ -425,12 +435,9 @@ export class ServicePresentation{
           }
         }
       }
-      //document.getElementById(this.dom.memlevel).innerText = this.rewardform.GETmemhead(document.getElementById(this.dom.contract.form.name).value) || this.wo.cntrct;
-      document.getElementById(this.dom.invest.regprice).innerText = trprice;
-      document.getElementById(this.dom.invest.memprice).innerText = tmprice;
-      document.getElementById(this.dom.invest.savings).innerText = savings + (-discsavings);
-      document.getElementById(this.dom.invest.discsavings).innerText = -discsavings
-      //document.getElementById(this.dom.invest.conmonth).innerText = this.rewardform.GETformprice();
+      //document.getElementById(this.dom.invest.regprice).innerText = trprice;
+      //document.getElementById(this.dom.invest.memprice).innerText = tmprice;
+      //document.getElementById(this.dom.invest.savings).innerText = savings + (-discsavings);
     }
   }
 
@@ -453,22 +460,33 @@ export class ServicePresentation{
         //Get the price of the member item
         if(this.data.repairs[x][y].task!='OTH'){
           if(this.data.repairs[x][y].task=='DIAG'){ //special case for diagnostic fee
-            if(this.data.contract && Object.keys(this.data.contract).length!==0){
-              mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
-            }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);}
-          }else{mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);}
-        }else{mprice = Number(this.data.repairs[x][y].price);}
-        mprice = mprice * this.data.repairs[x][y].qty
+            if(this.data.wo.pricelevel != "STA" && this.data.wo.pricelevel != "STD"){
+              mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.data.wo.pricelevel);
+            } else {
+              mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task);
+            }
+          } else {
+            mprice = this.pricebook.GETbookprice(this.data.repairs[x][y].task,this.contract);
+          }
+        } else {
+          mprice = Number(this.data.repairs[x][y].price);
+        }
 
         //Calculate any discounts applied by the tech
-        if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == true) {
+        if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == "YES") {
           discsavings = discsavings + mprice
         }
 
         //Calculate totals
-        tmprice += (this.data.repairs[x][y].appr ? mprice : 0);
-        savings += (this.data.repairs[x][y].appr ? rprice - mprice :0);
-        trprice += (this.data.repairs[x][y].appr ? rprice : 0);
+        if (this.data.repairs[x][y].appr == "YES") {
+          tmprice = tmprice + mprice
+          savings = savings + (rprice - mprice)
+          trprice = trprice + rprice
+        }
+
+        /*tmprice += (this.data.repairs[x][y].appr == "YES" ? mprice : 0);
+        savings += (this.data.repairs[x][y].appr == "YES" ? rprice - mprice :0);
+        trprice += (this.data.repairs[x][y].appr == "YES" ? rprice : 0);*/
       }
     }
 
@@ -492,7 +510,11 @@ export class ServicePresentation{
       for (let j = 0; j < item.length; j++) {
         let repair = item[j]
         if (pl != null) {
-          repair.price = this.pricebook.GETbookprice(repair.task, pl)
+          if (repair.task == "DIAG") {
+            repair.price = this.pricebook.GETbookprice(repair.task, this.data.wo.pricelevel)
+          } else {
+            repair.price = this.pricebook.GETbookprice(repair.task, pl)
+          }
           repair.pl = pl;
         }
         if (appr != null) {

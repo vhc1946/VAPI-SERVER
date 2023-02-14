@@ -31,9 +31,11 @@
     font-weight: bold;
 }
 #header-logo{
-    width: 100%;
+    width: 85%;
     grid-column: 1 / 6;
     margin-bottom: 10px;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
 }
 .present-info-id,
 .present-info-custcode{

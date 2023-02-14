@@ -167,7 +167,7 @@ export class SummaryCheckList{
         <img id='header-logo'src="https://www.vhpportal.com/repo/assets/images/Header_clean.png"/>
         <div class="summary-header">
             <div><span class="${dom.info.street}">1234 Street Dr</span> , <span class=${dom.info.cityzip}>Fenton, MO 63026</span></div>
-        </div>  
+        </div>
         <div class="summary-body">
             <div class="summary-section-info">
                 <div class="section-header-sys">System Info</div>

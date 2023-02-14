@@ -7,18 +7,21 @@
             --contract-color: #213982;
             --present-back-color: rgb(245,245,245);
             --highlight-color: rgb(255, 129, 129);
+            --titlebar-bg: rgb(6, 42, 73);
+            --drop-shadow: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
             user-select: none;
         }
         body{
             background-color: var(--present-back-color);
-            margin: 10px;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
             height: calc(100vh - 20px);
             display: flex;
             flex-flow: column;
+            margin-top: 50px;
+            overflow-x: hidden;
         }
         a{
             text-decoration: none;

@@ -1,8 +1,11 @@
+
+import {SENDrequestapi} from 'http:/3.15.144.193/repo/apis/vapi/vapicore.js';
+
+
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
 import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checklists/summary-checklist.js";
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
-import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
 //setup emailing vars
@@ -23,7 +26,7 @@ var repairtable = window.opener.repairtable;
 const contractopts = window.opener.contractopt;
 repairtable.id = "wo-present-system-summary"
 
-console.log("Ticket from collateral::::", ticket)
+//console.log("Ticket from collateral::::", ticket)
 
 var summary = window.opener.summary;
 ticket.wo.location = ticket.wo.street;
@@ -36,10 +39,12 @@ if (ticket.wo.pricelevel == "STA") {
 } else {
     price = window.opener.memberprice
 }
-let name = ticket.wo.customername.split(", ")
-console.log(name)
+let name ="Customer"
+if (ticket.wo.customername) {
+    name = ticket.wo.customername.split(", ")
+}
 let emailform = undefined;
-if (name.length > 1) {
+if (name.constructor == Array) {
     emailform = new EmailForm(name[1] + " " + name[0])
 } else {
     emailform = new EmailForm(ticket.wo.customername)
@@ -73,7 +78,7 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   //get array of all conent on collateral page
   SENDrequestapi({
     to:document.getElementById('email-input').value,
-    subject:'Home Comfort Report',
+    subject:'Home Comfort Report - WO #' + ticket.wo.id,
     html:emailform.GETcontent(),
     attach:emailcontent
   },
@@ -181,7 +186,6 @@ if (ticket.wo.contactemail != "" || ticket.wo.contactemail != undefined) {
 var invoice = new CollateralForm(document.createElement('div'),basicinvoice);
 
 document.body.appendChild(invoice.cont);
-console.log(ticket.tech)
 for(let i in invoice.dom.info){
     if (invoice.dom.info[i][0]) {
         if(ticket.wo[i]){
@@ -189,6 +193,8 @@ for(let i in invoice.dom.info){
         }else{
             if (invoice.dom.info[i] == "invoice-info-total") {
                 document.getElementsByClassName(invoice.dom.info[i])[0].innerText = ticket.total;
+            } else if (invoice.dom.info[i] == "invoice-info-terms") {
+                document.getElementsByClassName(invoice.dom.info[i])[0].innerText = 'COD';
             } else {
                 document.getElementsByClassName(invoice.dom.info[i])[0].innerText = '';
             }
@@ -212,7 +218,7 @@ for (let i = 0; i < sitems.length; i++) {
         //Create row for each repair item
         for (let j = 0; j < ticket.repairs[i].length; j++) {
             let Repair = ticket.repairs[i][j];
-            if (Repair.appr == true) {
+            if (Repair.appr == "YES") {
                 SystemLabel.innerText = sitems[i].tagid;
                 //Create row
                 let Row = document.createElement('div')

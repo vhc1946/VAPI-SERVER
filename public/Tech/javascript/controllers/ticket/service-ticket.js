@@ -41,7 +41,7 @@ var fbtable = document.getElementsByClassName('frbook-list')[0];
 
 export class ServiceTicket{
   constructor(ticket=null,pricing){
-    //console.log('INIT Ticket',ticket);
+    console.log('INIT Ticket',ticket);
     this.data = aserviceticket(ticket);
     //console.log("DATA:::", this.data)
     // Setup Price Book

@@ -24,7 +24,8 @@ export class SIrepairform extends FormList{
         let rtask = {
           task:'OTH',
           descr:toadd.desc,
-          price:Number(toadd.price)
+          price:Number(toadd.price),
+          appr:"YES"
         }
         for(let mr in pricebook.miscreps){
           if(toadd.desc===mr){
@@ -43,7 +44,7 @@ export class SIrepairform extends FormList{
             $(document.getElementsByClassName('min-page-cont')[0]).toggle();
             $(document.getElementById('loginout-block')).show();
           }else{
-            console.log('adding', rtask)
+            //console.log('adding', rtask)
             addrow=this.ADDrepair(rtask,true);
             this.addform=undefined;
           }
@@ -95,11 +96,9 @@ export class SIrepairform extends FormList{
     </datalist>
   </div>
   `
-
+  //<input class="sr-appr vg-checkbox" type = "checkbox"></input>
   row=`
-    <div class = "checkbox-cont">
-      <input class="sr-appr vg-checkbox" type = "checkbox"></input>
-    </div>
+    <div class="sr-appr"></div>
     <div class="sr-task"></div>
     <div class="sr-descr"></div>
     <div class="sr-pl"></div>
@@ -141,22 +140,33 @@ export class SIrepairform extends FormList{
         row.getElementsByClassName('sr-price')[0].id = "price-other"
       }
       row.getElementsByClassName('sr-cost')[0].innerText = item.price * item.qty;
-      //Check the item if it's been approved
-      if(item.appr){
-        row.getElementsByClassName('sr-appr')[0].classList.add('vg-checkbox-checked');
-        row.getElementsByClassName('sr-appr')[0].checked = true;
+      if (noteflag) {
+        item.appr = "YES" //auto-approve newly added items
+        console.log("APPROVAL:", item.appr)
       }
+      //Check the item for true/false as old items may still be booleans
+      if(item.appr == true){
+        item.appr = "YES"
+       // row.getElementsByClassName('sr-appr')[0].classList.add('vg-checkbox-checked');
+        //row.getElementsByClassName('sr-appr')[0].checked = true;
+      } else if (item.appr == false) {
+        item.appr = "NO"
+      }
+      row.getElementsByClassName('sr-appr')[0].innerText = item.appr;
 
-      row.getElementsByClassName('sr-appr')[0].addEventListener('click',(ele)=>{
+      //Disable checkbox click
+      /*row.getElementsByClassName('sr-appr')[0].addEventListener('click',(ele)=>{
         ele.target.classList.toggle('vg-checkbox-checked')
-      });
+      }); */
 
       row.getElementsByClassName('delete-repair-item')[0].addEventListener('click',(ele)=>{
         ele.target.parentNode.remove();
       });
       if(item.task == "OTH" ||skipdup||this.Dupcheck(row)){
-        if (noteflag) {DropNote('tr',item.task+' Added','green');}
-        return row;
+        if (noteflag) {
+          DropNote('tr',item.task+' Added','green');
+        }
+          return row;
         }
       else{
         DropNote('tr',item.task+' Already on List','yellow');
@@ -172,7 +182,7 @@ export class SIrepairform extends FormList{
     item.pl=row.getElementsByClassName('sr-pl')[0].innerText||'';
     item.qty=row.getElementsByClassName('sr-qty')[0].value||1;
     item.price=row.getElementsByClassName('sr-price')[0].innerText||'';
-    item.appr=row.getElementsByClassName('sr-appr')[0].classList.contains('vg-checkbox-checked')?true:false;
+    item.appr=row.getElementsByClassName('sr-appr')[0].innerText||'YES'; //default to yes
     return item;
   }
 

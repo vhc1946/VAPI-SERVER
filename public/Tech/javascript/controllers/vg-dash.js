@@ -1,3 +1,5 @@
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+
 import {wolstore} from '/Tech/store/lstore.js';
 
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
@@ -5,7 +7,7 @@ import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js
 import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
 import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
 import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
-import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
+
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import * as manlist from '/Tech/store/tech-managelist.js';
@@ -51,13 +53,21 @@ var dashdom = {
 
 var datamart=null;
 
+
+
+SENDrequestapi({},'LOGIN',{
+  user:'MURRY',
+  pswrd:'vogel123'
+}).then(
+  answr=>{console.log('TEST call',answr)}
+)
 STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
   return new Promise((resolve,reject)=>{
     manlist.INITmanagelist().then(
       mlist=>{
         datamart=mlist;
         window.datamart=datamart; //can be used in child windows
-        console.log('Done With list',datamart)
+        //console.log('Done With list',datamart)
         //post needed updates to manage list
         return resolve(true);
       }
@@ -88,7 +98,7 @@ var mactions = {
       DropNote('tr','Syncing Data','green')
       manlist.REFRESHmanagelist().then(
         list=>{
-          console.log(list);
+          console.log(list); //Keeping this console log
           DropNote('tr','Syncing has Finished','green');
         }
       )
@@ -139,7 +149,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     let savenload = (wo)=>{
       twolist.UPDATEstore(wo).then(
         result=>{
-          console.log(result);
+          //console.log(result);
           twdashlist.LOADlist(twolist.list);
         }
       );
@@ -162,7 +172,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
       //search vapi mart
       twolist.CHECKmart(wonum).then(
         found=>{
-          console.log('TICKET >',found);
+          //console.log('TICKET >',found);
           if(found){found.mobile=true;savenload(found);}
           else{
             STARTticket(wonum).then(  //'00025796'

@@ -101,7 +101,6 @@ var qactions = {
         ticket.ticket = presentation.data;
         ticket.ticket.track.presented = true;
         box.style.left = "-5000px";
-        console.log(ticket.ticket)
         if (presentation.SignatureShown) {
           presentation.SHOWsignature()
         }

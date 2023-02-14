@@ -5,8 +5,8 @@
   padding: 10px;
   background-color: var(--back-color);
   border-radius: 10px;
-  filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));
   place-items: center center;
+  border: 1px solid #e4e4e4;
 }
 #call-header{
   grid-column: 2 / 11;
@@ -30,7 +30,7 @@
 #video-wrapper{
   position: relative;
   padding-bottom: 56.25%;
-  left: calc(12.5% - 2px);
+  left: calc(5% - 2px);
   height: 0;
   margin-bottom: 5px;
 }
@@ -38,8 +38,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 75%;
-  height: 75%;
+  width: 90%;
+  height: 90%;
   border-radius: 10px;
   border: 2px solid black;
 }
@@ -76,7 +76,7 @@
   justify-content: center;
   cursor: pointer;
   font-weight: bold;
-  height: 50px;
+  height: 80px;
   font-size: small;
   text-align: center;
 }
@@ -95,23 +95,100 @@
   text-align: center;
 }
 #review-cont{
-  position: fixed;
   bottom: 0;
   right: 10px;
   left: 10px;
+  display: block;
 }
 #review-tag{
-  grid-column: 1 / span all;
   padding-top: 5px;
   font-size: 1.2em;
   font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.review-icons {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 15% 15%;
 }
 .review-icon{
   margin:10px 0px;
 }
 
+.footer {
+  background-image:url("https://www.vogelheating.com/assets/footer/footer-alt.jpg");
+  background-position: center;
+  background-size: contain;
+  height: 12.5vh;
+  width: 100vw;
+  position:fixed;
+  bottom: 0;
+  left:0;
+}
+
+.logo {
+  height: 10vh;
+}
+
+#titlebar {
+  height: 40px;
+  background-color: var(--titlebar-bg);
+  filter: var(--drop-shadow);
+  width: 100vw;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.home-button-cont {
+  height: 40px;
+  background-color: aqua;
+  align-content: center;
+  justify-content: center;
+}
+
+#return-home {
+  max-height: 32.5px;
+}
+
+#client-bar {
+  height: 20vh;
+}
+
+#footer-img {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+.contents {
+  height: calc(100vh - 40px - 20vh);
+  display: grid;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 /*Landscape customizations.*/
 @media only screen and (min-width: 768px) {
+  #titlebar {
+    position: fixed;
+    viewport-fit:contain;
+    
+  }
+  .footer {
+    display: none;
+  }
+  .contents {
+    height: calc(100vh - 40px);
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  #client-bar {
+    width: 95%;
+    height: 40vh;
+  }
+  
   #call-header {
     font-size: 1.5em;
   }
@@ -121,6 +198,7 @@
 
   #video-wrapper{
     left: calc(25% - 2px);
+    height: 0%;
   }
   #video-screen{
     position: absolute;

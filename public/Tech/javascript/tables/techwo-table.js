@@ -100,12 +100,10 @@ twdashlist.srow=(item={})=>{
 
 var OPENwo=(ele)=>{
   var row = FINDparentele(ele.target,wrdom.cont);
-  console.log('OPENING');
   if(row){
       let wonum = row.getElementsByClassName(wrdom.values.id)[0].innerText;
-      console.log("Twolist: ", twolist)
+      //console.log("Twolist: ", twolist)
       let woitem = twolist.GETitem(wonum);
-      console.log(row);
       if(woitem){
         if (window.tabs[wonum] == 1) {
           DropNote('tr',`WO # ${wonum} Already Open!`,'red')
@@ -115,7 +113,6 @@ var OPENwo=(ele)=>{
 
           localStorage.setItem(wolstore.toloadwo,JSON.stringify(woitem));
           let retval = window.open('/Tech/ticket');
-          console.log(retval)
           DropNote('tr',`WO # ${wonum} Loaded..`,'green');
         }
 

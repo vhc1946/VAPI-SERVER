@@ -13,20 +13,20 @@ var viddom = {
 }
 
 var vidgroup = {
-  'What to Expect':{
-    src:'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+  'What to Expect':{//Pre Service Call
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659113/rendition/720p/file.mp4?loc=external&signature=91579120ceea0ca7df5a522cc6a52640ea08b530930a281ae092c7cf6bb883f7'
   },
-  'Rewards Membership':{
-    src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Rewards+Membership.mp4'
+  'Rewards Membership':{//Rewards Membership
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659197/rendition/720p/file.mp4?loc=external&signature=58dfdaf68f80b3c11dbcc2a46a62ae91cc9b7b502a61c546fa2ca116ec1dd6f7'
   },
-  'Service Warranty':{
-    src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Service+Warranty.mp4'
+  'Service Warranty':{//Service Warranty
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659230/rendition/720p/file.mp4?loc=external&signature=2c09bf3ede3445f96ee19a682cadf8a64a241879bef99bcca3de37d2e9d2664d'
   },
-  'Repair or Replace? No Remorse.':{
-    src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Repair+or+Replace%2C+No+Remporse+Program.mp4'
+  'Repair or Replace? No Remorse.':{//Repair or Replace, No Remorse
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659164/rendition/720p/file.mp4?loc=external&signature=f3a52e40ec17348c0ab65d3bd68de19bfd8181970d7852d2230c33a2eb2f0c13'
   },
-  'Upgrading Your Air':{
-    src:'https://living-service-ticket.s3.us-east-2.amazonaws.com/Pre+Comfort+Consultation.mp4'
+  'Upgrading Your Air':{//Pre Comfort Consultation
+    src:'https://player.vimeo.com/progressive_redirect/playback/786659255/rendition/720p/file.mp4?loc=external&signature=e1ef05ab00f5bf548f20f5aa8d6ec478f32e855bdd1dcd881cba59bd1905c212'
   }
 }
 
@@ -36,7 +36,7 @@ var SETvideogallery = ()=>{
   for(let v in vidgroup){
     let vbutt = document.createElement('div');
     vbutt.classList.add(viddom.gallery.button);
-    vbutt.addEventListener('dblclick',GETgalleryvideo);
+    vbutt.addEventListener('click',GETgalleryvideo);
     vbutt.innerText = v;
     vgal.appendChild(vbutt);
   }

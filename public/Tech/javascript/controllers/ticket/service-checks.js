@@ -306,7 +306,7 @@ ADDgroup(name,group={system:null,cooling:null,heating:null}){
         dom:checklists.doms[c],
         content:checklists.contents[c]
       }));
-      
+
       //Load existing data when not creating a new system
       if (group[c] != null) {
         this.forms[this.forms.length - 1].checks[c].data = group[c];
@@ -317,7 +317,7 @@ ADDgroup(name,group={system:null,cooling:null,heating:null}){
       let nview = cview.ADDview(checklists.titles[c],this.forms[this.forms.length - 1].checks[c].cont);
       this.forms[this.forms.length - 1].checks[c].form=group[c];
 
-      
+
     }
 
     /*CALCULATION Listener events*/
