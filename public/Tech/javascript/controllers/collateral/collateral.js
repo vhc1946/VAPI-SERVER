@@ -73,7 +73,6 @@ document.getElementById('print-collateral').addEventListener('click',(ele)=>{
  */
 document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   alert('Sending email to ' + document.getElementById('email-input').value);
-  DropNote('tr', 'Sending email!', 'yellow')
   ticket.track.emailed = true;
   //get and validate email from screen
   //get array of all conent on collateral page
