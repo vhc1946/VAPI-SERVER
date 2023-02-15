@@ -203,7 +203,6 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
       }).then(answr=>{
         console.log(answr);
         if (answr == true) {
-          $(document.getElementsByClassName('vhc-ticket-load-screen')[0]).hide();
           console.log("hidden")
         }
       })
