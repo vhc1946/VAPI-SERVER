@@ -96,12 +96,18 @@ var mactions = {
     src:'http://3.15.144.193/repo/assets/icons/datastores.png',
     ondblclick:(ele)=>{
       DropNote('tr','Syncing Data','green')
-      manlist.REFRESHmanagelist().then(
-        list=>{
-          console.log(list);
+      STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
+        return new Promise((resolve,reject)=>{
+          manlist.REFRESHmanagelist().then(
+            list=>{
+              console.log(list);
+              return(resolve(true))
+            }
+          )
+        }).then(answr=>{
           DropNote('tr','Syncing has Finished','green');
-        }
-      )
+        })
+      });
     }
   }
 };
