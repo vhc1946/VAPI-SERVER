@@ -149,17 +149,19 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     let savenload = (wo)=>{
       twolist.UPDATEstore(wo).then(
         result=>{
-          console.log(result);
+          //console.log(result);
           twdashlist.LOADlist(twolist.list);
         }
       );
       if (window.tabs[wonum] == 1) {
         DropNote('tr',`WO # ${wonum} Already Open!`,'red')
+        return (false)
       } else {
         //Add the woitem to the open tabs
         window.tabs[wonum] = 1;
         localStorage.setItem(wolstore.toloadwo,JSON.stringify(wo));
         window.open('/Tech/ticket');
+        return (true)
       }
     }
     let wonum = document.getElementById('openwo-number').value;
@@ -168,28 +170,43 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     if(woitem){
       savenload(woitem);
     }else{
-      DropNote('tr', 'Searching, please wait', 'yellow')
       //search vapi mart
-      twolist.CHECKmart(wonum).then(
-        found=>{
-          console.log('TICKET >',found);
-          if(found){found.mobile=true;savenload(found);}
-          else{
-            STARTticket(wonum).then(  //'00025796'
-                ticket=>{
-                console.log('TICKET >',ticket);
-                if(ticket){
-                    ticket.id = wonum;//add an id
-                    ticket.mobile=true; //add mobile
-                    ticket.tech=login.storecreds.user; //add tech
-                    DropNote('tr','Wo is Loading...','green');
-                    savenload(ticket);
-                }else{DropNote('tr','Wo Not Found','red');}
-                }
-            );
-          }
+      STARTloadscreen(document.getElementsByClassName('vhc-ticket-load-screen')[0],()=>{
+        return new Promise((resolve,reject)=>{
+          twolist.CHECKmart(wonum).then(
+            found=>{
+              console.log('TICKET FOUND >',found);
+              if (found) {
+                found.mobile=true;
+                console.log("mobile found")
+                return(savenload(found));
+              }
+              else{
+                STARTticket(wonum).then(  //'00025796'
+                    ticket=>{
+                      console.log('TICKET START >',ticket);
+                      if(ticket){
+                        ticket.id = wonum;//add an id
+                        ticket.mobile=true; //add mobile
+                        ticket.tech=login.storecreds.user; //add tech
+                        DropNote('tr','Wo is Loading...','green');
+                        return resolve(savenload(ticket));
+                      } else {
+                        return resolve(false)
+                      }
+                    }
+                );
+              }
+            }
+          )
+        });
+      }).then(answr=>{
+        console.log(answr);
+        if (answr == true) {
+          $(document.getElementsByClassName('vhc-ticket-load-screen')[0]).hide();
+          console.log("hidden")
         }
-      )
+      })
     }
     $(document.getElementById('vg-float-frame-close')).click();
 });
