@@ -185,7 +185,7 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
               if (found) {
                 found.mobile=true;
                 console.log("mobile found")
-                return(savenload(found));
+                return(resolve(savenload(found)));
               }
               else{
                 STARTticket(wonum).then(  //'00025796'
