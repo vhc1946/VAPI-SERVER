@@ -6,6 +6,8 @@ import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js'
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
 import {ServicePresentation} from '/Tech/javascript/controllers/ticket/service-presentation.js';
 
+import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+
 
 let publicfolder = '/Tech/bin/css'; //not sure we need
 // Load Data //
@@ -37,18 +39,25 @@ window.SAVEticket = (final=false)=>{
 
     if(final){}//save final to server
 
-    window.opener.techwos.UPDATEstore(currticket).then(answr=>{
-      if(answr) {
-        DropNote('tr','Ticket WAS Saved','green');
-        window.askToClose = false;
-        window.TicketSaved = true;
-        return resolve(currticket.wo.id);
-      }
-      else {
-        DropNote('tr','Ticket was NOTSaved','yellow');
-        return resolve(false)
-      }
-    });
+    STARTloadscreen(document.getElementsByClassName('vhc-save-load-screen')[0],()=>{
+      return new Promise((resolve,reject)=>{
+        window.opener.techwos.UPDATEstore(currticket).then(answr=>{
+          if(answr) {
+            DropNote('tr','Ticket WAS Saved','green');
+            window.askToClose = false;
+            window.TicketSaved = true;
+            return resolve(true);
+          }
+          else {
+            DropNote('tr','Ticket was NOTSaved','yellow');
+            return resolve(false)
+          }
+        });
+      });
+    }).then(answr=>{
+      console.log(answr);
+      return(resolve(answr))
+    })
   });
 }
 

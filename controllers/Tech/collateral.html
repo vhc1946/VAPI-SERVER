@@ -12,12 +12,19 @@
       <link rel="stylesheet" href="https://www.vhpportal.com/repo/css/vg-utility.css" />
       <link rel="stylesheet" href="https://www.vhpportal.com/repo/css/vg-notifiers.css" />
       <link rel="stylesheet" href="/Tech/styles/presentation-print.css"/>
+      <link rel="stylesheet" href="http://127.0.0.1:5500/css/vhc-loadscreen.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
       <div id = "vg-toast-tr">
         <div class = "vg-note-list"></div>
       </div>
+      <div class="vhc-email-load-screen noshow">
+        <div class = "vhc-load-screen-item-cont shadow">
+            <img class="vhc-load-screen-img" src="http://3.15.144.193/repo/assets/loading/Loading Circle.gif" />
+            <div class="vhc-load-screen-text">Emailing invoice to customer</div>
+        </div>
+    </div>
       <div class = "button-container">
         <button id="print-collateral" class = "flat-action-button"><img src="https://www.vhpportal.com/repo/assets/icons/download.png"/></button>
         <input id = "email-input" class = "vg-text-input" placeholder="Enter Email" type="email"></input>
