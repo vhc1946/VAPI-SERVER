@@ -7,6 +7,8 @@ import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/b
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
+import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+
 //setup emailing vars
 
 var emailcontent = {
@@ -43,7 +45,7 @@ if (ticket.wo.customername) {
     name = ticket.wo.customername.split(", ")
 }
 let emailform = undefined;
-if (name.constructor == Array) {
+if (name.length > 1) {
     emailform = new EmailForm(name[1] + " " + name[0])
 } else {
     emailform = new EmailForm(ticket.wo.customername)
@@ -75,22 +77,33 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   ticket.track.emailed = true;
   //get and validate email from screen
   //get array of all conent on collateral page
-  SENDrequestapi({
-    to:document.getElementById('email-input').value,
-    subject:'Home Comfort Report - WO #' + ticket.wo.id,
-    html:emailform.GETcontent(),
-    attach:emailcontent
-  },
-  'MAIL',{}).then(
-    answer=>{
-        if (answer.msg == "Mail sent") {
-            DropNote('tr', 'Mail sent!', 'green')
-            DropNote('tr', 'Remind customer to check spam', 'green')
-        } else {
-            DropNote('tr', answer.msg, 'red', false)
-        }
-    }
-  );
+
+  STARTloadscreen(document.getElementsByClassName('vhc-email-load-screen')[0],()=>{
+    return new Promise((resolve,reject)=>{
+        console.log("start load screen")
+        SENDrequestapi({
+            to:document.getElementById('email-input').value,
+            subject:'Home Comfort Report - WO #' + ticket.wo.id,
+            html:emailform.GETcontent(),
+            attach:emailcontent
+          },
+          'MAIL',{}).then(
+            answer=>{
+                if (answer.msg == "Mail sent") {
+                    DropNote('tr', 'Mail sent!', 'green')
+                    DropNote('tr', 'Remind customer to check spam', 'green')
+                    return(resolve(true))
+                } else {
+                    DropNote('tr', answer.msg, 'red', false)
+                    return(resolve(true))
+                }
+            }
+          );
+    }).then(answr=>{
+      console.log(answr);
+      return(true)
+    })
+  });
 });
 
 /**
