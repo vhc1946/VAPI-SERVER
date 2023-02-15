@@ -1,4 +1,4 @@
-import {SENDrequestapi} from 'http:/3.15.144.193/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
@@ -45,7 +45,7 @@ if (ticket.wo.customername) {
     name = ticket.wo.customername.split(", ")
 }
 let emailform = undefined;
-if (name.length > 1) {
+if (name.constructor == Array) {
     emailform = new EmailForm(name[1] + " " + name[0])
 } else {
     emailform = new EmailForm(ticket.wo.customername)
@@ -76,7 +76,6 @@ document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   ticket.track.emailed = true;
   //get and validate email from screen
   //get array of all conent on collateral page
-
   STARTloadscreen(document.getElementsByClassName('vhc-email-load-screen')[0],()=>{
     return new Promise((resolve,reject)=>{
         console.log("start load screen")

@@ -1,6 +1,6 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import * as titlebar from 'http://3.15.144.193/repo/modules/vg-titlebar.js';
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 
 import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
@@ -101,7 +101,7 @@ window.onunload = function (e) {
 var qactions = {
   present:{
     id:'presentation-open',
-    src:'http://3.15.144.193/repo/assets/icons/document-signed.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/document-signed.png',
     title:'Presentation',
     onclick:(ele)=>{  // Presentation show/hide
       let box = document.getElementsByClassName('present-full-cont')[0];
@@ -110,7 +110,6 @@ var qactions = {
         ticket.ticket = presentation.data;
         ticket.ticket.track.presented = true;
         box.style.left = "-5000px";
-        console.log(ticket.ticket)
         if (presentation.SignatureShown) {
           presentation.SHOWsignature()
         }
@@ -126,7 +125,7 @@ var qactions = {
 var mactions = {
   save:{
     id:'wo-save-button',
-    src:'http://3.15.144.193/repo/assets/icons/disk.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
     title:'Save WO',
     ondblclick:(ele)=>{
       window.SAVEticket();
@@ -134,7 +133,7 @@ var mactions = {
   },
   refresh:{
     id:'wo-refresh-button',
-    src:'http://3.15.144.193/repo/assets/icons/refresh.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/refresh.png',
     title:'Refresh WO',
     onclick:(ele)=>{   // Refresh info
       DropNote('tr','Ticket is Refreshing','green');
@@ -154,7 +153,7 @@ var mactions = {
 };
 
 titlebar.SETUPtitlebar({
-  RROOT:'http://3.15.144.193/repo/',
+  RROOT:'https://www.vhpportal.com/repo/',
   qacts:qactions,
   macts:mactions,
   login:false,

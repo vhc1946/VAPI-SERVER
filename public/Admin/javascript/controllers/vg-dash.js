@@ -1,10 +1,10 @@
-import {SENDrequestapi} from 'http://3.15.144.193/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
-import * as titlebar from 'http://3.15.144.193/repo/modules/vg-titlebar.js';
-import { SELECTview } from 'http://3.15.144.193/repo/modules/vg-floatviews.js';
-import { AppDock } from 'http://3.15.144.193/repo/modules/appdock.js';
-import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js';
+import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
+import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
+import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
 /*  Tech Dash
   TODO:
@@ -30,7 +30,7 @@ var qactions = {
 var mactions = {
 };
 var login = titlebar.SETUPtitlebar({
-  RROOT:'http://3.15.144.193/repo/',
+  RROOT:'https://www.vhpportal.com/repo/',
   qacts:qactions,
   macts:mactions,
   login:true,

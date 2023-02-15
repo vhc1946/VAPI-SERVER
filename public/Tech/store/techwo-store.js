@@ -1,6 +1,6 @@
 
-import {ObjList} from 'http://3.15.144.193/repo/tools/vg-lists.js';
-import {SENDrequestapi} from 'http://3.15.144.193/repo/apis/vapi/vapicore.js';
+import {ObjList} from 'https://www.vhpportal.com/repo/tools/vg-lists.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 /*
 SENDrequestapi({
   collect:'apps',
@@ -80,7 +80,7 @@ export class TechLocalWos extends ObjList{
         break;
       }
     }
-    console.log("UPDATING ITEM", item, this.list)
+    //console.log("UPDATING ITEM", item, this.list)
     this.list=list;
   }
   GETitem(id){

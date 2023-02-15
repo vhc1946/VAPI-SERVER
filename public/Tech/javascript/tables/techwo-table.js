@@ -1,8 +1,8 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import {FINDparentele} from 'http://3.15.144.193/repo/tools/vg-displaytools.js';
+import {FINDparentele} from 'https://www.vhpportal.com/repo/tools/vg-displaytools.js';
 import {TechLocalWos} from '/Tech/store/techwo-store.js';
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
-import {FormList} from 'http://3.15.144.193/repo/tools/vhc-formlist.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import {FormList} from 'https://www.vhpportal.com/repo/tools/vhc-formlist.js';
 
 
 var molist = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -49,8 +49,8 @@ const wotablerow=`
     </div>
     <div class="${wrdom.values.descr}"></div>
     <div class="techwo-row-actions">
-      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="http://3.15.144.193/repo/assets/icons/cross.png"/></div>
-      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="http://3.15.144.193/repo/assets/icons/edit.png"/></div>
+      <div class = "action-button" id = "button-delete" ><img class="${wrdom.actions.delete}" src="https://www.vhpportal.com/repo/assets/icons/cross.png"/></div>
+      <div class = "action-button" id = "button-open" ><img class="${wrdom.actions.open}" src="https://www.vhpportal.com/repo/assets/icons/edit.png"/></div>
     </div>
 `
 // DATA //
@@ -100,12 +100,10 @@ twdashlist.srow=(item={})=>{
 
 var OPENwo=(ele)=>{
   var row = FINDparentele(ele.target,wrdom.cont);
-  console.log('OPENING');
   if(row){
       let wonum = row.getElementsByClassName(wrdom.values.id)[0].innerText;
-      console.log("Twolist: ", twolist)
+      //console.log("Twolist: ", twolist)
       let woitem = twolist.GETitem(wonum);
-      console.log(row);
       if(woitem){
         if (window.tabs[wonum] == 1) {
           DropNote('tr',`WO # ${wonum} Already Open!`,'red')
@@ -115,7 +113,6 @@ var OPENwo=(ele)=>{
 
           localStorage.setItem(wolstore.toloadwo,JSON.stringify(woitem));
           let retval = window.open('/Tech/ticket');
-          console.log(retval)
           DropNote('tr',`WO # ${wonum} Loaded..`,'green');
         }
 
