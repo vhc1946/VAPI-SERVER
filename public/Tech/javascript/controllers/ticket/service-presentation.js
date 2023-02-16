@@ -388,7 +388,7 @@ export class ServicePresentation{
             }
 
             //Add to disc savings
-            if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr != "NO") {
+            if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == "YES") {
               discsavings = discsavings + mprice
               r.lastChild.innerText = -mprice
             }
@@ -473,12 +473,12 @@ export class ServicePresentation{
         }
 
         //Calculate any discounts applied by the tech
-        if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr != "NO") {
+        if (mprice < 0 && rprice < 0 && this.data.repairs[x][y].appr == "YES") {
           discsavings = discsavings + mprice
         }
 
         //Calculate totals
-        if (this.data.repairs[x][y].appr != "NO") {
+        if (this.data.repairs[x][y].appr == "YES") {
           tmprice = tmprice + mprice
           savings = savings + (rprice - mprice)
           trprice = trprice + rprice
