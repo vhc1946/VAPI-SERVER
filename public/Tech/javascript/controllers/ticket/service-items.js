@@ -107,13 +107,17 @@ export class TicketServiceItems{
     this.info = [];
     this.repairs = [];
 
-    if(repairs[0]==undefined||repairs.length===0){console.log(repairs);repairs=[];}
+    //No repairs, so default repairs
+    if(repairs[0]==undefined||repairs.length===0){
+      console.log(repairs);
+      repairs=[];
+    }
 
     for(let i=0;i<items.length;i++){//Loop ticket.serviceitems
       if(repairs[i]==undefined){
         repairs.push([]);
       }
-      this.ADDserviceitem(items[i], repairs[i]);
+      this.ADDserviceitem(items[i], repairs[i], i);
     }
 
     /*Loop through each repair in saved ticket and add to the appropriate service item.*/
@@ -133,8 +137,18 @@ export class TicketServiceItems{
     this.currsi.addEventListener('click',(ele)=>{this.TOGGLEitemlist();});
 
     $(this.view.buttons.children[0]).click();
+    console.log(this.view.buttons)
 
     this.SETcurrtab(this.currsi.innerText);//shouldnt need
+
+    //Loop through buttons, set the class list for buttons with repairs
+    let kids = this.view.buttons.children
+    console.log(kids.length, repairs.length)
+    for (let i = 0; i < kids.length; i ++) {
+      if (repairs[i].length > 0) {
+        kids[i].classList.add("si-has-repairs")
+      }
+    }
 
     //console.log('First run',this.currtab,this.currsi.innerText);
     this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click',(ele)=>{DropNote('tr','Delete Service Item','yellow');});
@@ -160,6 +174,7 @@ export class TicketServiceItems{
     pricebook.cont.addEventListener('click',(ele)=>{
       let row  = FINDparentele(ele.target,'wo-item-row');
       this.repairs[this.currtab].ADDitem(gendis.GETrowTOobject(row));
+      this.view.buttons.children[this.currtab].classList.add("si-has-repairs")
     });
   }
 
@@ -243,6 +258,7 @@ export class TicketServiceItems{
 
   //get currtab as index
   SETcurrtab(tagid){
+    console.log("setting tab")
     for(let x=0;x<this.info.length;x++){
       if(this.info[x].form.tagid===tagid){
         this.currtab=x;
