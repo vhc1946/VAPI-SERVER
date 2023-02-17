@@ -461,6 +461,9 @@ Checklists
     width: 25px;
     margin-left: 20%;
 }
+.si-has-repairs::after {
+    content:"*"
+}
 
 /*-- Min Tab --------------*/
 [class*="min-page-cont"]{

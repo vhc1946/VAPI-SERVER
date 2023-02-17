@@ -1,12 +1,12 @@
-import {SENDrequestapi} from 'http://3.15.144.193/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 import {wolstore} from '/Tech/store/lstore.js';
 
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
-import * as titlebar from 'http://3.15.144.193/repo/modules/vg-titlebar.js';
-import { SELECTview } from 'http://3.15.144.193/repo/modules/vg-floatviews.js';
-import { AppDock } from 'http://3.15.144.193/repo/modules/appdock.js';
-import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
+import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js';
+import { SELECTview } from 'https://www.vhpportal.com/repo/modules/vg-floatviews.js';
+import { AppDock } from 'https://www.vhpportal.com/repo/modules/appdock.js';
+import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
 
 import {STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
@@ -67,7 +67,7 @@ STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
       mlist=>{
         datamart=mlist;
         window.datamart=datamart; //can be used in child windows
-        console.log('Done With list',datamart)
+        //console.log('Done With list',datamart)
         //post needed updates to manage list
         return resolve(true);
       }
@@ -80,7 +80,7 @@ STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
 var qactions = {
   new:{
     id:'search-wo',
-    src:'http://3.15.144.193/repo/assets/icons/search.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/search.png',
     alt:'SEARCH',
     title:'Search WO',
     onclick:(ele)=>{SELECTview(document.getElementById('wo-center'),'Open WO');}
@@ -93,20 +93,26 @@ window.tabs = {};
 var mactions = {
   datalist:{
     id:'refresh-datalist',
-    src:'http://3.15.144.193/repo/assets/icons/datastores.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/datastores.png',
     ondblclick:(ele)=>{
       DropNote('tr','Syncing Data','green')
-      manlist.REFRESHmanagelist().then(
-        list=>{
-          console.log(list);
+      STARTloadscreen(document.getElementsByClassName('vhc-load-screen')[0],()=>{
+        return new Promise((resolve,reject)=>{
+          manlist.REFRESHmanagelist().then(
+            list=>{
+              console.log(list);
+              return(resolve(true))
+            }
+          )
+        }).then(answr=>{
           DropNote('tr','Syncing has Finished','green');
-        }
-      )
+        })
+      });
     }
   }
 };
 var login = titlebar.SETUPtitlebar({
-  RROOT:'http://3.15.144.193/repo/',
+  RROOT:'https://www.vhpportal.com/repo/',
   qacts:qactions,
   macts:mactions,
   login:true,
@@ -149,17 +155,19 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     let savenload = (wo)=>{
       twolist.UPDATEstore(wo).then(
         result=>{
-          console.log(result);
+          //console.log(result);
           twdashlist.LOADlist(twolist.list);
         }
       );
       if (window.tabs[wonum] == 1) {
         DropNote('tr',`WO # ${wonum} Already Open!`,'red')
+        return (false)
       } else {
         //Add the woitem to the open tabs
         window.tabs[wonum] = 1;
         localStorage.setItem(wolstore.toloadwo,JSON.stringify(wo));
         window.open('/Tech/ticket');
+        return (true)
       }
     }
     let wonum = document.getElementById('openwo-number').value;
@@ -168,28 +176,42 @@ document.getElementById('submit-search').addEventListener('click', (ele)=>{
     if(woitem){
       savenload(woitem);
     }else{
-      DropNote('tr', 'Searching, please wait', 'yellow')
       //search vapi mart
-      twolist.CHECKmart(wonum).then(
-        found=>{
-          console.log('TICKET >',found);
-          if(found){found.mobile=true;savenload(found);}
-          else{
-            STARTticket(wonum).then(  //'00025796'
-                ticket=>{
-                console.log('TICKET >',ticket);
-                if(ticket){
-                    ticket.id = wonum;//add an id
-                    ticket.mobile=true; //add mobile
-                    ticket.tech=login.storecreds.user; //add tech
-                    DropNote('tr','Wo is Loading...','green');
-                    savenload(ticket);
-                }else{DropNote('tr','Wo Not Found','red');}
-                }
-            );
-          }
+      STARTloadscreen(document.getElementsByClassName('vhc-ticket-load-screen')[0],()=>{
+        return new Promise((resolve,reject)=>{
+          twolist.CHECKmart(wonum).then(
+            found=>{
+              console.log('TICKET FOUND >',found);
+              if (found) {
+                found.mobile=true;
+                console.log("mobile found")
+                return(resolve(savenload(found)));
+              }
+              else{
+                STARTticket(wonum).then(  //'00025796'
+                    ticket=>{
+                      console.log('TICKET START >',ticket);
+                      if(ticket){
+                        ticket.id = wonum;//add an id
+                        ticket.mobile=true; //add mobile
+                        ticket.tech=login.storecreds.user; //add tech
+                        DropNote('tr','Wo is Loading...','green');
+                        return resolve(savenload(ticket));
+                      } else {
+                        return resolve(false)
+                      }
+                    }
+                );
+              }
+            }
+          )
+        });
+      }).then(answr=>{
+        console.log(answr);
+        if (answr == true) {
+          console.log("hidden")
         }
-      )
+      })
     }
     $(document.getElementById('vg-float-frame-close')).click();
 });

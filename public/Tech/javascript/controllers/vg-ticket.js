@@ -1,10 +1,12 @@
 import {wolstore} from '/Tech/store/lstore.js';
-import * as titlebar from 'http://3.15.144.193/repo/modules/vg-titlebar.js';
-import {DropNote} from 'http://3.15.144.193/repo/modules/vg-dropnote.js';
+import * as titlebar from 'https://www.vhpportal.com/repo/modules/vg-titlebar.js';
+import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 
 import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js';
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
 import {ServicePresentation} from '/Tech/javascript/controllers/ticket/service-presentation.js';
+
+import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
 
 
 let publicfolder = '/Tech/bin/css'; //not sure we need
@@ -37,18 +39,25 @@ window.SAVEticket = (final=false)=>{
 
     if(final){}//save final to server
 
-    window.opener.techwos.UPDATEstore(currticket).then(answr=>{
-      if(answr) {
-        DropNote('tr','Ticket WAS Saved','green');
-        window.askToClose = false;
-        window.TicketSaved = true;
-        return resolve(currticket.wo.id);
-      }
-      else {
-        DropNote('tr','Ticket was NOTSaved','yellow');
-        return resolve(false)
-      }
-    });
+    STARTloadscreen(document.getElementsByClassName('vhc-save-load-screen')[0],()=>{
+      return new Promise((resolve,reject)=>{
+        window.opener.techwos.UPDATEstore(currticket).then(answr=>{
+          if(answr) {
+            DropNote('tr','Ticket WAS Saved','green');
+            window.askToClose = false;
+            window.TicketSaved = true;
+            return resolve(true);
+          }
+          else {
+            DropNote('tr','Ticket was NOTSaved','yellow');
+            return resolve(false)
+          }
+        });
+      });
+    }).then(answr=>{
+      console.log(answr);
+      return(resolve(answr))
+    })
   });
 }
 
@@ -92,7 +101,7 @@ window.onunload = function (e) {
 var qactions = {
   present:{
     id:'presentation-open',
-    src:'http://3.15.144.193/repo/assets/icons/document-signed.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/document-signed.png',
     title:'Presentation',
     onclick:(ele)=>{  // Presentation show/hide
       let box = document.getElementsByClassName('present-full-cont')[0];
@@ -101,7 +110,6 @@ var qactions = {
         ticket.ticket = presentation.data;
         ticket.ticket.track.presented = true;
         box.style.left = "-5000px";
-        console.log(ticket.ticket)
         if (presentation.SignatureShown) {
           presentation.SHOWsignature()
         }
@@ -117,7 +125,7 @@ var qactions = {
 var mactions = {
   save:{
     id:'wo-save-button',
-    src:'http://3.15.144.193/repo/assets/icons/disk.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/disk.png',
     title:'Save WO',
     ondblclick:(ele)=>{
       window.SAVEticket();
@@ -125,7 +133,7 @@ var mactions = {
   },
   refresh:{
     id:'wo-refresh-button',
-    src:'http://3.15.144.193/repo/assets/icons/refresh.png',
+    src:'https://www.vhpportal.com/repo/assets/icons/refresh.png',
     title:'Refresh WO',
     onclick:(ele)=>{   // Refresh info
       DropNote('tr','Ticket is Refreshing','green');
@@ -145,7 +153,7 @@ var mactions = {
 };
 
 titlebar.SETUPtitlebar({
-  RROOT:'http://3.15.144.193/repo/',
+  RROOT:'https://www.vhpportal.com/repo/',
   qacts:qactions,
   macts:mactions,
   login:false,

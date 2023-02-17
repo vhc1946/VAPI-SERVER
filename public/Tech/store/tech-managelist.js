@@ -55,7 +55,7 @@ export var REFRESHmanagelist=(store=null)=>{
         finish[ml]=false;
         managelist[ml].REFRESHstore().then(
           ready=>{
-            console.log(ready)
+            //console.log(ready)
             finish[ml]=true;
             if(checkisdone(finish)){return resolve(managelist);}
           }

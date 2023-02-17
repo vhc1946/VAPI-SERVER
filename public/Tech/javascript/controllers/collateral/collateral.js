@@ -1,4 +1,4 @@
-import {SENDrequestapi} from 'http:/3.15.144.193/repo/apis/vapi/vapicore.js';
+import {SENDrequestapi} from 'https://www.vhpportal.com/repo/apis/vapi/vapicore.js';
 
 
 import { CollateralForm } from "/Tech/javascript/forms/collateral-form.js";
@@ -6,6 +6,8 @@ import { SummaryCheckList } from "/Tech/javascript/controllers/collateral/checkl
 import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/basic-invoice.js";
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
+
+import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
 
 //setup emailing vars
 
@@ -71,26 +73,35 @@ document.getElementById('print-collateral').addEventListener('click',(ele)=>{
  */
 document.getElementById('email-collateral').addEventListener('dblclick',(ele)=>{
   alert('Sending email to ' + document.getElementById('email-input').value);
-  DropNote('tr', 'Sending email!', 'yellow')
   ticket.track.emailed = true;
   //get and validate email from screen
   //get array of all conent on collateral page
-  SENDrequestapi({
-    to:document.getElementById('email-input').value,
-    subject:'Home Comfort Report - WO #' + ticket.wo.id,
-    html:emailform.GETcontent(),
-    attach:emailcontent
-  },
-  'MAIL',{}).then(
-    answer=>{
-        if (answer.msg == "Mail sent") {
-            DropNote('tr', 'Mail sent!', 'green')
-            DropNote('tr', 'Remind customer to check spam', 'green')
-        } else {
-            DropNote('tr', answer.msg, 'red', false)
-        }
-    }
-  );
+  STARTloadscreen(document.getElementsByClassName('vhc-email-load-screen')[0],()=>{
+    return new Promise((resolve,reject)=>{
+        console.log("start load screen")
+        SENDrequestapi({
+            to:document.getElementById('email-input').value,
+            subject:'Home Comfort Report - WO #' + ticket.wo.id,
+            html:emailform.GETcontent(),
+            attach:emailcontent
+          },
+          'MAIL',{}).then(
+            answer=>{
+                if (answer.msg == "Mail sent") {
+                    DropNote('tr', 'Mail sent!', 'green')
+                    DropNote('tr', 'Remind customer to check spam', 'green')
+                    return(resolve(true))
+                } else {
+                    DropNote('tr', answer.msg, 'red', false)
+                    return(resolve(true))
+                }
+            }
+          );
+    }).then(answr=>{
+      console.log(answr);
+      return(true)
+    })
+  });
 });
 
 /**
@@ -239,7 +250,7 @@ for (let i = 0; i < sitems.length; i++) {
                 Row.appendChild(Price);
 
                 let Approval = document.createElement('div')
-                Approval.innerText = 'YES';
+                Approval.innerText = Repair.appr;
                 Row.appendChild(Approval);
 
                 SystemDiv.appendChild(Row);
