@@ -85,6 +85,11 @@ body{
     left: 0px;
     transition: left 0.25s;
 }
+
+.viewcontrol-menu-hmr>.viewcontrol-menubox {
+    height: 45px;
+    line-height: 33.75px;
+}
 #si-cont>.viewcontrol-cont>.viewcontrol-menu>.viewcontrol-menubox{
     position: relative;
     height: 0px;
@@ -97,7 +102,8 @@ body{
 .currsi{
     margin: 0;
     width: 80px;
-    height:32px;
+    height:45px;
+    line-height: 33.75px;
     overflow: hidden;
     font-size: 20px;
 }
@@ -108,7 +114,7 @@ body{
     min-width: unset;
     max-width: 81px;
     height: fit-content;
-    font-size: 1.75vh;
+    font-size: 20px;
 }
 
 .viewcontrol-menu-hmr>.viewcontrol-menubox>:first-child {
@@ -135,7 +141,7 @@ body{
 }
 .item-header{
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.6em;
     flex-grow: 1;
     text-align: left;
     position: relative;
@@ -348,12 +354,17 @@ Checklists
     transition: left 0.25s;
     z-index: 2;
     background-color: var(--BEE-blue);
+    height: 40px;
 }
 
 .si-delete,.si-add{
     width:50% !important;
     margin:0;
-    height: 30px;
+    height: 40px !important;
+}
+.si-delete>img,.si-add>img{
+    height: 30px !important;
+    width: 30px !important;
 }
 .si-menu-buttons>div>img{
   width:17px;
@@ -373,8 +384,12 @@ Checklists
     z-index: -1;
 }
 .si-add-input{
-    width: 100px;
+    width: 150px; 
+    height: 40px;
     background-color: white;
+} .si-add-button {
+    height: 40px !important;
+    width: 40px !important;
 }
 
 .si-item>input{
@@ -422,7 +437,7 @@ Checklists
 .si-repair-table{ /*Scroll overlap fix: set height and overflow of container with elements.*/
     padding-top: 10px;
     width: 100%;
-    height: calc(100vh - 144px);
+    height: calc(100vh - 157px);
     overflow-y: auto;
 }
 .si-repair-table>div {
@@ -552,7 +567,7 @@ Checklists
 }*/
 
 .ft-form{
-    height: calc(100vh - 94px);
+    height: calc(100vh - 117px);
     max-width: 100%;
     overflow:scroll !important;
 }
@@ -575,7 +590,7 @@ Checklists
     /*Scroll overlap fix: set height and overflow of container with elements.*/
     .ft-form{
         grid-template-columns: repeat(1, 1fr);
-        height: calc(100vh - 94px);
+        height: calc(100vh - 117px);
         max-width: 100vw;
         overflow: auto;
     }
@@ -597,7 +612,7 @@ Checklists
     }
     /*Scroll overlap fix: set height and overflow of container with elements.*/
     .si-repair-table {
-        height: calc(100vh - 144px);
+        height: calc(100vh - 157px);
     }
     .delete-repair-item{
         margin-left: 2.5%;
@@ -641,7 +656,8 @@ Checklists
         font-size: 1.5vh;
     }
     .viewcontrol-menu-vmt>div>.viewcontrol-menu-item{
-        font-size: 1.75vh;
+        font-size: 20px;
+        max-width: 81px;
     }
 }
 

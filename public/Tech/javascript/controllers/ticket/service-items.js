@@ -270,12 +270,12 @@ export class TicketServiceItems{
   TOGGLEitemlist(hide=false){
     let box = this.view.buttons;
     let exbuttons = this.view.cont.getElementsByClassName('si-menu-buttons')[0];
-    if(box.style.left=='-250px'&&!hide){
+    if(box.style.left=='-300px'&&!hide){
       box.style.left='-1px';
       exbuttons.style.left='-1px';
     }else{
-      box.style.left='-250px';
-      exbuttons.style.left='-250px';
+      box.style.left='-300px';
+      exbuttons.style.left='-300px';
     }
   }
   TOGGLEaddinput(){
