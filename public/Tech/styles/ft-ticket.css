@@ -358,9 +358,12 @@ Checklists
 }
 
 .si-delete,.si-add{
-    width:50% !important;
+    width:100% !important;
     margin:0;
     height: 40px !important;
+}
+.si-delete {
+    display: none !important;
 }
 .si-delete>img,.si-add>img{
     height: 30px !important;
