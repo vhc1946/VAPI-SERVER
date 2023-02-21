@@ -374,6 +374,7 @@ Checklists
 }
 .si-add-input{
     width: 100px;
+    background-color: white;
 }
 
 .si-item>input{
