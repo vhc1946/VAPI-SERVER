@@ -177,7 +177,7 @@
 /*Desktop/landscape sizing*/
 @media only screen and (min-width: 768px) {
     .checklist-cont {
-        height: calc(100vh - 117px);
+        height: calc(100vh - 130px);
     }
     .main-section-header {
         width: 10vw;
@@ -189,13 +189,13 @@
 /*Landscape orientation, 150% scaling*/
 @media only screen and (min-width: 940px) and (max-width: 1280px) {
     .checklist-cont {
-        height: calc(100vh - 117px);
+        height: calc(100vh - 130px);
     }
 }
 /*Portrait orientation, 150% scaling*/
 @media only screen and (min-width: 600px) and (max-width: 900px) {
     .checklist-cont {
-        height: calc(100vh - 117px);
+        height: calc(100vh - 130px);
     }
 }
 

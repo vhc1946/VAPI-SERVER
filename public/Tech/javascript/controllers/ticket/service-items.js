@@ -134,6 +134,8 @@ export class TicketServiceItems{
 
     this.view.port.addEventListener('click',(ele)=>{this.TOGGLEitemlist(true);});
 
+    this.view.menu.classList.add("service-items-left")
+
     this.currsi.addEventListener('click',(ele)=>{this.TOGGLEitemlist();});
 
     $(this.view.buttons.children[0]).click();
