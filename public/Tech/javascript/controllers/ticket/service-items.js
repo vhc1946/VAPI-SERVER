@@ -151,6 +151,17 @@ export class TicketServiceItems{
         kids[i].classList.add("si-has-repairs")
       }
     }
+    
+    //Add event listeners for custom/other repairs
+    let add_buttons = this.view.cont.getElementsByClassName('si-repair-add');
+    for (let i = 0; i < add_buttons.length; i++) {
+      this.view.cont.getElementsByClassName('si-repair-add')[i].addEventListener('click',(ele)=>{
+        if (this.repairs[this.currtab].form.length > 0) {
+          this.view.buttons.children[this.currtab].classList.add("si-has-repairs")
+        }
+      })
+    }
+    
 
     //console.log('First run',this.currtab,this.currsi.innerText);
     this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click',(ele)=>{DropNote('tr','Delete Service Item','yellow');});
