@@ -9,8 +9,6 @@ const dom = {
             in_info_incondition: 'incondition',
             in_airf_returnstatic: 'returnstatic',
             in_airf_ratedcfm: 'ratedcfm',
-            in_airf_buildpress: 'buildpress',
-            in_airf_partcount: 'partcount',
             in_airf_filtercond: 'filtercond',
             in_airf_evapcond: 'evapcond',
             in_airf_belttight: 'belttight',
@@ -99,12 +97,6 @@ const content = `
                                   <div>Actual CFM</div><input class="${dom.fields.ou_airf_actualcfm}">
                               </div>
                               <div class="checklist-item">
-                                  <div>Building Pressure</div><input class="${dom.fields.in_airf_buildpress}" type="number">
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Particle Count</div><input class="${dom.fields.in_airf_partcount}" type="number">
-                              </div>
-                              <div class="checklist-item">
                                   <div>Filters Condition</div>
                                   <select class="${dom.fields.in_airf_filtercond}">
                                     <option value="" disabled selected>Choose One</option>
@@ -120,7 +112,7 @@ const content = `
                                     <option value="Clean">Clean</option>
                                     <option value="Needs Cleaning">Needs Cleaning</option>
                                     <option value="Leak Detected">Leak Detected</option>
-                                    <option value="Damaged">Dammaged</option>
+                                    <option value="Damaged">Damaged</option>
                                   </select>
                               </div>
                               <div class="checklist-item">
@@ -142,8 +134,7 @@ const content = `
                                     <option value="" disabled selected>Choose One</option>
                                     <option value="Clean">Clean</option>
                                     <option value="Needs Cleaning">Needs Cleaning</option>
-                                    <option value="Leak Detected">Leak Detected</option>
-                                    <option value="Damaged">Dammaged</option>
+                                    <option value="Damaged">Damaged</option>
                                   </select>
                               </div>
                           </div>
@@ -158,20 +149,11 @@ const content = `
                                     <option value="Clean">Clean</option>
                                     <option value="Needs Cleaning">Needs Cleaning</option>
                                     <option value="Leak Detected">Leak Detected</option>
-                                    <option value="Damaged">Dammaged</option>
+                                    <option value="Damaged">Damaged</option>
                                   </select>
                               </div>
                               <div class="checklist-item">
                                   <div>Heat Pump Lockout Temperature</div><input class="${dom.fields.in_heat_hplockout}" type="number">
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Thermostat Programmed</div>
-                                  <select class="${dom.fields.in_heat_statprog}">
-                                    <option value="" disabled selected>Choose One</option>
-                                    <option value='Yes'>Yes</option>
-                                    <option value='Recommended'>Recommended</option>
-                                    <option value='No'>No</option>
-                                  </select>
                               </div>
                           </div>
                       </div>
@@ -185,7 +167,7 @@ const content = `
                                     <option value="Operational">Operational</option>
                                     <option value="Worn & Doubtful">Worn & Doubtful</option>
                                     <option value="Failed">Failed</option>
-                                    <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
+                                    <option value="Homeowner Abandoned">Homeowner Abandoned</option>
                                     <option value="Recommended">Recommended</option>
                                 </select>
                               </div>
@@ -207,7 +189,6 @@ const content = `
                                     <option value="Operational">Operational</option>
                                     <option value="Worn & Doubtful">Worn & Doubtful</option>
                                     <option value="Failed">Failed</option>
-                                    <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
                                     <option value="Recommended">Recommended</option>
                                 </select>
                               </div>
@@ -229,7 +210,6 @@ const content = `
                                     <option value="Operational">Operational</option>
                                     <option value="Worn & Doubtful">Worn & Doubtful</option>
                                     <option value="Failed">Failed</option>
-                                    <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
                                     <option value="Recommended">Recommended</option>
                                 </select>
                               </div>
@@ -283,17 +263,15 @@ const content = `
                       <div class="checklist-card" id="ou-sys-access">
                           <div class="section-header">Accessories</div>
                           <div class="section-cont">
-                              <div class="checklist-item">
-                                  <div>Economizer</div>
-                                  <select class="${dom.fields.ou_acce_econ}">
+                          <div class="checklist-item">
+                            <div>Thermostat Programmed</div>
+                                <select class="${dom.fields.in_heat_statprog}">
                                     <option value="" disabled selected>Choose One</option>
-                                    <option value="Operational">Operational</option>
-                                    <option value="Worn & Doubtful">Worn & Doubtful</option>
-                                    <option value="Failed">Failed</option>
-                                    <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
-                                    <option value="Recommended">Recommended</option>
+                                    <option value='Yes'>Yes</option>
+                                    <option value='Recommended'>Recommended</option>
+                                    <option value='No'>No</option>
                                 </select>
-                              </div>
+                            </div>
                           </div>
                       </div>
                   </div>

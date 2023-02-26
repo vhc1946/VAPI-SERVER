@@ -8,8 +8,9 @@ const dom={
         in_cool_dbleaving: 'dbleaving',
         in_cool_tempdrop: 'tempdrop',
         ou_cool_sucpress: 'sucpress',
+        ou_cool_suctemp: 'suctemp',
         ou_cool_headpress: 'headpress',
-        ou_cool_liqpress: 'liqpress',
+        ou_cool_headtemp: 'headtemp',
         ou_cool_dboutdoor: 'dboutdoor',
         ou_cool_targetsh: 'targetsh',
         ou_cool_actualsh: 'actualsh',
@@ -19,7 +20,9 @@ const dom={
         ou_cool_actualamps: 'actualamps',
         ou_cool_condfan: 'condfan',
         ou_cool_condcoil: 'condcoil',
-        ou_cool_elecout: 'elecout'
+        ou_cool_elecout: 'elecout',
+        ou_cool_capop: "capop",
+        ou_cool_contop: "contop"
     },
     valids: {}
 }
@@ -61,17 +64,20 @@ const content=`
                   <div class="checklist-card" id = "ou-cool-cooling">
                       <div class="section-header">Cooling</div>
                       <div class="section-cont">
+                        <div class="checklist-item">
+                            <div>Dry Bulb Temperature</div><input class="${dom.fields.ou_cool_dboutdoor}" type="number">
+                        </div>
                           <div class="checklist-item">
                               <div>Suction Pressure</div><input class="${dom.fields.ou_cool_sucpress}" type="number">
+                          </div>
+                          <div class="checklist-item">
+                              <div>Suction Temperature</div><input class="${dom.fields.ou_cool_suctemp}" type="number">
                           </div>
                           <div class="checklist-item">
                               <div>Head Pressure</div><input class="${dom.fields.ou_cool_headpress}" type="number">
                           </div>
                           <div class="checklist-item">
-                              <div>Liquid Pressure</div><input class="${dom.fields.ou_cool_liqpress}" type="number">
-                          </div>
-                          <div class="checklist-item">
-                              <div>Dry Bulb - Outdoor</div><input class="${dom.fields.ou_cool_dboutdoor}" type="number">
+                              <div>Head Temperature</div><input class="${dom.fields.ou_cool_headtemp}" type="number">
                           </div>
                           <div class="checklist-item">
                               <div>Target Superheat</div><input class="${dom.fields.ou_cool_targetsh}" type="number">
@@ -98,7 +104,6 @@ const content=`
                                 <option value="Operational">Operational</option>
                                 <option value="Worn & Doubtful">Worn & Doubtful</option>
                                 <option value="Failed">Failed</option>
-                                <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
                                 <option value="Recommended">Recommended</option>
                               </select>
                           </div>
@@ -109,7 +114,7 @@ const content=`
                                 <option value="Clean">Clean</option>
                                 <option value="Needs Cleaning">Needs Cleaning</option>
                                 <option value="Leak Detected">Leak Detected</option>
-                                <option value="Damaged">Dammaged</option>
+                                <option value="Damaged">Damaged</option>
                               </select>
                           </div>
                           <div class="checklist-item">
@@ -118,6 +123,25 @@ const content=`
                                 <option value="" disabled selected>Choose One</option>
                                 <option value="Yes">Yes</option>
                                 <option value="Repairs Needed">Repairs Needed</option>
+                              </select>
+                          </div>
+
+                          <div class="checklist-item">
+                              <div>Capacitor Operation</div>
+                              <select class="${dom.fields.ou_cool_capop}">
+                                <option value="" disabled selected>Choose One</option>
+                                <option value="Pass">Pass</option>
+                                <option value="Worn & Doubtful">Worn & Doubtful</option>
+                                <option value="Failed">Failed</option>
+                              </select>
+                          </div>
+                          <div class="checklist-item">
+                              <div>Contactor Operation</div>
+                              <select class="${dom.fields.ou_cool_contop}">
+                                <option value="" disabled selected>Choose One</option>
+                                <option value="Pass">Pass</option>
+                                <option value="Worn & Doubtful">Worn & Doubtful</option>
+                                <option value="Failed">Failed</option>
                               </select>
                           </div>
                       </div>

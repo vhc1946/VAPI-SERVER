@@ -3,6 +3,9 @@ const dom = {
     fields: {
         in_heat_hriserated: 'hriserated',
         in_heat_hriseactual: 'hriseactual',
+        in_heat_hpriserated: 'hpriserated',
+        in_heat_hpriseactual: 'hpriseactual',
+        in_heat_outdoorcoil: 'outdoorcoil',
         in_heat_gpin: 'gpin',
         in_heat_gpouthigh: 'gpouthigh',
         in_heat_gpoutlow: 'gpoutlow',
@@ -21,7 +24,8 @@ const dom = {
         in_heat_stacktemp: 'stacktemp',
         in_heat_elecin: 'elecin',
         ai_heat_blowerrated: 'blowerrated',
-        ai_heat_bloweractual: 'bloweractual'
+        ai_heat_bloweractual: 'bloweractual',
+        in_heat_elecheatop:'elecheatop'
     },
     valids: {}
 }
@@ -42,13 +46,29 @@ const content = `
                                   <div>Heat Rise - Actual</div><input class="${dom.fields.in_heat_hriseactual}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Gas Pressure - Inlet</div><input class="${dom.fields.in_heat_gpin}" type="number">
+                                  <div>Heat Pump Heat Rise - Rated</div><input class="${dom.fields.in_heat_hpriserated}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Gas Pressure - Outlet High Stage</div><input class="${dom.fields.in_heat_gpouthigh}" type="number">
+                                  <div>Heat Pump Heat Rise - Actual</div><input class="${dom.fields.in_heat_hpriseactual}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Gas Pressure - Outlet Low Stage</div><input class="${dom.fields.in_heat_gpoutlow}" type="number">
+                                  <div>Heat Pump Outdoor Coil</div>
+                                  <select class="${dom.fields.in_heat_outdoorcoil}">
+                                    <option value="" disabled selected>Choose One</option>
+                                    <option value="Clean">Clean</option>
+                                    <option value="Needs Cleaning">Needs Cleaning</option>
+                                    <option value="Leak Detected">Leak Detected</option>
+                                    <option value="Damaged">Damaged</option>
+                                </select>
+                              </div>
+                              <div class="checklist-item">
+                                  <div>Gas Pressure - Supply</div><input class="${dom.fields.in_heat_gpin}" type="number">
+                              </div>
+                              <div class="checklist-item">
+                                  <div>Gas Pressure - Manifold (Hi)</div><input class="${dom.fields.in_heat_gpouthigh}" type="number">
+                              </div>
+                              <div class="checklist-item">
+                                  <div>Gas Pressure - Manifold (Low)</div><input class="${dom.fields.in_heat_gpoutlow}" type="number">
                               </div>
                               <div class="checklist-item">
                                   <div>Flame Sensor Current</div><input class="${dom.fields.in_heat_flmsensor}" type="number">
@@ -93,17 +113,6 @@ const content = `
                                 </select>
                               </div>
                               <div class="checklist-item">
-                                  <div>Heat Exchanger</div>
-                                  <select class="${dom.fields.in_heat_heatex}">
-                                    <option value="" disabled selected>Choose One</option>
-                                    <option value="Operational">Operational</option>
-                                    <option value="Worn & Doubtful">Worn & Doubtful</option>
-                                    <option value="Failed">Failed</option>
-                                    <option value="Failed - Furnace Tagged">Failed - Furnace Tagged</option>
-                                    <option value="Recommended">Recommended</option>
-                                </select>
-                              </div>
-                              <div class="checklist-item">
                                   <div>Inducer Motor Operations</div>
                                   <select class="${dom.fields.in_heat_inducerops}">
                                     <option value="" disabled selected>Choose One</option>
@@ -115,19 +124,27 @@ const content = `
                                   </select>
                               </div>
                               <div class="checklist-item">
-                                  <div>Combustion Test O2</div><input class="${dom.fields.in_heat_testO2}" type="number">
+                                  <div>Combustion Test O2 %</div><input class="${dom.fields.in_heat_testO2}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Combustion Test CO</div><input class="${dom.fields.in_heat_testCO}" type="number">
+                                  <div>Combustion Test PPM</div><input class="${dom.fields.in_heat_testCO}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Combustion Test Efficiency</div><input class="${dom.fields.in_heat_testeffic}" type="number">
+                                  <div>Combustion Test Efficiency %</div><input class="${dom.fields.in_heat_testeffic}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Combustion Test CO2</div><input class="${dom.fields.in_heat_testCO2}" type="number">
+                                  <div>Combustion Test CO2 PPM</div><input class="${dom.fields.in_heat_testCO2}" type="number">
                               </div>
                               <div class="checklist-item">
                                   <div>Combustion Test Stack Temp</div><input class="${dom.fields.in_heat_stacktemp}" type="number">
+                              </div>
+                              <div class="checklist-item">
+                                  <div>Heat Exchanger</div>
+                                  <select class="${dom.fields.in_heat_heatex}">
+                                    <option value="" disabled selected>Choose One</option>
+                                    <option value="Pass">Pass</option>
+                                    <option value="Failed - Tagged">Failed - Tagged</option>
+                                </select>
                               </div>
                               <div class="checklist-item">
                                   <div>Electrical Connections Secured</div>
@@ -136,6 +153,16 @@ const content = `
                                     <option value="Yes">Yes</option>
                                     <option value="Repairs Needed">Repairs Needed</option>
                                   </select>
+                              </div>
+                              <div class="checklist-item">
+                                  <div>Electric Heat Operation</div>
+                                  <select class="${dom.fields.in_heat_elecheatop}">
+                                    <option value="" disabled selected>Choose One</option>
+                                    <option value="Operational">Operational</option>
+                                    <option value="Worn & Doubtful">Worn & Doubtful</option>
+                                    <option value="Failed">Failed</option>
+                                    <option value="N/A">N/A</option>
+                                </select>
                               </div>
                           </div>
                       </div>

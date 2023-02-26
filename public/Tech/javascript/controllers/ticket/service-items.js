@@ -134,6 +134,8 @@ export class TicketServiceItems{
 
     this.view.port.addEventListener('click',(ele)=>{this.TOGGLEitemlist(true);});
 
+    this.view.menu.classList.add("service-items-left")
+
     this.currsi.addEventListener('click',(ele)=>{this.TOGGLEitemlist();});
 
     $(this.view.buttons.children[0]).click();
@@ -149,6 +151,17 @@ export class TicketServiceItems{
         kids[i].classList.add("si-has-repairs")
       }
     }
+    
+    //Add event listeners for custom/other repairs
+    let add_buttons = this.view.cont.getElementsByClassName('si-repair-add');
+    for (let i = 0; i < add_buttons.length; i++) {
+      this.view.cont.getElementsByClassName('si-repair-add')[i].addEventListener('click',(ele)=>{
+        if (this.repairs[this.currtab].form.length > 0) {
+          this.view.buttons.children[this.currtab].classList.add("si-has-repairs")
+        }
+      })
+    }
+    
 
     //console.log('First run',this.currtab,this.currsi.innerText);
     this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click',(ele)=>{DropNote('tr','Delete Service Item','yellow');});
@@ -270,12 +283,12 @@ export class TicketServiceItems{
   TOGGLEitemlist(hide=false){
     let box = this.view.buttons;
     let exbuttons = this.view.cont.getElementsByClassName('si-menu-buttons')[0];
-    if(box.style.left=='-250px'&&!hide){
+    if(box.style.left=='-300px'&&!hide){
       box.style.left='-1px';
       exbuttons.style.left='-1px';
     }else{
-      box.style.left='-250px';
-      exbuttons.style.left='-250px';
+      box.style.left='-300px';
+      exbuttons.style.left='-300px';
     }
   }
   TOGGLEaddinput(){
