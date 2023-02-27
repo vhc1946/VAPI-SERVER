@@ -7,7 +7,7 @@ import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/b
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
-import {STARTloadscreen} from 'https://www.vhpportal.com/repo/repo/tools/vhc-loadscreen.js';
+import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
 //setup emailing vars
 
@@ -250,7 +250,7 @@ for (let i = 0; i < sitems.length; i++) {
                 Row.appendChild(Price);
 
                 let Approval = document.createElement('div')
-                Approval.innerText = 'YES';
+                Approval.innerText = Repair.appr;
                 Row.appendChild(Approval);
 
                 SystemDiv.appendChild(Row);

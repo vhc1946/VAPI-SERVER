@@ -10,8 +10,9 @@ let dom={
         in_cool_dbleaving: 'dbleaving',
         in_cool_tempdrop: 'tempdrop',
         ou_cool_sucpress: 'sucpress',
+        ou_cool_suctemp: 'suctemp',
         ou_cool_headpress: 'headpress',
-        ou_cool_liqpress: 'liqpress',
+        ou_cool_headtemp: 'headtemp',
         ou_cool_dboutdoor: 'dboutdoor',
         ou_cool_targetsh: 'targetsh',
         ou_cool_actualsh: 'actualsh',
@@ -22,8 +23,13 @@ let dom={
         ou_cool_condfan: 'condfan',
         ou_cool_condcoil: 'condcoil',
         ou_cool_elecout: 'elecout',
+        ou_cool_capop: 'capop',
+        ou_cool_capop: 'contop',
         in_heat_hriserated: 'hriserated',
         in_heat_hriseactual: 'hriseactual',
+        in_heat_hpriserated: 'hpriserated',
+        in_heat_hpriseactual: 'hpriseactual',
+        in_heat_outdoorcoil: 'outdoorcoil',
         in_heat_gpin: 'gpin',
         in_heat_gpouthigh: 'gpouthigh',
         in_heat_gpoutlow: 'gpoutlow',
@@ -39,6 +45,7 @@ let dom={
         in_heat_testCO2: 'testCO2',
         in_heat_stacktemp: 'stacktemp',
         in_heat_elecin: 'elecin',
+        in_heat_elecheatop: 'elecheatop',
         ai_heat_blowerrated: 'blowerrated',
         ai_heat_bloweractual: 'bloweractual',
         in_info_indes: 'indes',
@@ -49,8 +56,6 @@ let dom={
         in_info_incondition: 'incondition',
         in_airf_returnstatic: 'returnstatic',
         in_airf_ratedcfm: 'ratedcfm',
-        in_airf_buildpress: 'buildpress',
-        in_airf_partcount: 'partcount',
         in_airf_filtercond: 'filtercond',
         in_airf_evapcond: 'evapcond',
         in_airf_belttight: 'belttight',
@@ -70,8 +75,7 @@ let dom={
         ou_info_coollosteffic: 'coollosteffic',
         ou_info_outcondition: 'outcondition',
         ou_airf_supplystatic: 'supplystatic',
-        ou_airf_actualcfm: 'actualcfm',
-        ou_acce_econ: 'econ'
+        ou_airf_actualcfm: 'actualcfm'
     },
     valids: {}
 }
@@ -90,6 +94,8 @@ let tempdata = {
         tempdrop: 'tempdrop',
         sucpress: 'sucpress',
         headpress: 'headpress',
+        sucpress: 'suctemp',
+        headpress: 'headtemp',
         liqpress: 'liqpress',
         dboutdoor: 'dboutdoor',
         targetsh: 'targetsh',
@@ -103,6 +109,9 @@ let tempdata = {
         elecout: 'elecout',
         hriserated: 'hriserated',
         hriseactual: 'hriseactual',
+        hpriserated: 'hpriserated',
+        hpriseactual: 'hpriseactual',
+        outdoorcoil: 'outdoorcoil',
         gpin: 'gpin',
         gpouthigh: 'gpouthigh',
         gpoutlow: 'gpoutlow',
@@ -150,7 +159,9 @@ let tempdata = {
         outcondition: 'outcondition',
         supplystatic: 'supplystatic',
         actualcfm: 'actualcfm',
-        econ: 'econ'
+        elecheatop: 'elecheatop',
+        capop: 'capop',
+        contop: 'contop'
 }
 
 
@@ -237,12 +248,6 @@ export class SummaryCheckList{
                         <div>Blower Amp Actual:</div><div class="${dom.info.ai_heat_bloweractual}">${this.innertext.bloweractual}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Building Pressure:</div><div class="${dom.info.in_airf_buildpress}">${this.innertext.buildpress}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Particle Count:</div><div class="${dom.info.in_airf_partcount}">${this.innertext.partcount}</div>
-                    </div>
-                    <div class="checklist-item">
                         <div>Filters Condition:</div><div class="${dom.info.in_airf_filtercond}">${this.innertext.filtercond}</div>
                     </div>
                     <div class="checklist-item">
@@ -279,19 +284,22 @@ export class SummaryCheckList{
                 <div class="part-header">Outdoor</div>
                 <div class="section-cont">
                     <div class="checklist-item">
+                        <div>Dry Bulb Temperature:</div><div class="${dom.info.ou_cool_dboutdoor}">${this.innertext.dboutdoor}</div>
+                    </div>
+                    <div class="checklist-item">
                         <div>Density Altitude:</div><div class="${dom.info.in_cool_densityalt}">${this.innertext.densityalt}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Suction Pressure:</div><div class="${dom.info.ou_cool_sucpress}">${this.innertext.sucpress}</div>
                     </div>
                     <div class="checklist-item">
+                        <div>Suction Temperature:</div><div class="${dom.info.ou_cool_suctemp}">${this.innertext.suctemp}</div>
+                    </div>
+                    <div class="checklist-item">
                         <div>Head Pressure:</div><div class="${dom.info.ou_cool_headpress}">${this.innertext.headpress}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Liquid Pressure:</div><div class="${dom.info.ou_cool_liqpress}">${this.innertext.liqpress}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Dry Bulb - Outdoor:</div><div class="${dom.info.ou_cool_dboutdoor}">${this.innertext.dboutdoor}</div>
+                        <div>Head Temperature:</div><div class="${dom.info.ou_cool_headtemp}">${this.innertext.headtemp}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Target Superheat:</div><div class="${dom.info.ou_cool_targetsh}">${this.innertext.targetsh}</div>
@@ -320,6 +328,12 @@ export class SummaryCheckList{
                     <div class="checklist-item">
                         <div>Electrical Connections Secured:</div><div class="${dom.info.ou_cool_elecout}">${this.innertext.elecout}</div>
                     </div>
+                    <div class="checklist-item">
+                        <div>Capacitor Operation:</div><div class="${dom.info.ou_cool_capop}">${this.innertext.capop}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Contactor Operation:</div><div class="${dom.info.ou_cool_contop}">${this.innertext.contop}</div>
+                    </div>
                 </div>
             </div>
             <div class="summary-section-heating">
@@ -333,13 +347,22 @@ export class SummaryCheckList{
                         <div>Heat Rise - Actual:</div><div class="${dom.info.in_heat_hriseactual}">${this.innertext.hriseactual}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Gas Pressure - Inlet:</div><div class="${dom.info.in_heat_gpin}">${this.innertext.gpin}</div>
+                        <div>Heat Pump Heat Rise - Rated:</div><div class="${dom.info.in_heat_hpriserated}">${this.innertext.hpriserated}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Gas Pressure - Outlet High Stage:</div><div class="${dom.info.in_heat_gpouthigh}">${this.innertext.gpouthigh}</div>
+                        <div>Heat Pump Heat Rise - Actual:</div><div class="${dom.info.in_heat_hpriseactual}">${this.innertext.hpriseactual}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Gas Pressure - Outlet Low Stage:</div><div class="${dom.info.in_heat_gpoutlow}">${this.innertext.gpoutlow}</div>
+                        <div>Heat Pump Outdoor Coil:</div><div class="${dom.info.in_heat_outdoorcoil}">${this.innertext.outdoorcoil}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Gas Pressure - Supply:</div><div class="${dom.info.in_heat_gpin}">${this.innertext.gpin}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Gas Pressure - Manifold (Hi):</div><div class="${dom.info.in_heat_gpouthigh}">${this.innertext.gpouthigh}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Gas Pressure - Manifold (Low):</div><div class="${dom.info.in_heat_gpoutlow}">${this.innertext.gpoutlow}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Flame Sensor Current:</div><div class="${dom.info.in_heat_flmsensor}">${this.innertext.flmsensor}</div>
@@ -354,25 +377,25 @@ export class SummaryCheckList{
                         <div>Flue Safety:</div><div class="${dom.info.in_heat_fluesafety}">${this.innertext.fluesafety}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Heat Exchanger:</div><div class="${dom.info.in_heat_heatex}">${this.innertext.heatex}</div>
-                    </div>
-                    <div class="checklist-item">
                         <div>Inducer Motor Operations:</div><div class="${dom.info.in_heat_inducerops}">${this.innertext.inducerops}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Combustion Test O2:</div><div class="${dom.info.in_heat_testO2}">${this.innertext.testO2}</div>
+                        <div>Combustion Test O2 %:</div><div class="${dom.info.in_heat_testO2}">${this.innertext.testO2}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Combustion Test CO:</div><div class="${dom.info.in_heat_testCO}">${this.innertext.testCO}</div>
+                        <div>Combustion Test PPM:</div><div class="${dom.info.in_heat_testCO}">${this.innertext.testCO}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Combustion Test Efficiency:</div><div class="${dom.info.in_heat_testeffic}">${this.innertext.testeffic}</div>
+                        <div>Combustion Test Efficiency %:</div><div class="${dom.info.in_heat_testeffic}">${this.innertext.testeffic}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Combustion Test CO2:</div><div class="${dom.info.in_heat_testCO2}">${this.innertext.testCO2}</div>
+                        <div>Combustion Test CO2 PPM:</div><div class="${dom.info.in_heat_testCO2}">${this.innertext.testCO2}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Combustion Test Stack Temp:</div><div class="${dom.info.in_heat_stacktemp}">${this.innertext.stacktemp}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Heat Exchanger:</div><div class="${dom.info.in_heat_heatex}">${this.innertext.heatex}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Electrical Connections Secured:</div><div class="${dom.info.in_heat_elecin}">${this.innertext.elecin}</div>
@@ -384,7 +407,7 @@ export class SummaryCheckList{
                         <div>Heat Pump Lockout Temperature:</div><div class="${dom.info.in_heat_hplockout}">${this.innertext.hplockout}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Thermostat Programmed:</div><div class="${dom.info.in_heat_statprog}">${this.innertext.statprog}</div>
+                        <div>Electric Heat Operation:</div><div class="${dom.info.in_heat_elecheatop}">${this.innertext.elecheatop}</div>
                     </div>
                 </div>
             </div>
@@ -407,7 +430,7 @@ export class SummaryCheckList{
                         <div>CO Sensor:</div><div class="${dom.info.in_acce_coop}">${this.innertext.coop}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Economizer:</div><div class="${dom.info.ou_acce_econ}">${this.innertext.econ}</div>
+                        <div>Thermostat Programmed:</div><div class="${dom.info.in_heat_statprog}">${this.innertext.statprog}</div>
                     </div>
                 </div>
             </div>

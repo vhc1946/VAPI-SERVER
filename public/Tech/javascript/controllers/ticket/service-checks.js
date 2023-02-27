@@ -178,6 +178,7 @@ constructor(checks={}){
 
   this.currsi.innerText = this.info[this.info.length - 1][0]; //Set tab title to last system
   this.TOGGLEitemlist();
+  $(this.view.buttons.children[0]).click();
   /*
   Menu quick action to open input box
   */
@@ -204,35 +205,9 @@ constructor(checks={}){
   });
 
   /*Test listener event for organizing summary.*/
-  this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click', (eve)=>{
+  /*this.view.cont.getElementsByClassName('si-delete')[0].addEventListener('click', (eve)=>{
     this.ORGANIZEsummary();
-  })
-
-  /*Click to close functionality on each section header*/
-  /*let checklistcards = this.view.cont.getElementsByClassName('checklist-card');
-  for (let i = 0; i<checklistcards.length; i++) {
-    let header = checklistcards[i].firstElementChild;
-    header.addEventListener('click', (eve)=>{
-      Clicktoclose(checklistcards[i]);
-    })
-  }*/
-
-  /*Hide all functionality for main section headers */
-  /*let checklistsections = this.view.cont.getElementsByClassName('checklist-section');
-  for (let i = 0; i<checklistsections.length; i++) {
-    let mainheader = checklistsections[i].firstElementChild;
-    mainheader.addEventListener('click', (eve)=>{
-      if (mainheader.id == "shown") {
-        HideAll(checklistsections[i], true);
-        mainheader.id = "hidden"
-      } else {
-        HideAll(checklistsections[i], false);
-        mainheader.id = "shown";
-      }
-    })
-
-    mainheader.click() //Initially click to close all headers on startup
-  }*/
+  })*/
 }
 
 /*
@@ -394,12 +369,12 @@ ADDgroup(name,group={system:null,cooling:null,heating:null}){
 TOGGLEitemlist(hide=false){
   let box = this.view.buttons;
   let exbuttons = this.view.cont.getElementsByClassName('si-menu-buttons')[0];
-  if(box.style.left=='-250px'&&!hide){
+  if(box.style.left=='-300px'&&!hide){
     box.style.left='-1px';
     exbuttons.style.left='-1px';
   }else{
-    box.style.left='-250px';
-    exbuttons.style.left='-250px';
+    box.style.left='-300px';
+    exbuttons.style.left='-300px';
   }
 }
 
