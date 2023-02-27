@@ -6,7 +6,11 @@ import {SYNCticket, STARTticket} from '/Tech/javascript/tools/vapi-FTrequest.js'
 import {ServiceTicket} from '/Tech/javascript/controllers/ticket/service-ticket.js';
 import {ServicePresentation} from '/Tech/javascript/controllers/ticket/service-presentation.js';
 
+<<<<<<< HEAD
 import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
+=======
+import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js'//http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+>>>>>>> staging
 
 
 let publicfolder = '/Tech/bin/css'; //not sure we need

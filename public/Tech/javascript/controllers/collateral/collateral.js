@@ -250,7 +250,7 @@ for (let i = 0; i < sitems.length; i++) {
                 Row.appendChild(Price);
 
                 let Approval = document.createElement('div')
-                Approval.innerText = 'YES';
+                Approval.innerText = Repair.appr;
                 Row.appendChild(Approval);
 
                 SystemDiv.appendChild(Row);

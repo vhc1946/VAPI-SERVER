@@ -182,7 +182,7 @@
     color: darkslategray;
 }
 .wo-present-repair-unapproved-return div:first-child{
-    text-decoration:underline;
+    text-decoration:line-through;
 }
 .wo-present-repair-unapproved-return div:last-child{
     font-style: oblique;
@@ -440,6 +440,29 @@
 }
 
 /*Delete the $*/
-.memlevel-label::before {
+#wo-present-systems::before {
     content:"" !important;
+}
+
+#wo-present-systems::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+}
+  
+#wo-present-systems::-webkit-scrollbar-button {
+    display: none;
+}
+  
+#wo-present-systems::-webkit-scrollbar-track {
+    background-color: #00000000;
+}
+  
+#wo-present-systems::-webkit-scrollbar-track-piece {
+    background-color: #00000000;
+}
+  
+#wo-present-systems::-webkit-scrollbar-thumb {
+    background-color: #000000c9;
+    border: 1px solid #ffffff40;
+    border-radius: 4px;
 }
