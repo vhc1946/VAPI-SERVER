@@ -7,7 +7,7 @@ import { basicinvoice } from "/Tech/javascript/controllers/collateral/invoices/b
 import {DropNote} from 'https://www.vhpportal.com/repo/modules/vg-dropnote.js';
 import { EmailForm } from "/Tech/javascript/controllers/collateral/emailtemplate.js";
 
-import {STARTloadscreen} from 'http://3.15.144.193/repo/tools/vhc-loadscreen.js';
+import {STARTloadscreen} from 'https://www.vhpportal.com/repo/tools/vhc-loadscreen.js';
 
 //setup emailing vars
 

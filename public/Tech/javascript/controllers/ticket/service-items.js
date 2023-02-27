@@ -139,7 +139,6 @@ export class TicketServiceItems{
     this.currsi.addEventListener('click',(ele)=>{this.TOGGLEitemlist();});
 
     $(this.view.buttons.children[0]).click();
-    console.log(this.view.buttons)
 
     this.SETcurrtab(this.currsi.innerText);//shouldnt need
 
