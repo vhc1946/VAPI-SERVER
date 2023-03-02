@@ -10,6 +10,7 @@ const dom = {
         in_heat_gpouthigh: 'gpouthigh',
         in_heat_gpoutlow: 'gpoutlow',
         in_heat_flmsensor: 'flmsensor',
+        in_heat_pilotasmbly:'pilotasmbly',
         in_heat_blowerrated: 'blowerrated',
         in_heat_bloweractual: 'bloweractual',
         in_heat_ignitionop: 'ignitionop',
@@ -46,22 +47,6 @@ const content = `
                                   <div>Heat Rise - Actual</div><input class="${dom.fields.in_heat_hriseactual}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Heat Pump Heat Rise - Rated</div><input class="${dom.fields.in_heat_hpriserated}" type="number">
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Heat Pump Heat Rise - Actual</div><input class="${dom.fields.in_heat_hpriseactual}" type="number">
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Heat Pump Outdoor Coil</div>
-                                  <select class="${dom.fields.in_heat_outdoorcoil}">
-                                    <option value="" disabled selected>Choose One</option>
-                                    <option value="Clean">Clean</option>
-                                    <option value="Needs Cleaning">Needs Cleaning</option>
-                                    <option value="Leak Detected">Leak Detected</option>
-                                    <option value="Damaged">Damaged</option>
-                                </select>
-                              </div>
-                              <div class="checklist-item">
                                   <div>Gas Pressure - Supply</div><input class="${dom.fields.in_heat_gpin}" type="number">
                               </div>
                               <div class="checklist-item">
@@ -71,7 +56,14 @@ const content = `
                                   <div>Gas Pressure - Manifold (Low)</div><input class="${dom.fields.in_heat_gpoutlow}" type="number">
                               </div>
                               <div class="checklist-item">
-                                  <div>Flame Sensor Current</div><input class="${dom.fields.in_heat_flmsensor}" type="number">
+                                  <div>Flame Sensor Current (Checked Pilot Assembly)</div>
+                                  <div class="checklist-item multi-item">
+                                    <label class="checkbox-container">
+                                        <input class="${dom.fields.in_heat_pilotasmbly}" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <input class="${dom.fields.in_heat_flmsensor}" type="number">
+                                  </div>
                               </div>
                               <div class="checklist-item">
                                   <div>Blower Amp Rated</div><input class="${dom.fields.in_heat_blowerrated}" type="number">
@@ -175,6 +167,32 @@ const content = `
                           </div>
                           <div class="checklist-item">
                               <div>Blower Amp Actual</div><input class="${dom.fields.ai_heat_bloweractual}" type="number">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="checklist-section" id = "ou-heat">
+                  <div class="main-section-header">Outdoor</div>
+                  <div class="section-cont">
+                      <div class="checklist-card" id="ou-heat-heatpumps">
+                          <div class="section-header">Heat Pumps</div>
+                          <div class="section-cont">
+                            <div class="checklist-item">
+                                <div>Heat Pump Heat Rise - Rated</div><input class="${dom.fields.in_heat_hpriserated}" type="number">
+                            </div>
+                            <div class="checklist-item">
+                                <div>Heat Pump Heat Rise - Actual</div><input class="${dom.fields.in_heat_hpriseactual}" type="number">
+                            </div>
+                            <div class="checklist-item">
+                                <div>Heat Pump Outdoor Coil</div>
+                                <select class="${dom.fields.in_heat_outdoorcoil}">
+                                    <option value="" disabled selected>Choose One</option>
+                                    <option value="Clean">Clean</option>
+                                    <option value="Needs Cleaning">Needs Cleaning</option>
+                                    <option value="Leak Detected">Leak Detected</option>
+                                    <option value="Damaged">Damaged</option>
+                                </select>
+                            </div>
                           </div>
                       </div>
                   </div>

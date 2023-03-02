@@ -165,6 +165,9 @@
 .wo-present-repair>:nth-child(-n+4)::before{
     content:"$";
 }
+#wo-present-membership::before {
+    content: '';
+}
 .wo-present-repair>:nth-child(1)::before{
     content:"";
 }

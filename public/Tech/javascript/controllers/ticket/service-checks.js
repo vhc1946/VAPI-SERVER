@@ -240,6 +240,12 @@ ORGANIZEsummary(){
           //Update the current value in total_summary[i] based on input type
           if (docvalue.tagName == 'SELECT') {
             total_summary[i].summary.content[key] = docvalue[docvalue.selectedIndex].value;
+          } else if (docvalue.value == "on") {
+            if (docvalue.checked == true) {
+              total_summary[i].summary.content[key] = "Yes";
+            } else {
+              total_summary[i].summary.content[key] = "No";
+            }
           } else {
             total_summary[i].summary.content[key] = docvalue.value;
           }
