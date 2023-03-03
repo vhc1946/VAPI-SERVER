@@ -13,7 +13,6 @@ const dom = {
             in_airf_evapcond: 'evapcond',
             in_cool_drainclear: 'cooldrainclear',
             in_heat_drainclear: 'heatdrainclear',
-            in_heat_hplockout: 'hplockout',
             in_heat_statprog: 'statprog',
             in_acce_humdop: 'humdop',
             in_acce_eacop: 'eacop',
@@ -141,9 +140,6 @@ const content = `
                                     <option value="Needs Cleaning">Needs Cleaning</option>
                                     <option value="Damaged">Damaged</option>
                                   </select>
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Heat Pump Lockout Temperature</div><input class="${dom.fields.in_heat_hplockout}" type="number">
                               </div>
                           </div>
                       </div>

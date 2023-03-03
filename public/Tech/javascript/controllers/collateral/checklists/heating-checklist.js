@@ -26,7 +26,8 @@ const dom = {
         in_heat_elecin: 'elecin',
         ai_heat_blowerrated: 'blowerrated',
         ai_heat_bloweractual: 'bloweractual',
-        in_heat_elecheatop:'elecheatop'
+        in_heat_elecheatop:'elecheatop',
+        in_heat_hplockout: 'hplockout'
     },
     valids: {}
 }
@@ -193,6 +194,9 @@ const content = `
                                     <option value="Damaged">Damaged</option>
                                 </select>
                             </div>
+                            <div class="checklist-item">
+                                  <div>Heat Pump Lockout Temperature</div><input class="${dom.fields.in_heat_hplockout}" type="number">
+                              </div>
                           </div>
                       </div>
                   </div>
