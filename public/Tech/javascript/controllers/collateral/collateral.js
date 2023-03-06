@@ -330,3 +330,14 @@ for (let i = 0; i < summary.length; i++){
 
 //Change default name of printed document
 document.title = String(ticket.wo.id)+'-'+ticket.wo.custcode;
+
+//Flame sensor/pilot assembly logic
+if (document.getElementsByClassName("pilotasmbly")[0].innerText == "No") {
+    document.getElementById("flame-sensor-curr")
+    $("#flame-sensor-curr").show()
+    $("#check-pilot-asmbly").hide()
+} else {
+    console.log("yes")
+    $("#flame-sensor-curr").hide()
+    $("#check-pilot-asmbly").show()
+}

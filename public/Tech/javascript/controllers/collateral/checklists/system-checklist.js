@@ -11,10 +11,8 @@ const dom = {
             in_airf_ratedcfm: 'ratedcfm',
             in_airf_filtercond: 'filtercond',
             in_airf_evapcond: 'evapcond',
-            in_airf_belttight: 'belttight',
             in_cool_drainclear: 'cooldrainclear',
             in_heat_drainclear: 'heatdrainclear',
-            in_heat_hplockout: 'hplockout',
             in_heat_statprog: 'statprog',
             in_acce_humdop: 'humdop',
             in_acce_eacop: 'eacop',
@@ -115,14 +113,6 @@ const content = `
                                     <option value="Damaged">Damaged</option>
                                   </select>
                               </div>
-                              <div class="checklist-item">
-                                  <div>Belt Tight</div>
-                                  <select class="${dom.fields.in_airf_belttight}">
-                                    <option value="N/A" selected>N/A</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="Needs Repair or Replacement">Needs Repair or Replacement</option>
-                                  </select>
-                              </div>
                           </div>
                       </div>
                       <div class="checklist-card" id="in-sys-cooling">
@@ -148,12 +138,8 @@ const content = `
                                     <option value="" disabled selected>Choose One</option>
                                     <option value="Clean">Clean</option>
                                     <option value="Needs Cleaning">Needs Cleaning</option>
-                                    <option value="Leak Detected">Leak Detected</option>
                                     <option value="Damaged">Damaged</option>
                                   </select>
-                              </div>
-                              <div class="checklist-item">
-                                  <div>Heat Pump Lockout Temperature</div><input class="${dom.fields.in_heat_hplockout}" type="number">
                               </div>
                           </div>
                       </div>
@@ -213,6 +199,15 @@ const content = `
                                     <option value="Recommended">Recommended</option>
                                 </select>
                               </div>
+                              <div class="checklist-item">
+                                <div>Thermostat Programmed</div>
+                                    <select class="${dom.fields.in_heat_statprog}">
+                                        <option value="" disabled selected>Choose One</option>
+                                        <option value='Yes'>Yes</option>
+                                        <option value='Recommended'>Recommended</option>
+                                        <option value='No'>No</option>
+                                    </select>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -258,20 +253,6 @@ const content = `
                           <div class="section-header">Airflow</div>
                           <div class="section-cont">
                               
-                          </div>
-                      </div>
-                      <div class="checklist-card" id="ou-sys-access">
-                          <div class="section-header">Accessories</div>
-                          <div class="section-cont">
-                          <div class="checklist-item">
-                            <div>Thermostat Programmed</div>
-                                <select class="${dom.fields.in_heat_statprog}">
-                                    <option value="" disabled selected>Choose One</option>
-                                    <option value='Yes'>Yes</option>
-                                    <option value='Recommended'>Recommended</option>
-                                    <option value='No'>No</option>
-                                </select>
-                            </div>
                           </div>
                       </div>
                   </div>
