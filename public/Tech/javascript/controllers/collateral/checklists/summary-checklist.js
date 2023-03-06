@@ -26,7 +26,7 @@ let dom={
         ou_cool_condcoil: 'condcoil',
         ou_cool_elecout: 'elecout',
         ou_cool_capop: 'capop',
-        ou_cool_capop: 'contop',
+        ou_cool_contop: 'contop',
         in_heat_hriserated: 'hriserated',
         in_heat_hriseactual: 'hriseactual',
         in_heat_hpriserated: 'hpriserated',
