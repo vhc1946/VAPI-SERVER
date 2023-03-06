@@ -185,7 +185,7 @@
     color: darkslategray;
 }
 .wo-present-repair-unapproved-return div:first-child{
-    text-decoration:line-through;
+    text-decoration:oblique;
 }
 .wo-present-repair-unapproved-return div:last-child{
     font-style: oblique;
@@ -206,7 +206,7 @@
 }
 
 .apprvdiv.RETURNFOR {
-    color: var(--BCE-green);
+    color: var(--vogel-blue);
     font-weight: 650;
 }
 /*Style for whole repair list container*/
