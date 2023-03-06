@@ -113,6 +113,7 @@ export class ServicePresentation{
     /*Open collateral on signature save.*/
     document.getElementsByClassName('sig-save')[0].addEventListener('click', (ele)=>{
       window.signature = this.sigpad.getPainting();
+
       if(this.sigpad.signed){
         //Set and store final object on window.
         this.final.wo = this.data.wo;
@@ -263,6 +264,11 @@ export class ServicePresentation{
     </div>
   `
 
+  /**
+   * Updates the current presentation with newly passed in data
+   * Calls this.UPDATEsitems()
+   * @param {object} wodata | new wodata passed from the ticket
+   */
   SETpresent = (wodata) => {
     //console.log('To Present > ',wodata);
     //Use to maintain the state of the pricelevel on the presentation
@@ -273,7 +279,7 @@ export class ServicePresentation{
       this.cont.getElementsByClassName(this.dom.info[i])[0].innerText = this.data.wo[i];
     }
 
-    //Update price level
+    //Update price level, checking for AHR and STA/STD
     //Check if document is loaded for first run of presentation generation
     if (this.data.wo.pricelevel == "STA" || this.data.wo.pricelevel == "AHR" || this.data.wo.pricelevel == "STD") {
       if (oldpricelevel == "ULT" || oldpricelevel == "CLA") {
@@ -286,12 +292,16 @@ export class ServicePresentation{
     }
     this.conform.pricelevel = this.conform.GETmemhead(this.contract);
     this.conform.UPDATEselect();
-    //Update repair items
+    //Update repair items and save the repairs and contract options HTML to the window for the collateral
     this.UPDATEsitems();
     window.repairtable = document.getElementById('wo-present-systems').cloneNode(true);
     window.contractopt = document.getElementsByClassName('present-contract-opts')[0];
   }
 
+  /**
+   * Toggles the signature box and changes the text of one of the approval buttons.
+   * @param {boolean} IsMember | bool used to determine which approval button to modify
+   */
   SHOWsignature=(IsMember)=>{
     let box = document.getElementsByClassName(this.dom.sig)[0];
     this.sigpad.clearPad();
@@ -316,6 +326,9 @@ export class ServicePresentation{
     }
   }
 
+  /**
+   * Update the service items list and call this.UPDATEtotalprice()
+   */
   UPDATEsitems = () => {
     //console.log("WODATA:::::::::", wodata)
     if (this.data.sitems != null) {
@@ -399,10 +412,10 @@ export class ServicePresentation{
             apprdiv.className = "apprvdiv"
             apprdiv.classList.add(apprdiv.innerText.replace(/\s/g, ''))
 
-
             this.UPDATEtotalprice()
             /**
-             *  Event listener for approving repairs on repair table
+             * Event listener for approving repairs on repair table
+             * Allows toggling between YES/NO/RETURN FOR
              * */
             apprdiv.addEventListener('click', (eve)=>{
               if (this.data.repairs[x][y].appr == "YES") {
@@ -416,9 +429,6 @@ export class ServicePresentation{
                 this.data.repairs[x][y].appr = "YES"
                 r.classList.remove(this.dom.system.repair.unapproved);
               }
-
-
-
 
               apprdiv.innerText = this.data.repairs[x][y].appr;
               apprdiv.className = "apprvdiv"
@@ -435,12 +445,12 @@ export class ServicePresentation{
           }
         }
       }
-      //document.getElementById(this.dom.invest.regprice).innerText = trprice;
-      //document.getElementById(this.dom.invest.memprice).innerText = tmprice;
-      //document.getElementById(this.dom.invest.savings).innerText = savings + (-discsavings);
     }
   }
 
+  /**
+   * Calculates the total price based on the prices of each repair, and updates the total price text in the presentation.
+   */
   UPDATEtotalprice = () => {
     let rprice=0; //item reg price
     let mprice=0; //item member price
@@ -498,7 +508,8 @@ export class ServicePresentation{
   /**
    * Loops through each repair item and updates its price from the price book, using the given repair level
    * Saves to the ticket object
-   * @param {*price level} pl
+   * @param {String} pl | "STD", "AHR", "CLA", "PRE", or "ULT"
+   * @param {String} appr | An optional updated approval setting to reflect approval changes back to ticket.
    */
   UPDATEticketrepairs = (pl=null, appr=null) => {
     for (let i = 0; i < this.data.repairs.length; i++) {
@@ -508,7 +519,7 @@ export class ServicePresentation{
         if (pl != null) {
           if (repair.task == "DIAG") {
             repair.price = this.pricebook.GETbookprice(repair.task, this.data.wo.pricelevel)
-          } else {
+          } else if (repair.task != "OTH") { //If it's an other, we don't want to change the price as it will always be the same
             repair.price = this.pricebook.GETbookprice(repair.task, pl)
           }
           repair.pl = pl;
