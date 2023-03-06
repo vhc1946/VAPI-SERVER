@@ -7,9 +7,7 @@ const dom={
         in_cool_dbentering: 'dbentering',
         in_cool_dbleaving: 'dbleaving',
         in_cool_tempdrop: 'tempdrop',
-        ou_cool_sucpress: 'sucpress',
         ou_cool_suctemp: 'suctemp',
-        ou_cool_headpress: 'headpress',
         ou_cool_headtemp: 'headtemp',
         ou_cool_dboutdoor: 'dboutdoor',
         ou_cool_targetsh: 'targetsh',
@@ -68,13 +66,7 @@ const content=`
                             <div>Dry Bulb Temperature</div><input class="${dom.fields.ou_cool_dboutdoor}" type="number">
                         </div>
                           <div class="checklist-item">
-                              <div>Suction Pressure</div><input class="${dom.fields.ou_cool_sucpress}" type="number">
-                          </div>
-                          <div class="checklist-item">
                               <div>Suction Temperature</div><input class="${dom.fields.ou_cool_suctemp}" type="number">
-                          </div>
-                          <div class="checklist-item">
-                              <div>Head Pressure</div><input class="${dom.fields.ou_cool_headpress}" type="number">
                           </div>
                           <div class="checklist-item">
                               <div>Head Temperature</div><input class="${dom.fields.ou_cool_headtemp}" type="number">

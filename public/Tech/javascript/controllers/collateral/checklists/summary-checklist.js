@@ -1,3 +1,7 @@
+function test() {
+
+}
+
 let dom={
     info: {
         street: 'street',
@@ -9,9 +13,7 @@ let dom={
         in_cool_dbentering: 'dbentering',
         in_cool_dbleaving: 'dbleaving',
         in_cool_tempdrop: 'tempdrop',
-        ou_cool_sucpress: 'sucpress',
         ou_cool_suctemp: 'suctemp',
-        ou_cool_headpress: 'headpress',
         ou_cool_headtemp: 'headtemp',
         ou_cool_dboutdoor: 'dboutdoor',
         ou_cool_targetsh: 'targetsh',
@@ -34,6 +36,7 @@ let dom={
         in_heat_gpouthigh: 'gpouthigh',
         in_heat_gpoutlow: 'gpoutlow',
         in_heat_flmsensor: 'flmsensor',
+        in_heat_pilotasmbly:'pilotasmbly',
         in_heat_ignitionop: 'ignitionop',
         in_heat_combustop: 'combustop',
         in_heat_fluesafety: 'fluesafety',
@@ -58,7 +61,6 @@ let dom={
         in_airf_ratedcfm: 'ratedcfm',
         in_airf_filtercond: 'filtercond',
         in_airf_evapcond: 'evapcond',
-        in_airf_belttight: 'belttight',
         in_cool_drainclear: 'cooldrainclear',
         in_heat_drainclear: 'heatdrainclear',
         in_heat_hplockout: 'hplockout',
@@ -92,8 +94,6 @@ let tempdata = {
         dbentering: 'dbentering',
         dbleaving: 'dbleaving',
         tempdrop: 'tempdrop',
-        sucpress: 'sucpress',
-        headpress: 'headpress',
         sucpress: 'suctemp',
         headpress: 'headtemp',
         liqpress: 'liqpress',
@@ -116,6 +116,7 @@ let tempdata = {
         gpouthigh: 'gpouthigh',
         gpoutlow: 'gpoutlow',
         flmsensor: 'flmsensor',
+        pilotasmbly:'pilotasmbly',
         ignitionop: 'ignitionop',
         combustop: 'combustop',
         fluesafety: 'fluesafety',
@@ -141,7 +142,6 @@ let tempdata = {
         partcount: 'partcount',
         filtercond: 'filtercond',
         evapcond: 'evapcond',
-        belttight: 'belttight',
         cooldrainclear: 'cooldrainclear',
         heatdrainclear: 'heatdrainclear',
         hplockout: 'hplockout',
@@ -253,9 +253,6 @@ export class SummaryCheckList{
                     <div class="checklist-item">
                         <div>Evaporator Coil Condition:</div><div class="${dom.info.in_airf_evapcond}">${this.innertext.evapcond}</div>
                     </div>
-                    <div class="checklist-item">
-                        <div>Belt Tight:</div><div class="${dom.info.in_airf_belttight}">${this.innertext.belttight}</div>
-                    </div>
                 </div>
             </div>
             <div class="summary-section-cooling">
@@ -290,13 +287,7 @@ export class SummaryCheckList{
                         <div>Density Altitude:</div><div class="${dom.info.in_cool_densityalt}">${this.innertext.densityalt}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Suction Pressure:</div><div class="${dom.info.ou_cool_sucpress}">${this.innertext.sucpress}</div>
-                    </div>
-                    <div class="checklist-item">
                         <div>Suction Temperature:</div><div class="${dom.info.ou_cool_suctemp}">${this.innertext.suctemp}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Head Pressure:</div><div class="${dom.info.ou_cool_headpress}">${this.innertext.headpress}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Head Temperature:</div><div class="${dom.info.ou_cool_headtemp}">${this.innertext.headtemp}</div>
@@ -347,15 +338,6 @@ export class SummaryCheckList{
                         <div>Heat Rise - Actual:</div><div class="${dom.info.in_heat_hriseactual}">${this.innertext.hriseactual}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Heat Pump Heat Rise - Rated:</div><div class="${dom.info.in_heat_hpriserated}">${this.innertext.hpriserated}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Heat Pump Heat Rise - Actual:</div><div class="${dom.info.in_heat_hpriseactual}">${this.innertext.hpriseactual}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Heat Pump Outdoor Coil:</div><div class="${dom.info.in_heat_outdoorcoil}">${this.innertext.outdoorcoil}</div>
-                    </div>
-                    <div class="checklist-item">
                         <div>Gas Pressure - Supply:</div><div class="${dom.info.in_heat_gpin}">${this.innertext.gpin}</div>
                     </div>
                     <div class="checklist-item">
@@ -363,9 +345,6 @@ export class SummaryCheckList{
                     </div>
                     <div class="checklist-item">
                         <div>Gas Pressure - Manifold (Low):</div><div class="${dom.info.in_heat_gpoutlow}">${this.innertext.gpoutlow}</div>
-                    </div>
-                    <div class="checklist-item">
-                        <div>Flame Sensor Current:</div><div class="${dom.info.in_heat_flmsensor}">${this.innertext.flmsensor}</div>
                     </div>
                     <div class="checklist-item">
                         <div>Ignition Operation:</div><div class="${dom.info.in_heat_ignitionop}">${this.innertext.ignitionop}</div>
@@ -404,10 +383,29 @@ export class SummaryCheckList{
                         <div>Drain Clear & Secure:</div><div class="${dom.info.in_heat_drainclear}">${this.innertext.heatdrainclear}</div>
                     </div>
                     <div class="checklist-item">
+                        <div>Electric Heat Operation:</div><div class="${dom.info.in_heat_elecheatop}">${this.innertext.elecheatop}</div>
+                    </div>
+                    <div class="checklist-item" id = "flame-sensor-curr">
+                        <div>Flame Sensor Current:</div><div class="${dom.info.in_heat_flmsensor}">${this.innertext.flmsensor}</div>
+                    </div>
+                    <div class="checklist-item" id = "check-pilot-asmbly">
+                        <div>Checked Pilot Assembly:</div>
+                        <div class="${dom.info.in_heat_pilotasmbly}">${this.innertext.pilotasmbly}</div>
+                    </div>
+                </div>
+                <div class="part-header">Outdoor</div>
+                <div class="section-cont">
+                    <div class="checklist-item">
                         <div>Heat Pump Lockout Temperature:</div><div class="${dom.info.in_heat_hplockout}">${this.innertext.hplockout}</div>
                     </div>
                     <div class="checklist-item">
-                        <div>Electric Heat Operation:</div><div class="${dom.info.in_heat_elecheatop}">${this.innertext.elecheatop}</div>
+                        <div>Heat Pump Heat Rise - Rated:</div><div class="${dom.info.in_heat_hpriserated}">${this.innertext.hpriserated}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Heat Pump Heat Rise - Actual:</div><div class="${dom.info.in_heat_hpriseactual}">${this.innertext.hpriseactual}</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div>Heat Pump Outdoor Coil:</div><div class="${dom.info.in_heat_outdoorcoil}">${this.innertext.outdoorcoil}</div>
                     </div>
                 </div>
             </div>
