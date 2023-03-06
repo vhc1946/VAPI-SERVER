@@ -239,8 +239,8 @@
     display: none;
     background-color: var(--card-base-light);
     left: 38.25%;
-    width: 90px;
-    height: 40px;
+    width: 120px;
+    height: 54px;
     align-items: center;
     padding: 05px;
     border-radius: 5px;
@@ -250,7 +250,11 @@
 }
 
 .mini-popup>div {
-    font-size: 14px;
+    font-size: 18px;
+}
+.mini-popup>input {
+    width: 25px;
+    height: 25px;
 }
 
 #wo-present-memprice-today{
