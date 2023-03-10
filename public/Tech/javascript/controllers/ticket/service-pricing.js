@@ -26,7 +26,7 @@ export class ServicePricing{
       'DIAG':{
         'desc':'Diagnostic',
         'STA':119,
-        'AHR':149,
+        'AHR':169,
         'CLA':119,
         'PRE':59.5,
         'ULT':0
