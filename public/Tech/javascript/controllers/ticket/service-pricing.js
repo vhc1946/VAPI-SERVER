@@ -10,7 +10,7 @@ export class ServicePricing{
       'CLNCHK-AC':{
         'desc':'AC Clean and Check',
         'STA':149,
-        'AHR':149,
+        'AHR':225,
         'CLA':0,
         'PRE':0,
         'ULT':0
@@ -18,7 +18,7 @@ export class ServicePricing{
       'CLNCHK-FURN':{
         'desc':'Furnace Clean and Check',
         'STA':149,
-        'AHR':149,
+        'AHR':225,
         'CLA':0,
         'PRE':0,
         'ULT':0
