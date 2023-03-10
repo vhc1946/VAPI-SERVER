@@ -228,6 +228,7 @@ for (let i = 0; i < sitems.length; i++) {
         //Create row for each repair item
         for (let j = 0; j < ticket.repairs[i].length; j++) {
             let Repair = ticket.repairs[i][j];
+            console.log(Repair)
             if (Repair.appr != "NO") {
                 SystemLabel.innerText = sitems[i].tagid;
                 //Create row

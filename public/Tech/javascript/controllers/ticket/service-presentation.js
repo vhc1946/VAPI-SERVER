@@ -508,7 +508,7 @@ export class ServicePresentation{
   /**
    * Loops through each repair item and updates its price from the price book, using the given repair level
    * Saves to the ticket object
-   * @param {String} pl | "STD", "AHR", "CLA", "PRE", or "ULT"
+   * @param {String} pl | "STA", "AHR", "CLA", "PRE", or "ULT"
    * @param {String} appr | An optional updated approval setting to reflect approval changes back to ticket.
    */
   UPDATEticketrepairs = (pl=null, appr=null) => {
@@ -518,7 +518,12 @@ export class ServicePresentation{
         let repair = item[j]
         if (pl != null) {
           if (repair.task == "DIAG") {
-            repair.price = this.pricebook.GETbookprice(repair.task, this.data.wo.pricelevel)
+            if (this.data.wo.pricelevel == "AHR" || this.data.wo.pricelevel == "STA") {
+              repair.price = this.pricebook.GETbookprice(repair.task, this.pricebook.pl)
+            } else {
+              repair.price = this.pricebook.GETbookprice(repair.task, this.data.wo.pricelevel)
+            }
+            
           } else if (repair.task != "OTH") { //If it's an other, we don't want to change the price as it will always be the same
             repair.price = this.pricebook.GETbookprice(repair.task, pl)
           }
